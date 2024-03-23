@@ -1,0 +1,27 @@
+//fonts
+// $text-font: "Arial", sans-serif;
+// $main-font: "Fira Sans Condensed", $text-font;
+
+// available font-weights: 100, 400, 800
+
+
+//colors
+$mainBackgroundColor: #FFFFFF;
+$mainButtonColor: #FEE600;
+$mainTextFontColor: #2B2D33;
+$additionalTextColor: #AAABAD;
+$linkTextColor: #00A5BC;
+$buttonBorderColor: #D5D5D6;
+$descriptionTextColor: #282B2E;
+$modalMainTextColor: #55575C;
+$inputColor: #E9EAEA;
+$errorAlertColor: #F27C83;
+
+:export {
+    mainBackgroundColor: #FFFFFF;
+    mainButtonColor: #FEE600;
+    mainTextFontColor: #2B2D33;
+    additionalTextColor: #AAABAD;
+    buttonBorderColor: #D5D5D6;
+    descriptionTextColor: #282B2E;
+  }

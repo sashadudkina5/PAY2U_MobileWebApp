@@ -1,0 +1,12 @@
+@import "../../../../styles-utils//variables.scss";
+
+.input {
+  border: none;
+  padding-bottom: 10px;
+  border-bottom: 1px solid $inputColor;
+
+  &:focus-visible {
+    outline: none;
+    border-bottom: 2px solid darken($inputColor, 7%);
+  }
+}

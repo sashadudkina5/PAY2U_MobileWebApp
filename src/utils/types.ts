@@ -1,0 +1,1 @@
+export type TSubmitHandler = React.FormEventHandler<HTMLFormElement>;

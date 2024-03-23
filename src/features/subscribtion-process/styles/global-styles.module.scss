@@ -1,0 +1,118 @@
+@import "../../../styles-utils//variables.scss";
+
+.page_wrapper {
+    padding-top: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 34px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.contentWrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.serviceName {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 28px;
+}
+
+.planInfo {
+    color: $additionalTextColor;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+.inputTitle {
+    color: $additionalTextColor;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+.policy {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+.billingWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.bottomNavWrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+}
+
+.modalTitle {
+    margin: 0;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 28px;
+    color: $mainTextFontColor;
+    margin-bottom: 8px;
+}
+
+.modalDescription {
+    margin: 0;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    color: $additionalTextColor;
+    margin-bottom: 20px;
+}
+
+.modalContent {
+    margin: 0;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    color: $modalMainTextColor;
+}
+
+.modalContentWrapper {
+    margin-bottom: 40px;
+}
+
+.formWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.formLabel {
+    margin: 0;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    color: $additionalTextColor;
+    margin-bottom: 5px;
+}
+
+.activeClass {
+    color: $mainTextFontColor
+}
+  
+.defaultClass {
+    color: $inputColor;
+}
+
+.formErrorAlert {
+    color: $errorAlertColor;
+    font-weight: 400;
+    size: 15px;
+    line-height: 22px;
+    margin: 0;
+}

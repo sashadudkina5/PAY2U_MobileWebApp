@@ -1,0 +1,10 @@
+@import './styles-utils//variables.scss';
+
+.page_wrapper {
+    min-width: 375px;
+    max-width: 740px;
+    background-color: $mainBackgroundColor;
+    margin: 0 auto;
+    border: 1px solid red;
+    color: $mainTextFontColor;
+}

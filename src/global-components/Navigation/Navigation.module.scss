@@ -1,0 +1,25 @@
+.nav_wrapper {
+    padding: 12px 0 12px 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.pageName {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 24px;
+    margin: 0;
+    margin-left: -40px;
+}
+
+.backButton {
+    height: 40px;
+    width: 40px;
+    border: none;
+    background-color: transparent;
+    position: relative;
+}
