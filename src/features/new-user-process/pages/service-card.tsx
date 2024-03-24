@@ -5,7 +5,8 @@ import PlanCard from "../components/PlanCard/PlanCard";
 import ServiceIncludes from "../components/serviceIncludes/serviceIncludes";
 import Faq from "../components/FAQ/Faq";
 import CustomButton from "../../../global-components/Button/Button";
-import variables from "../../../styles-utils/variables.scss"
+import variables from "../../../styles-utils/variables.scss";
+import { Link } from "react-router-dom";
 
 function ServicePage() {
   return (
@@ -52,11 +53,14 @@ function ServicePage() {
       <Faq />
 
       <div className={PageStyles.forwardButtonWrapper}>
+
+      <Link to="/subscription">
       <CustomButton
         buttonName={"Подключить"}
         backgroundColor={variables.mainButtonColor}
         color={variables.mainTextFontColor}
       />
+      </Link>
       </div>
     </div>
   );

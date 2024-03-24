@@ -1,3 +1,41 @@
+@import "../../../../styles-utils/variables.scss";
+
 .faqWrapper {
-    height: 660px;
+  height: max-content;
+  margin-bottom: 130px;
+  box-shadow: $borderShadow;
+  padding-top: 32px;
+  padding-bottom: 10px;
+  border-radius: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.faqTitle {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: left;
+  margin: 0;
+  margin-bottom: 24px;
+}
+
+.questionTitle {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 22px;
+  color: inherit;
+  margin: 0;
+  margin-top: 12px;
+  margin-bottom: 6px;
+  padding-right: 10px;
+}
+
+.answer {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  color: $modalMainTextColor;
+  margin: 0;
 }

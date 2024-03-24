@@ -5,7 +5,7 @@ import PhoneNumberSubscription from './features/subscribtion-process/pages/phone
 import PaymentConfirm from "./features/subscribtion-process/pages/payment-confirm";
 import SubscriptionWarning from "./features/subscribtion-process/pages/warning";
 import SubscriptionSuccess from "./features/subscribtion-process/pages/success";
-import ServicePage from "./features/new-user-process/pages/service-card"
+import ServicePage from "./features/new-user-process/pages/service-card";
 
 function App() {
   return (
