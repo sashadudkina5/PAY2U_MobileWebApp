@@ -1,118 +1,191 @@
-@import "../../../styles-utils//variables.scss";
+@import "../../../styles-utils/variables.scss";
 
 .page_wrapper {
-    padding-top: 12px;
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-bottom: 34px;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    box-sizing: border-box;
+  padding-top: 12px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 34px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .contentWrapper {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .serviceName {
-    font-weight: 700;
-    font-size: 22px;
-    line-height: 28px;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 28px;
+  margin: 0;
+  margin-bottom: 8px;
 }
 
 .planInfo {
-    color: $additionalTextColor;
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 18px;
+  color: $additionalTextColor;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  margin: 0;
 }
 
 .inputTitle {
-    color: $additionalTextColor;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 22px;
+  color: $additionalTextColor;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 22px;
+  margin: 0;
 }
 
 .policy {
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 18px;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.linkPolicy {
+  color: $linkTextColor;
+  text-decoration: none;
 }
 
 .billingWrapper {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  padding-top: 17px;
+  column-gap: 12px;
 }
 
 .bottomNavWrapper {
-    display: flex;
-    flex-direction: column;
-    row-gap: 16px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
 }
 
 .modalTitle {
-    margin: 0;
-    font-weight: 700;
-    font-size: 22px;
-    line-height: 28px;
-    color: $mainTextFontColor;
-    margin-bottom: 8px;
+  margin: 0;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 28px;
+  color: $mainTextFontColor;
+  margin-bottom: 8px;
 }
 
 .modalDescription {
-    margin: 0;
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 22px;
-    color: $additionalTextColor;
-    margin-bottom: 20px;
+  margin: 0;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 22px;
+  color: $additionalTextColor;
+  margin-bottom: 20px;
 }
 
 .modalContent {
-    margin: 0;
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 22px;
-    color: $modalMainTextColor;
+  margin: 0;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 22px;
+  color: $modalMainTextColor;
 }
 
 .modalContentWrapper {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 .formWrapper {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .formLabel {
-    margin: 0;
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 22px;
-    color: $additionalTextColor;
-    margin-bottom: 5px;
+  margin: 0;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 22px;
+  color: $additionalTextColor;
+  margin-bottom: 5px;
 }
 
 .activeClass {
-    color: $mainTextFontColor
+  color: $mainTextFontColor;
 }
-  
+
 .defaultClass {
-    color: $inputColor;
+  color: $inputColor;
 }
 
 .formErrorAlert {
-    color: $errorAlertColor;
-    font-weight: 400;
-    size: 15px;
-    line-height: 22px;
-    margin: 0;
+  color: $errorAlertColor;
+  font-weight: 400;
+  size: 15px;
+  line-height: 22px;
+  margin: 0;
+}
+
+.logoWrapper {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  background-color: red;
+  margin-bottom: 24px;
+}
+
+.serviceInfoWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.planPriceWrapper {
+  display: flex;
+  column-gap: 5px;
+  align-items: flex-end;
+}
+
+.priceInfo {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 28px;
+  margin: 0;
+}
+
+.pricePeriod {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 24px;
+  margin: 0;
+}
+
+.phoneNumber {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 24px;
+  margin: 0;
+}
+
+.phoneNumberWrapper {
+  margin-bottom: 16px;
+}
+
+.paymentTitle {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.usageLink {
+  margin: 0 auto;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 24px;
+  color: $linkTextColor;
 }

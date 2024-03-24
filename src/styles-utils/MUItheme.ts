@@ -19,12 +19,8 @@ const theme = createTheme({
     MuiSnackbar: {
       styleOverrides: {
         root: {
-
-          [`@media (max-width:${600}px)`]: {
-            left: '0 !important',
-          },
             bottom: '0 !important',
-            maxWidth: '740px',
+            maxWidth: '540px',
             width: '100%',
             boxShadow: 'none',
 

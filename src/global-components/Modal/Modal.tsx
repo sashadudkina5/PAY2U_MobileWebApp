@@ -28,7 +28,6 @@ const Modal: React.FC<ModalProps> = ({
   }, [open]);
 
   function closeModal () {
-    console.log("Attempting to close modal...");
     onClose();
     setIsOverlayVisible(false);
   }

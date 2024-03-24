@@ -6,7 +6,6 @@ import Info from "../components/Info/Info";
 import Navigation from "../../../global-components/Navigation/Navigation";
 import CustomButton from "../../../global-components/Button/Button";
 import variables from "../../../styles-utils/variables.scss";
-import PhoneInput from "../components/PhoneInput/PhoneInput";
 import { Link } from "react-router-dom";
 
 function SubscriptionWarning() {

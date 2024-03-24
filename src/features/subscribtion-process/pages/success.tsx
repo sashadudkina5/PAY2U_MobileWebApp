@@ -17,32 +17,31 @@ function SubscriptionSuccess() {
   const formattedMessage = (
     <div>
       <h2 className={PageStyles.modalTitle}>Как пользоваться?</h2>
-      <p className={PageStyles.modalDescription}>Инструкция по работе с сервисом</p>
+      <p className={PageStyles.modalDescription}>
+        Инструкция по работе с сервисом
+      </p>
       <div className={PageStyles.modalContentWrapper}>
-      <p className={PageStyles.modalContent}>
-        1. После подключения подписки, перейдите на страницу входа на сайте Okko
-      </p>
-      <p className={PageStyles.modalContent}>
-        2. Авторизуйтесь по номеру телефона, который был указан при подключении
-        подписки (пароль будет необходимо восстановить)
-      </p>
+        <p className={PageStyles.modalContent}>
+          1. После подключения подписки, перейдите на страницу входа </p>
+          <a href="#" className={PageStyles.linkPolicy}>
+            {" "}
+            на сайте Okko
+          </a>
+       
+        <p className={PageStyles.modalContent}>
+          2. Авторизуйтесь по номеру телефона, который был указан при
+          подключении подписки (пароль будет необходимо восстановить)
+        </p>
       </div>
       <CustomButton
-      buttonName={"Понятно"}
-      backgroundColor={variables.mainBackgroundColor}
-      color={variables.mainTextFontColor}
-      borderColor={variables.buttonBorderColor}
-      onClick={() => {
-        console.log("Closing modal...");
-        setSnackbarOpen(false)}}
-    />
+        buttonName={"Понятно"}
+        backgroundColor={variables.mainBackgroundColor}
+        color={variables.mainTextFontColor}
+        borderColor={variables.buttonBorderColor}
+        onClick={() => setSnackbarOpen(false)}
+      />
     </div>
   );
-
-  React.useEffect(() => {
-    console.log("Snackbar open state:", snackbarOpen);
-  }, [snackbarOpen]);
-
 
   return (
     <div className={PageStyles.page_wrapper}>
@@ -75,14 +74,12 @@ function SubscriptionSuccess() {
             color={variables.mainTextFontColor}
           />
         </Link>
-        <span onClick={() => setSnackbarOpen(true)}>
-          Как пользоваться?
-          <Modal
-            open={snackbarOpen}
-            onClose={() => setSnackbarOpen(false)}
-            message={formattedMessage}
-          />
-        </span>
+        <span onClick={() => setSnackbarOpen(true)} className={PageStyles.usageLink}>Как пользоваться?</span>
+        <Modal
+          open={snackbarOpen}
+          onClose={() => setSnackbarOpen(false)}
+          message={formattedMessage}
+        />
       </section>
     </div>
   );

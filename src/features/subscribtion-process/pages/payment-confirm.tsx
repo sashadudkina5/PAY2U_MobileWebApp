@@ -1,11 +1,11 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import PageStyles from "../styles/global-styles.module.scss";
 import Navigation from "../../../global-components/Navigation/Navigation";
 import CustomButton from "../../../global-components/Button/Button";
 import variables from "../../../styles-utils/variables.scss";
 import { Link } from "react-router-dom";
 import { paymentData } from "../../../utils/billing-data";
-import Modal from "../../../global-components/Modal/Modal"
+import Modal from "../../../global-components/Modal/Modal";
 
 function PaymentConfirm() {
   const paymentItem = paymentData[0];
@@ -43,7 +43,6 @@ function PaymentConfirm() {
         color={variables.mainTextFontColor}
         borderColor={variables.buttonBorderColor}
         onClick={() => {
-          console.log("Closing modal...");
           setSnackbarOpen(false);
         }}
       />
@@ -54,21 +53,23 @@ function PaymentConfirm() {
     <div className={PageStyles.page_wrapper}>
       <Navigation color="primary" pageName={"Оформление"} />
       <div className={PageStyles.contentWrapper}>
-        <div>
-          <img src={"иконка логотипа"} alt={"название сервиса"} />
+        <div className={PageStyles.serviceInfoWrapper}>
+          <div className={PageStyles.logoWrapper}>
+            <img src={"иконка логотипа"} alt={"название сервиса"} />
+          </div>
           <h1 className={PageStyles.serviceName}>{"название сервиса"}</h1>
-          <span>
+          <span className={PageStyles.planPriceWrapper}>
             <p className={PageStyles.priceInfo}>{"1 ₽"}</p>
-            <p>за месяц</p>
+            <p className={PageStyles.pricePeriod}>за месяц</p>
           </span>
           <p className={PageStyles.planInfo}>
             первый месяц за 1 ₽, дальше — 399 ₽⁠/⁠месяц
           </p>
         </div>
         <div>
-          <div>
+          <div className={PageStyles.phoneNumberWrapper}>
             <p className={PageStyles.inputTitle}>Номер телефона</p>
-            <p>+ 7 (900) 999-99-99</p>
+            <p className={PageStyles.phoneNumber}>+ 7 (900) 999-99-99</p>
           </div>
 
           <div className={PageStyles.billingWrapper}>
@@ -77,7 +78,7 @@ function PaymentConfirm() {
             </span>
             <div>
               <p className={PageStyles.inputTitle}>Счёт списания</p>
-              <p>{paymentItem.title}</p>
+              <p className={PageStyles.paymentTitle}>{paymentItem.title}</p>
             </div>
           </div>
         </div>
@@ -92,15 +93,27 @@ function PaymentConfirm() {
       <div>
         <span className={PageStyles.policy}>
           Нажимая кнопку «К оплате» вы соглашаетесь
-          <span onClick={() => setSnackbarOpen(true)}> с политикой обработки персональных данных
-          <Modal
-            open={snackbarOpen}
-            onClose={() => setSnackbarOpen(false)}
-            message={formattedMessage}
-          />
-          </span>и с правилами
-          партнера
+          <span
+            className={PageStyles.linkPolicy}
+            onClick={() => setSnackbarOpen(true)}
+          >
+            {" "}
+            с политикой обработки персональных данных{" "}
+          </span>
+          и
+          <span
+            className={PageStyles.linkPolicy}
+            onClick={() => setSnackbarOpen(true)}
+          >
+            {" "}
+            с правилами партнера
+          </span>
         </span>
+        <Modal
+          open={snackbarOpen}
+          onClose={() => setSnackbarOpen(false)}
+          message={formattedMessage}
+        />
       </div>
     </div>
   );

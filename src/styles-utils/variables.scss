@@ -16,12 +16,17 @@ $descriptionTextColor: #282B2E;
 $modalMainTextColor: #55575C;
 $inputColor: #E9EAEA;
 $errorAlertColor: #F27C83;
+$serviceDescriptionColor: #808185;
+$priceIconColor: #7DD27C;
+$planTitleColor: #000000;
+$borderShadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
+rgba(17, 17, 26, 0.05) 0px 8px 32px;
 
 :export {
-    mainBackgroundColor: #FFFFFF;
-    mainButtonColor: #FEE600;
-    mainTextFontColor: #2B2D33;
-    additionalTextColor: #AAABAD;
-    buttonBorderColor: #D5D5D6;
-    descriptionTextColor: #282B2E;
+    mainBackgroundColor: $mainBackgroundColor;
+    mainButtonColor: $mainButtonColor;
+    mainTextFontColor: $mainTextFontColor;
+    additionalTextColor: $additionalTextColor;
+    buttonBorderColor: $buttonBorderColor;
+    descriptionTextColor: $descriptionTextColor;
   }

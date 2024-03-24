@@ -1,0 +1,56 @@
+@import "../../../../styles-utils/variables.scss";
+
+.planItemWrapper {
+  width: 255px;
+  box-shadow: $borderShadow;
+  border-radius: 12px;
+  padding: 20px 16px 12px 16px;
+}
+
+.planTitle {
+  color: $planTitleColor;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 22px;
+  margin: 0;
+  margin-bottom: 12px;
+}
+
+.priceTitle {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 28px;
+  margin: 0;
+}
+
+.totalPriceWrapper {
+    display: flex;
+    align-items: first baseline;
+    column-gap: 5px;
+    margin-bottom: 5px;
+}
+
+.pricePeriod {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 13px;
+  margin: 0;
+}
+
+.priceDescription {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  color: $additionalTextColor;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.giftDescription {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+  color: $priceIconColor;
+  margin-bottom: 14px;
+  display: block;
+}

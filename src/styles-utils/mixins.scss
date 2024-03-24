@@ -1,0 +1,14 @@
+@mixin priceIcon($fontColor) {
+  color: $fontColor;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  padding: 4px 12px;
+  border-radius: 16px;
+}
+
+@mixin listDefault {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
