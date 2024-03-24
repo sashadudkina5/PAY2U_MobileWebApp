@@ -25,6 +25,7 @@
   line-height: 28px;
   margin: 0;
   margin-bottom: 8px;
+  font-family: $titleFont;
 }
 
 .planInfo {
@@ -47,6 +48,8 @@
   font-size: 13px;
   font-weight: 400;
   line-height: 18px;
+  margin-top: 16px;
+  display: block;
 }
 
 .linkPolicy {
@@ -152,7 +155,7 @@
 
 .priceInfo {
   font-size: 22px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 28px;
   margin: 0;
 }

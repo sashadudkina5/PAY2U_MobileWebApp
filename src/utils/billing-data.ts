@@ -5,6 +5,7 @@ export const paymentData =[
     {
         title: "Система быстрых платежей",
         iconWithBackground: logoBackground,
-        iconNoBackground: logoNoBackground
+        iconNoBackground: logoNoBackground,
+        id: "1"
     }
 ]

@@ -1,32 +1,33 @@
 //fonts
-// $text-font: "Arial", sans-serif;
-// $main-font: "Fira Sans Condensed", $text-font;
-
-// available font-weights: 100, 400, 800
-
+// available font-weights: Navigo (700) , San Francisco Pro Display(600 and 400)
+$baseFont: sans-serif; // Fallback font
+$titleFont: "Navigo", $baseFont;
+$mainFont: "San Francisco Pro Display", $baseFont;
 
 //colors
-$mainBackgroundColor: #FFFFFF;
-$mainButtonColor: #FEE600;
-$mainTextFontColor: #2B2D33;
-$additionalTextColor: #AAABAD;
-$linkTextColor: #00A5BC;
-$buttonBorderColor: #D5D5D6;
-$descriptionTextColor: #282B2E;
-$modalMainTextColor: #55575C;
-$inputColor: #E9EAEA;
-$errorAlertColor: #F27C83;
+$mainBackgroundColor: #ffffff;
+$mainButtonColor: #fee600;
+$mainTextFontColor: #2b2d33;
+$additionalTextColor: #aaabad;
+$linkTextColor: #00a5bc;
+$buttonBorderColor: #d5d5d6;
+$descriptionTextColor: #282b2e;
+$modalMainTextColor: #55575c;
+$inputColor: #e9eaea;
+$errorAlertColor: #f27c83;
 $serviceDescriptionColor: #808185;
-$priceIconColor: #7DD27C;
+$priceIconColor: #7dd27c;
 $planTitleColor: #000000;
 $borderShadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
-rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  rgba(17, 17, 26, 0.05) 0px 8px 32px;
+$planSelectedBackground: #fff4e8;
+$planSelectedTextColor: #fcb664;
 
 :export {
-    mainBackgroundColor: $mainBackgroundColor;
-    mainButtonColor: $mainButtonColor;
-    mainTextFontColor: $mainTextFontColor;
-    additionalTextColor: $additionalTextColor;
-    buttonBorderColor: $buttonBorderColor;
-    descriptionTextColor: $descriptionTextColor;
-  }
+  mainBackgroundColor: $mainBackgroundColor;
+  mainButtonColor: $mainButtonColor;
+  mainTextFontColor: $mainTextFontColor;
+  additionalTextColor: $additionalTextColor;
+  buttonBorderColor: $buttonBorderColor;
+  descriptionTextColor: $descriptionTextColor;
+}

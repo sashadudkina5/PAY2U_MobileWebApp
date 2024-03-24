@@ -7,6 +7,7 @@ interface CustomButtonProps {
   color?: string;
   borderColor?: string;
   onClick?: () => void;
+  style?: React.CSSProperties;
 }
 
 function CustomButton({
@@ -14,7 +15,8 @@ function CustomButton({
   backgroundColor,
   color,
   borderColor,
-  onClick
+  onClick,
+  style
 }: CustomButtonProps) {
 
   const buttonCustomStyle = {
@@ -22,6 +24,7 @@ function CustomButton({
     color,
     borderColor,
     border: borderColor ? `2px solid ${borderColor}` : undefined,
+    ...style,
   };
 
   return (

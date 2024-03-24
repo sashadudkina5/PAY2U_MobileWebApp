@@ -42,7 +42,7 @@ function PhoneNumberSubscription() {
 
   return (
     <div className={PageStyles.page_wrapper}>
-      <Navigation color="primary" pageName={""} />
+      <Navigation color="primary" pageName={"Номер телефона"} />
       <div className={PageStyles.contentWrapper}>
         <Info
           icon={<PhoneNumberIcon />}

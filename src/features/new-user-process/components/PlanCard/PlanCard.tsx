@@ -73,6 +73,7 @@ function PlanCard() {
         color={buttonTextColor}
         borderColor={buttonBorderColor}
         onClick={selectPlan}
+        style={{ padding: "10px 20px" }}
       />
 
       <Modal
