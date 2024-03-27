@@ -6,6 +6,8 @@ import PaymentConfirm from "./features/subscribtion-process/pages/payment-confir
 import SubscriptionWarning from "./features/subscribtion-process/pages/warning";
 import SubscriptionSuccess from "./features/subscribtion-process/pages/success";
 import ServicePage from "./features/new-user-process/pages/service-card";
+import NewUserMainPage from "./features/new-user-process/pages/main-page";
+import DetailsPage from "./features/new-user-process/pages/details"
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
       <Route path="/subscription/warning" element={<SubscriptionWarning />} />
       <Route path="/subscription/success" element={<SubscriptionSuccess />} />
       <Route path="/main/card" element={<ServicePage />} />
+      <Route path="/main" element={<NewUserMainPage />} />
+      <Route path="/main/details" element={<DetailsPage />} />
       </Routes>
     </div>
   );

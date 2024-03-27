@@ -1,0 +1,37 @@
+@import "../../../../styles-utils/variables.scss";
+
+.catalogItemWrapper {
+    padding: 12px 24px 12px 24px;
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    box-shadow: $borderShadow;
+    column-gap: 16px;
+}
+
+.catalogLogoWrapper {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: red;
+}
+
+.catalogNamingWrapper {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.catalogName {
+font-size: 15px;
+font-weight: 400;
+line-height: 22px;
+margin: 0;
+}
+
+.catalogCashback {
+font-size: 15px;
+font-weight: 400;
+line-height: 22px;
+color: $additionalTextColor;
+margin: 0;
+}

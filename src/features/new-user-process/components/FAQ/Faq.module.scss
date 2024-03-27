@@ -9,6 +9,7 @@
   border-radius: 16px;
   padding-left: 16px;
   padding-right: 16px;
+  background-color: $mainBackgroundColor;
 }
 
 .faqTitle {
@@ -18,6 +19,7 @@
   text-align: left;
   margin: 0;
   margin-bottom: 24px;
+  color: $mainTextFontColor;
 }
 
 .questionTitle {

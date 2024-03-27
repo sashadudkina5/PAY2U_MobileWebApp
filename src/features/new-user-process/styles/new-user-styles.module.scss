@@ -31,10 +31,10 @@
 }
 
 .navWrapper {
-    padding-top: 12px;
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-bottom: 12px;
+  padding-top: 12px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 12px;
 }
 
 .serviceBrief {
@@ -87,4 +87,156 @@
   width: calc(100% - 32px);
   margin: 0 auto;
   box-sizing: border-box;
+}
+
+.newUserBannerWrapper {
+  padding-left: 24px;
+  padding-right: 170px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  background-color: $newUserSection;
+  text-align: left;
+  display: flex;
+  position: relative;
+}
+
+
+.iconContainer {
+  position: absolute;
+  right: 50px;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+  min-width: 50px;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes iconSlide {
+  from {
+    transform: translateY(-100%); 
+  }
+  to {
+    transform: translateY(900%);
+  }
+}
+
+.iconContainer img {
+  opacity: 1;
+  animation: iconSlide 10s linear infinite;
+  position: absolute;
+  top: -50px;
+  bottom: 0;
+  height: 40px;
+  &:nth-child(1) { animation-delay: 0s; }
+  &:nth-child(2) { animation-delay: 1.43s; }
+  &:nth-child(3) { animation-delay: 2.86s; }
+  &:nth-child(4) { animation-delay: 4.29s; }
+  &:nth-child(5) { animation-delay: 5.72s; }
+  &:nth-child(6) { animation-delay: 7.15s; }
+  &:nth-child(7) { animation-delay: 8.58s; }
+}
+
+
+.newUseTitle {
+  font-family: $titleFont;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 28px;
+  margin: 0;
+  margin-bottom: 12px;
+}
+
+.bannerDescription {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  margin: 0;
+  margin-bottom: 16px;
+}
+
+.bannerButtonWrapper {
+  max-width: 200px;
+  min-width: 185px;
+}
+
+.popularWrapper {
+  padding: 24px 11px 0 16px;
+}
+
+.popularList {
+  @include listDefault;
+  display: flex;
+  column-gap: 12px;
+  overflow-x: scroll;
+}
+
+.catalogList {
+  @include listDefault;
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+}
+
+.catalogWrapper {
+  padding: 24px 16px 34px 16px;
+}
+
+.detailsPagewrapper {
+  background-color: $mainTextFontColor;
+  color: $mainBackgroundColor;
+}
+
+.detailsPluses {
+  padding-top: 21px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 200px;
+  text-align: left;
+  position: relative;
+}
+
+.detailsTitle {
+  margin: 0;
+  margin-bottom: 20px;
+font-family: $titleFont;
+font-size: 32px;
+font-weight: 700;
+line-height: 36px;
+}
+
+.detailsList {
+  @include listDefault;
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+}
+
+.detailsItem {
+  display: flex;
+  column-gap: 8px;
+  align-items: center;
+}
+
+.detailsDescription {
+font-size: 17px;
+font-weight: 600;
+line-height: 24px;
+margin: 0;
+}
+
+.detailsPicWrapper {
+  position: absolute;
+  right: 0;
+}
+
+.detailsFAQWrapper {
+  background-color: $mainBackgroundColor;
+  border-radius: 16px 16px 0 0;
+}
+
+.catalogItem {
+  text-decoration: none;
 }

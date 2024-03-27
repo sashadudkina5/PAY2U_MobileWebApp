@@ -40,7 +40,7 @@ export interface IServicePlansResponse {
   export interface IPlanCondition {
     count?: number;
     period?: string;
-    nextLink?: number;
+    price?: number;
   }
 
   export interface IPlanInfo {

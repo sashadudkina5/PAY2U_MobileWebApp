@@ -22,17 +22,17 @@ export const initialState: ISelectedPlanInfoState = {
         condition: {
             count: 0,
             period:  "",
-            nextLink: 0,
+            price: 0,
         },
         special_condition: {
             count: 0,
             period:  "",
-            nextLink: 0,
+            price: 0,
         },
         trial_period: {
             count: 0,
             period:  "",
-            nextLink: 0,
+            price: 0,
         }
     }
   },

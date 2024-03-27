@@ -6,7 +6,11 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-function Faq() {
+interface IFaqProps {
+  showExtraQuestion?: boolean;
+}
+
+function Faq({ showExtraQuestion }: IFaqProps) {
   const [expanded, setExpanded] = React.useState<string | false>(false);
 
   const handleChange =
@@ -21,6 +25,25 @@ function Faq() {
         expanded={expanded === "panel1"}
         onChange={handleChange("panel1")}
       >
+
+{showExtraQuestion && (
+        <Accordion
+          expanded={expanded === "extraPanel"}
+          onChange={handleChange("extraPanel")}
+        >
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="extraPanel-content"
+            id="extraPanel-header"
+          >
+            <p className={FaqCardStyles.questionTitle}>Зачем мне подключать подписку в УралСиб, а не в сервисе?</p>
+          </AccordionSummary>
+          <AccordionDetails>
+            <p className={FaqCardStyles.answer}>Мы сделали процесс подключения подписок простым и надежным: вам больше не нужно вводить данные своей банковской карты, у нас вы подключаете сервис напрямую. А после подключения всю информацию о подписке вы сможете видеть в соответствующем разделе. Мы хотим, чтобы подписки радовали вас выгодой, а не огорчали неожиданными списаниями.</p>
+          </AccordionDetails>
+        </Accordion>
+      )}
+
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1bh-content"
