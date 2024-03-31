@@ -22,7 +22,16 @@ $borderShadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
   rgba(17, 17, 26, 0.05) 0px 8px 32px;
 $planSelectedBackground: #fff4e8;
 $planSelectedTextColor: #fcb664;
-$newUserSection: #D0B2FA;
+$newUserSection: #d0b2fa;
+$cashbackBackgroundColor: #404247;
+$additionalLinkColor: #66c9d7;
+$linearBackground: linear-gradient(
+  0deg,
+  rgba(255, 255, 255, 1) 20%,
+  rgba(43, 45, 51, 1) 20%
+);
+$suspendButtonText: #ee505a;
+$suspendButtonBackgroundColor: #fdeeee;
 
 :export {
   mainBackgroundColor: $mainBackgroundColor;
@@ -31,4 +40,6 @@ $newUserSection: #D0B2FA;
   additionalTextColor: $additionalTextColor;
   buttonBorderColor: $buttonBorderColor;
   descriptionTextColor: $descriptionTextColor;
+  suspendButtonText: #ee505a;
+  suspendButtonBackgroundColor: #fdeeee;
 }

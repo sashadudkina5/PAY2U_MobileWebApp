@@ -3,8 +3,7 @@
 
 .serviceIncludesWrapper {
   padding-bottom: 44px;
-  padding-right: 16px;
-  padding-left: 16px;
+  @include paddingsSides;
   padding-top: 32px;
   border-radius: 16px;
   box-shadow: $borderShadow;

@@ -54,7 +54,7 @@ const theme = createTheme({
           textTransform: "none",
           fontWeight: "600",
           lineHeight: "24px",
-          fontFamily: 'San Francisco Pro Display',
+          fontFamily: "San Francisco Pro Display",
         },
       },
     },
@@ -65,6 +65,9 @@ const theme = createTheme({
           maxWidth: "540px",
           width: "100%",
           boxShadow: "none",
+          left: "50%",
+          right: "auto",
+          transform: "translateX(-50%)",
 
           "& .MuiSnackbarContent-root": {
             backgroundColor: "#fff",
@@ -72,7 +75,7 @@ const theme = createTheme({
             padding: "34px 16px 40px 16px",
             textAlign: "left",
             width: "100%",
-            fontFamily: 'San Francisco Pro Display',
+            fontFamily: "San Francisco Pro Display",
           },
           "& .MuiSnackbarContent-action": {
             flexGrow: "1",

@@ -1,0 +1,318 @@
+@import "../../../styles-utils/variables.scss";
+@import "../../../styles-utils/mixins.scss";
+
+
+.navWrapper {
+  color: $mainBackgroundColor;
+  background-color: $mainTextFontColor;
+  position: relative;
+  @include paddingsSides;
+}
+
+.navWrapperMySubscriptions {
+  @extend .navWrapper;
+  color: $mainTextFontColor;
+  background-color: $mainBackgroundColor;
+}
+
+.cashbackActiveServiceWrapper {
+  color: $mainBackgroundColor;
+  background: $linearBackground;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  @include paddingsSides;
+  padding: 12px 16px 24px 16px;
+}
+
+.gridItem {
+  background: $cashbackBackgroundColor;
+  padding: 17px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+}
+
+.periodCashback {
+  grid-row: 1 / span 2;
+}
+
+.infoLinkWrapper {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+}
+
+.searchWrapper {
+  @extend .infoLinkWrapper;
+}
+
+.periodCashback {
+  background-image: url("../images/cashBackImage.png"),
+    url("../images/cashbackArrow.svg");
+  background-repeat: no-repeat;
+  background-position: left 17px top 40px, right 18px top 18px;
+  background-size: 98px 49px, 24px 24px;
+  padding-top: 100px;
+}
+
+.cashBackText {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  margin: 0;
+  margin-bottom: 4px;
+}
+
+.cashbackTotal {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 28px;
+  margin: 0;
+}
+
+.cashbackAmount {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 22px;
+  margin: 0;
+}
+
+.myServicesWrapper {
+  @include paddingsSides;
+}
+
+.myServicesNavWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.myServicesTitle {
+  font-family: $titleFont;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 28px;
+  margin: 0;
+}
+
+.myServicesAllLink {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 24px;
+  margin: 0;
+  color: $additionalLinkColor;
+}
+
+.serivecesListTitle {
+  font-family: $titleFont;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 28px;
+  margin: 0;
+  margin-bottom: 16px;
+}
+
+.mySubscriptionsList {
+  @include listDefault;
+  @include paddingsSides;
+  padding: 15px 16px 16px 24px;
+  display: flex;
+  overflow-x: scroll;
+  column-gap: 12px;
+}
+
+.allServicesWrapper {
+  @include paddingsSides;
+}
+
+.catalogWrapper {
+  padding-top: 24px;
+}
+
+.mySubscriptionsTitle {
+  @extend .myServicesTitle;
+  @include paddingsSides;
+}
+
+.activeSubscriptionLogoSection {
+  height: 235px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.activeSubscriptionNavWrapper {
+  @include paddingsSides;
+}
+
+.activeSubscriptionBasicWrapper {
+  display: grid;
+  width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 32px;
+  padding-bottom: 24px;
+  grid-template-columns: 1fr 105px;
+  grid-template-rows: 1fr max-content;
+  box-sizing: border-box;
+
+  .activeSubscriptionBasicInfo {
+    grid-column: 1;
+    grid-row: 1;
+    text-align: left;
+
+    .activeSubscriptionTitle {
+      font-family: $titleFont;
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 36px;
+      margin: 0;
+      margin-bottom: 12px;
+    }
+
+    .activeSubscriptionPlan {
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 24px;
+      margin: 0;
+      margin-bottom: 8px;
+    }
+  }
+
+  .activeSubscriptionCashback {
+    width: 100%;
+    grid-column: 2;
+    grid-row: 1;
+
+    .activeSubscriptionCashbackSum {
+      background-color: $mainButtonColor;
+      border-radius: 16px;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 18px;
+      text-align: center;
+      padding: 4px 12px 4px 12px;
+    }
+  }
+
+  .activeSubscriptionNext {
+    text-align: left;
+    grid-column: 1 / 3;
+    grid-row: 2;
+    .activeSubscriptionNextPeriod {
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 18px;
+      color: $additionalTextColor;
+      margin: 0;
+    }
+  }
+}
+
+.activeSubscriptionDetails {
+  @include paddingsSides;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  margin-bottom: 20px;
+
+  &.suspendedSubscriptionDetails {
+    color: $additionalTextColor;
+  }
+}
+
+.detailsWrapper {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 15px;
+  padding-bottom: 11px;
+  border-bottom: 1px solid #e5e5e5;
+  column-gap: 15px;
+  & dt,
+  & dd {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 22px;
+  }
+
+  &.detailsTrialPeriod {
+    color: $priceIconColor;
+  }
+}
+
+.activeSubscriptionBottomNavWrapper {
+  @include paddingsSides;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  padding-bottom: 34px;
+}
+
+.modalTitle {
+  margin: 0;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 28px;
+  color: $mainTextFontColor;
+  margin-bottom: 8px;
+}
+
+.modalDescription {
+  margin: 0;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 22px;
+  color: $additionalTextColor;
+  margin-bottom: 20px;
+}
+
+.modalContent {
+  margin: 0;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 22px;
+  color: $modalMainTextColor;
+}
+
+.modalContentWrapper {
+  margin-bottom: 40px;
+}
+
+.linkPolicy {
+  color: $linkTextColor;
+  text-decoration: none;
+}
+
+.modalDisableList {
+  padding-left: 64px;
+  background-position: top 0 left 0;
+  background-repeat: no-repeat;
+  min-height: 48px;
+
+  &.subscriptionPeriodActive {
+    background-image: url('../images/calendarIcon.svg');
+  }
+
+  &.subscriptionGetBack {
+    background-image: url('../images/clocksIcon.svg');
+  }
+}
+
+.modalDisableListWrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 28px;
+  margin-bottom: 36px;
+  padding-top: 28px;
+}
+
+.modalDisableButtonsWrapper {
+  @extend .activeSubscriptionBottomNavWrapper;
+  padding-bottom: 0;
+}

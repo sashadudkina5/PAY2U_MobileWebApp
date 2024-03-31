@@ -4,8 +4,7 @@ import PageStyles from "../styles/new-user-styles.module.scss";
 import CustomButton from "../../../global-components/Button/Button";
 import variables from "../../../styles-utils/variables.scss";
 import { Link } from "react-router-dom";
-import PopularItem from "../components/PopularItem/PopularItem";
-import CatalogItem from "../components/CatalogItem/CatalogItem";
+import PopularItem from "../../../global-components/PopularItem/PopularItem";
 import PlusLogo from "../images/bannerAnimation/Logo_Plus.svg";
 import OkkoLogo from "../images/bannerAnimation/Logo_okko.svg";
 import SpotifyLogo from "../images/bannerAnimation/Logo_spotify.svg";
@@ -13,6 +12,8 @@ import StorytelLogo from "../images/bannerAnimation/Logo_storytel.svg";
 import WinkLogo from "../images/bannerAnimation/Logo_wink.svg";
 import VKLogo from "../images/bannerAnimation/VK (2).svg";
 import LitResLogo from "../images/bannerAnimation/Литрес.svg";
+import CatalogList from "../../../global-components/CatalogList/CatalogList";
+import PopularServicesList from "../../../global-components/PopularServicesList/PopularServicesList"
 
 function NewUserMainPage() {
   return (
@@ -78,86 +79,13 @@ function NewUserMainPage() {
 
       <section className={PageStyles.popularWrapper}>
         <h1 className={PageStyles.newUseTitle}>Популярные сервисы</h1>
-        <ul className={PageStyles.popularList}>
-          <Link
-            to="/main/card"
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
-            <li>
-              {" "}
-              <PopularItem />{" "}
-            </li>
-          </Link>
-          <li>
-            {" "}
-            <PopularItem />{" "}
-          </li>
-          <li>
-            {" "}
-            <PopularItem />{" "}
-          </li>
-        </ul>
+    <PopularServicesList linkNext="/main/card" />
       </section>
 
       <section className={PageStyles.catalogWrapper}>
         <h1 className={PageStyles.newUseTitle}>Каталог подписок</h1>
 
-        <ul className={PageStyles.catalogList}>
-          <Link
-            to="/main/card"
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
-            <li className={PageStyles.catalogItem}>
-              {" "}
-              <CatalogItem />{" "}
-            </li>
-          </Link>
-          <Link
-            to="/main/card"
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
-            <li className={PageStyles.catalogItem}>
-              {" "}
-              <CatalogItem />{" "}
-            </li>
-          </Link>
-          <Link
-            to="/main/card"
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
-            <li className={PageStyles.catalogItem}>
-              {" "}
-              <CatalogItem />{" "}
-            </li>
-          </Link>
-          <Link
-            to="/main/card"
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
-            <li className={PageStyles.catalogItem}>
-              {" "}
-              <CatalogItem />{" "}
-            </li>
-          </Link>
-          <Link
-            to="/main/card"
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
-            <li className={PageStyles.catalogItem}>
-              {" "}
-              <CatalogItem />{" "}
-            </li>
-          </Link>
-          <Link
-            to="/main/card"
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
-            <li className={PageStyles.catalogItem}>
-              {" "}
-              <CatalogItem />{" "}
-            </li>
-          </Link>
-        </ul>
+        <CatalogList linkNext="/main/card" />
       </section>
     </div>
   );

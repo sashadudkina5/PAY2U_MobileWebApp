@@ -6,9 +6,11 @@ import { useNavigate } from "react-router-dom";
 interface NavigationProps {
   color: string;
   pageName: string;
+  backgroundColor?: string;
+  borderRadius?: string;
 }
 
-function Navigation({ color, pageName }: NavigationProps) {
+function Navigation({ color, pageName, backgroundColor, borderRadius }: NavigationProps) {
     const navigate = useNavigate();
 
   const iconStyle: React.CSSProperties = {
@@ -16,7 +18,12 @@ function Navigation({ color, pageName }: NavigationProps) {
     transform: 'translate(-50%, -50%) rotate(180deg)',
     position: 'absolute',
     top: '50%',
-    left:'50%'
+    left:'50%',
+    width: '40px',
+    height: '40px',
+    backgroundColor: backgroundColor ? backgroundColor : 'transparent',
+    borderRadius: backgroundColor ? borderRadius : '0'
+
   };
 
   return (

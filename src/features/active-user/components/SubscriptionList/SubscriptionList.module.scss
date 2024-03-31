@@ -1,0 +1,10 @@
+@import "../../../../styles-utils/mixins.scss";
+
+.mySubscriptionsListList {
+    @include listDefault;
+    @include paddingsSides;
+    padding: 24px 16px 26px 16px;
+    row-gap: 10px;
+    display: flex;
+    flex-direction: column;
+}

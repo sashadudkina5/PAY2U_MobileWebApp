@@ -12,6 +12,7 @@
   display: flex;
   column-gap: 20px;
   margin: 0 auto;
+  @include paddingsSides;
 }
 
 .logoWrapper {
@@ -31,10 +32,7 @@
 }
 
 .navWrapper {
-  padding-top: 12px;
-  padding-left: 16px;
-  padding-right: 16px;
-  padding-bottom: 12px;
+  @include paddingsSides;
 }
 
 .serviceBrief {
@@ -181,6 +179,7 @@
 }
 
 .catalogWrapper {
+  @include paddingsSides;
   padding: 24px 16px 34px 16px;
 }
 
@@ -191,8 +190,7 @@
 
 .detailsPluses {
   padding-top: 21px;
-  padding-left: 16px;
-  padding-right: 16px;
+  @include paddingsSides;
   padding-bottom: 200px;
   text-align: left;
   position: relative;

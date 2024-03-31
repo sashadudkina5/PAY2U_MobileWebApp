@@ -1,0 +1,75 @@
+@import "../../../../styles-utils/variables.scss";
+@import "../../../../styles-utils/mixins.scss";
+
+.subscriptionItemWrapper {
+  display: grid;
+  grid-template-columns: 64px 1fr 70px;
+  grid-template-rows: 2fr;
+  @include paddingsSides;
+  padding: 12px 16px 12px 16px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  box-shadow: $borderShadow;
+}
+
+.subscriptionItemLogoWrapper {
+  grid-column: 1 / 2;
+  grid-row: 1;
+}
+
+.subscriptionInfoWrapper {
+  grid-column: 2 / 3;
+  grid-row: 1;
+  text-align: left;
+
+  .serviceTitle {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 22px;
+    margin-bottom: 2px;
+  }
+
+  .serviceInfo {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+    margin-bottom: 2px;
+  }
+}
+
+.subscriptionTrialWrapper {
+  grid-column: 2 / 4;
+  grid-row: 3;
+  text-align: left;
+
+  .serviceTrial {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+    color: $additionalTextColor;
+  }
+}
+
+.subscriptionPriceWrapper {
+  grid-column: 3;
+  grid-row: 1;
+  text-align: right;
+
+  .subscriptionPrice {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 18px;
+    margin: 0;
+    margin-bottom: 2px;
+  }
+
+  .subscriptionPeriod {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+    margin: 0;
+  }
+}

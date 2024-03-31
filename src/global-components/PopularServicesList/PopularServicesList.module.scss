@@ -1,0 +1,8 @@
+@import "../../styles-utils/mixins.scss";
+
+.popularList {
+    @include listDefault;
+    display: flex;
+    column-gap: 12px;
+    overflow-x: scroll;
+  }
