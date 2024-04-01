@@ -1,0 +1,55 @@
+.chartContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.canvas {
+  max-height: 140px;
+  position: relative;
+
+  & canvas {
+    width: 140px;
+    height: 140px;
+  }
+
+  & .totalSum {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 80px;
+    max-height: 80px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 28px;
+  }
+}
+
+.legendWrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+}
+
+.labelWrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 142px;
+  align-items: baseline;
+}
+
+.legendName {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+}
+
+.legendPrice {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: right;
+}

@@ -1,0 +1,103 @@
+@import "../../styles-utils/mixins.scss";
+@import "../../styles-utils/variables.scss";
+
+.authPageWrapper {
+  @include paddingsSides;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 35px;
+}
+
+.logoWrapper {
+  min-height: 68px;
+}
+
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 35px;
+
+  .input {
+    border: none;
+    padding-bottom: 13px;
+    padding-top: 27px;
+    border-bottom: solid 1px $inputColor;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: $descriptionTextColor;
+
+    &:focus {
+      outline: none;
+      border-bottom: 1px solid $additionalTextColor;
+    }
+
+    &::placeholder {
+      color: $additionalTextColor;
+    }
+  }
+}
+
+/* Attempt to override Chrome's autofill style */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 50px white inset !important;
+  -webkit-text-fill-color: $descriptionTextColor !important;
+}
+
+/* Attempt to override autofill style for other browsers */
+input:-internal-autofill-selected {
+  background-color: $mainBackgroundColor !important;
+  color: $descriptionTextColor !important;
+}
+
+.inputField {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .input {
+    flex-grow: 1;
+    padding-right: 50px;
+  }
+
+  .inputAdornment {
+    position: absolute;
+    right: 15px;
+    top: 17px;
+  }
+}
+
+.bottomButtonsWrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  margin-bottom: 34px;
+}
+
+.mainContent {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: -150px;
+}
+
+.formErrorAlert {
+  color: $errorAlertColor;
+  font-weight: 400;
+  size: 15px;
+  line-height: 22px;
+  margin: 0;
+}
+
+.title {
+font-size: 17px;
+font-weight: 600;
+line-height: 24px;
+text-align: center;
+}

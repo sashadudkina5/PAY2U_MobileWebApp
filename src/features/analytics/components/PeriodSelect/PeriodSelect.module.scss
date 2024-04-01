@@ -1,0 +1,10 @@
+@import "../../../../styles-utils/variables.scss";
+
+.formWrapper {
+    background-color: $selectorsBackground;
+    display: flex;
+    column-gap: 4px;
+    padding: 4px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+}

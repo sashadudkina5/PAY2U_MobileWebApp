@@ -316,3 +316,20 @@
   @extend .activeSubscriptionBottomNavWrapper;
   padding-bottom: 0;
 }
+
+.activeSubscriptionPageWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  .activeSubscriptionMainContent {
+    flex-grow: 1;
+  }
+}
+
+.suspendSubscriptionPageWrapper {
+  @extend .activeSubscriptionPageWrapper;
+  .suspendSubscriptionMainContent {
+    flex-grow: 1;
+  }
+}

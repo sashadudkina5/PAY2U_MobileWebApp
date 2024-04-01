@@ -1,7 +1,6 @@
 import React, { ReactNode, useState } from "react";
 import Snackbar from "@mui/material/Snackbar";
 import Slide from "@mui/material/Slide";
-import CustomButton from "../Button/Button";
 import ModalOverlay from "../ModalOverlay/ModalOverlay"
 
 function SlideTransition(props: any) {

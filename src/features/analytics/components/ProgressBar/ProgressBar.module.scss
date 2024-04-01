@@ -1,0 +1,24 @@
+@import "../../../../styles-utils/variables.scss";
+
+.progressBar {
+    display: flex;
+    align-items: center;
+    background-color: $progressBarRemain;
+    border-radius: 25px;
+    height: 10px;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  
+  .progressBarFilled {
+    background-image: $progressBarDone;
+    height: 100%;
+    transition: width 0.5s ease; 
+    border-radius: 25px;
+  }
+  
+  .progressBarRemaining {
+    flex-grow: 1;
+    background-color: transparent;
+  }
+  

@@ -2,6 +2,81 @@ import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
   components: {
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          display: "none",
+        },
+      },
+    },
+
+    MuiSvgIcon: {
+      styleOverrides: {
+        root: {
+          fill: "#AAABAD",
+        },
+      },
+    },
+
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          height: "32px",
+          borderRadius: "16px",
+          backgroundColor: '#404247',
+          color: "#AAABAD",
+          "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+            border: "none",
+          },
+        },
+        notchedOutline: {
+          borderWidth: "0",
+        },
+      },
+    },
+
+    MuiList: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#404247',
+          color: "#AAABAD",
+          maxHeight: '146px',
+          overflowY: 'scroll',
+          boxSizing: 'border-box',
+          padding: '0',
+      },
+    },
+  },
+
+  MuiMenu: {
+    styleOverrides: {
+      root: {
+      marginTop: '11px',
+    },
+    paper: {
+      boxShadow: 'none',
+      borderRadius: "12px",
+      border: 'none',
+      paddingTop: "12px",
+      paddingLeft: "12px",
+      paddingBottom: "12px",
+      paddingRight: "22px",
+      backgroundColor: "#404247",
+      maxWidth: '184px',
+    }
+  },
+},
+
+MuiMenuItem: {
+  styleOverrides: {
+    root: {
+      "&.Mui-selected": {
+        backgroundColor: 'transparent',
+      },
+  },
+},
+},
+
     MuiAccordion: {
       styleOverrides: {
         root: {

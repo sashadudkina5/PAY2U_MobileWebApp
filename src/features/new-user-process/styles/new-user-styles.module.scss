@@ -74,6 +74,11 @@
   padding-top: 32px;
   padding-right: 12px;
   padding-left: 12px;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .forwardButtonWrapper {

@@ -8,7 +8,7 @@ import variables from "../../../styles-utils/variables.scss";
 import PhoneInput from "../components/PhoneInput/PhoneInput";
 import { useNavigate } from "react-router-dom";
 import { TSubmitHandler } from "../../../utils/types";
-import { phoneNumberSchema } from "../../../utils/phone-validation";
+import { phoneNumberSchema } from "../../../utils/form-validations";
 
 function PhoneNumberSubscription() {
   const navigate = useNavigate();
@@ -67,7 +67,7 @@ function PhoneNumberSubscription() {
           />
           <p className={PageStyles.formErrorAlert}>{error}</p>
           <button type="submit" form="phoneForm" style={{ display: "none" }}>
-            Submit
+            Далее
           </button>{" "}
         </form>
       </div>

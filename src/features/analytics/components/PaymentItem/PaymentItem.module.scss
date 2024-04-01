@@ -1,0 +1,48 @@
+@import "../../../../styles-utils/variables.scss";
+@import "../../../../styles-utils/mixins.scss";
+
+.historyItemWrapper {
+    display: flex;
+    @include paddingsSides;
+    box-shadow: $borderShadow;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.historyItemLogoWrapper {
+    min-width: 40px;
+}
+
+.historyItemServiceTitle {
+    margin: 0;
+font-size: 15px;
+font-weight: 600;
+line-height: 22px;
+margin-bottom: 5px;
+}
+
+.historyItemInfoWrapper {
+    text-align: left;
+    flex-grow: 1;
+}
+
+.historyItemPlan {
+font-size: 13px;
+font-weight: 400;
+line-height: 18px;
+color: $additionalTextColor;
+margin: 0;
+margin-bottom: 12px;
+}
+
+.historyItemDate {
+font-size: 13px;
+font-weight: 400;
+line-height: 18px;
+margin: 0;
+}
+
+.historyItemPrice {
+    text-align: right;
+    margin: 0;
+}

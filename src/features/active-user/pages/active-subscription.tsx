@@ -53,36 +53,39 @@ function ActiveSubscription() {
         Отключить автопродление подписки?
       </h2>
       <div className={PageStyles.modalDisableListWrapper}>
-      <div className={`${PageStyles.modalDisableList} + ${PageStyles.subscriptionPeriodActive}`}>
-        <p className={PageStyles.modalContent}>
-          Подписка будет действовать до 10.04.2024
-        </p>
-      </div>
+        <div
+          className={`${PageStyles.modalDisableList} + ${PageStyles.subscriptionPeriodActive}`}
+        >
+          <p className={PageStyles.modalContent}>
+            Подписка будет действовать до 10.04.2024
+          </p>
+        </div>
 
-      <div className={`${PageStyles.modalDisableList} + ${PageStyles.subscriptionGetBack}`}>
-        <p className={PageStyles.modalContent}>
-          Если вы захотите ее вернуть она будет доступна в разделе Мои подписки
-          / Недействующие
-        </p>
-      </div>
+        <div
+          className={`${PageStyles.modalDisableList} + ${PageStyles.subscriptionGetBack}`}
+        >
+          <p className={PageStyles.modalContent}>
+            Если вы захотите ее вернуть она будет доступна в разделе Мои
+            подписки / Недействующие
+          </p>
+        </div>
       </div>
 
       <div className={PageStyles.modalDisableButtonsWrapper}>
-      <CustomButton
-        buttonName={"Пока оставить"}
-        backgroundColor={variables.mainButtonColor}
-        color={variables.mainTextFontColor}
-        onClick={() => setSnackbarDisable(false)}
-      />
+        <CustomButton
+          buttonName={"Пока оставить"}
+          backgroundColor={variables.mainButtonColor}
+          color={variables.mainTextFontColor}
+          onClick={() => setSnackbarDisable(false)}
+        />
 
-<CustomButton
-        buttonName={"Все равно отключить"}
-        backgroundColor={variables.mainBackgroundColor}
-        color={variables.mainTextFontColor}
-        // onClick={() => setSnackbarDisable(false)}
-      />
-
-</div>
+        <CustomButton
+          buttonName={"Все равно отключить"}
+          backgroundColor={variables.mainBackgroundColor}
+          color={variables.mainTextFontColor}
+          // onClick={() => setSnackbarDisable(false)}
+        />
+      </div>
     </div>
   );
 
@@ -102,54 +105,58 @@ function ActiveSubscription() {
         </div>
       </section>
 
-      <div className={PageStyles.activeSubscriptionBasicWrapper}>
-        <div className={PageStyles.activeSubscriptionBasicInfo}>
-          <h1 className={PageStyles.activeSubscriptionTitle}>Иви</h1>
-          <p className={PageStyles.activeSubscriptionPlan}>Подписка Изи Иви</p>
+      <section className={PageStyles.activeSubscriptionMainContent}>
+        <div className={PageStyles.activeSubscriptionBasicWrapper}>
+          <div className={PageStyles.activeSubscriptionBasicInfo}>
+            <h1 className={PageStyles.activeSubscriptionTitle}>Иви</h1>
+            <p className={PageStyles.activeSubscriptionPlan}>
+              Подписка Изи Иви
+            </p>
+          </div>
+
+          <div className={PageStyles.activeSubscriptionCashback}>
+            <span className={PageStyles.activeSubscriptionCashbackSum}>
+              кешбэк 10 %
+            </span>
+          </div>
+
+          <div className={PageStyles.activeSubscriptionNext}>
+            <p className={PageStyles.activeSubscriptionNextPeriod}>
+              Следующее списание через 28 дней
+            </p>
+          </div>
         </div>
 
-        <div className={PageStyles.activeSubscriptionCashback}>
-          <span className={PageStyles.activeSubscriptionCashbackSum}>
-            кешбэк 10 %
-          </span>
+        <div className={PageStyles.activeSubscriptionDetailsWrapper}>
+          <dl className={PageStyles.activeSubscriptionDetails}>
+            <div className={PageStyles.detailsWrapper}>
+              <dt>Стоимость подписки</dt>
+              <dd>200 ₽</dd>
+            </div>
+            <div
+              className={`${PageStyles.detailsWrapper} + ${PageStyles.detailsTrialPeriod}`}
+            >
+              <dt>Пробный период до</dt>
+              <dd>10.03.2024</dd>
+            </div>
+            <div className={PageStyles.detailsWrapper}>
+              <dt>Следующее списание</dt>
+              <dd>10.04.2024</dd>
+            </div>
+            <div className={PageStyles.detailsWrapper}>
+              <dt>Номер телефона</dt>
+              <dd>+ 7 (900) 999-99-99</dd>
+            </div>
+            <div className={PageStyles.detailsWrapper}>
+              <dt>Счет списания</dt>
+
+              <dd>
+                <img src={paymentItem.iconNoBackground} alt="Счет списания" />
+              </dd>
+            </div>
+          </dl>
         </div>
-
-        <div className={PageStyles.activeSubscriptionNext}>
-          <p className={PageStyles.activeSubscriptionNextPeriod}>
-            Следующее списание через 28 дней
-          </p>
-        </div>
-      </div>
-
-      <div className={PageStyles.activeSubscriptionDetailsWrapper}>
-        <dl className={PageStyles.activeSubscriptionDetails}>
-          <div className={PageStyles.detailsWrapper}>
-            <dt>Стоимость подписки</dt>
-            <dd>200 ₽</dd>
-          </div>
-          <div
-            className={`${PageStyles.detailsWrapper} + ${PageStyles.detailsTrialPeriod}`}
-          >
-            <dt>Пробный период до</dt>
-            <dd>10.03.2024</dd>
-          </div>
-          <div className={PageStyles.detailsWrapper}>
-            <dt>Следующее списание</dt>
-            <dd>10.04.2024</dd>
-          </div>
-          <div className={PageStyles.detailsWrapper}>
-            <dt>Номер телефона</dt>
-            <dd>+ 7 (900) 999-99-99</dd>
-          </div>
-          <div className={PageStyles.detailsWrapper}>
-            <dt>Счет списания</dt>
-
-            <dd>
-              <img src={paymentItem.iconNoBackground} alt="Счет списания" />
-            </dd>
-          </div>
-        </dl>
-      </div>
+      </section>
 
       <div className={PageStyles.activeSubscriptionBottomNavWrapper}>
         <CustomButton
@@ -165,20 +172,19 @@ function ActiveSubscription() {
           color={variables.suspendButtonText}
           onClick={() => setSnackbarDisable(true)}
         />
-
       </div>
 
       <Modal
-          open={snackbarOpenHowTo}
-          onClose={() => setSnackbarOpenHowTo(false)}
-          message={formattedMessageHowTo}
-        />
+        open={snackbarOpenHowTo}
+        onClose={() => setSnackbarOpenHowTo(false)}
+        message={formattedMessageHowTo}
+      />
 
-        <Modal
-          open={snackbarOpenDisable}
-          onClose={() => setSnackbarDisable(false)}
-          message={formattedMessageDisable}
-        />
+      <Modal
+        open={snackbarOpenDisable}
+        onClose={() => setSnackbarDisable(false)}
+        message={formattedMessageDisable}
+      />
     </div>
   );
 }

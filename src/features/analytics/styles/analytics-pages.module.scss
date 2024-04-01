@@ -1,0 +1,115 @@
+@import "../../../styles-utils/mixins.scss";
+@import "../../../styles-utils/variables.scss";
+
+.analyticsPageWrapper {
+  background-color: $mainTextFontColor;
+  color: $mainBackgroundColor;
+}
+
+.analyticsNavWrapper {
+  @include paddingsSides;
+}
+
+.analyticsBrief {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  @include paddingsSides;
+  text-align: left;
+}
+
+.analyticsCashbackFutureSum {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 36px;
+}
+
+.analyticsCashbackFuturePeriod {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 24px;
+  color: $serviceDescriptionColor;
+}
+
+.analyticsCashbackFutureDate {
+  margin: 0;
+  padding-left: 32px;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 24px;
+  color: $serviceDescriptionColor;
+  margin-bottom: 24px;
+  background-image: url('../images/history.svg');
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+  background-position: top 0 left 0;
+}
+
+.analyticsCashbackTotal {
+font-size: 17px;
+font-weight: 700;
+line-height: 20px;
+margin: 0;
+}
+
+.analyticsCashbackPeriodWrapper {
+    margin-bottom: 8px;
+}
+
+.expensesBrief {
+    @include paddingsSides;
+    padding-top: 28px;
+    padding-bottom: 40px;
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.forecastBrief {
+    @include paddingsSides;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.forecastInfo {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.forecastSpent {
+font-size: 15px;
+font-weight: 600;
+line-height: 22px;
+text-align: right;
+margin: 0;
+}
+
+.forecastStatus {
+font-size: 17px;
+font-weight: 400;
+line-height: 24px;
+text-align: left;
+}
+
+.forecastWrapper {
+    display: flex;
+    align-items: baseline;
+    column-gap: 8px;
+    margin-bottom: 28px;
+}
+
+.forecastSum {
+font-size: 32px;
+font-weight: 700;
+line-height: 40px;
+text-align: left;
+margin: 0;
+}
+
+.forecastSumPeriod {
+font-size: 17px;
+font-weight: 400;
+line-height: 24px;
+text-align: left;
+color: $serviceDescriptionColor;
+margin: 0;
+}

@@ -6,7 +6,7 @@ interface CustomButtonProps {
   backgroundColor?: string;
   color?: string;
   borderColor?: string;
-  onClick?: () => void;
+  onClick?: (() => void) | ((e: any) => void);
   style?: React.CSSProperties;
 }
 

@@ -1,0 +1,39 @@
+@import "../../../../styles-utils/variables.scss";
+@import "../../../../styles-utils/mixins.scss";
+
+.historyListWrapper {
+    background-color: $mainBackgroundColor;
+    color: $mainTextFontColor;
+    border-radius: 16px 16px 0 0;
+    padding-top: 40px;
+}
+
+.historyList {
+@include listDefault;
+@include paddingsSides;
+display: flex;
+flex-direction: column;
+row-gap: 10px;
+}
+
+.historyListTitle {
+    @include paddingsSides;
+font-family: $titleFont;
+font-size: 22px;
+font-weight: 700;
+line-height: 28px;
+text-align: left;
+margin: 0;
+margin-bottom: 20px;
+}
+
+.historyListMonth {
+    @include paddingsSides;
+font-size: 13px;
+font-weight: 600;
+line-height: 16px;
+text-align: left;
+margin: 0;
+margin-bottom: 12px;
+color: $additionalTextColor;
+}

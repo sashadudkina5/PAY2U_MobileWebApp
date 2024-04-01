@@ -25,6 +25,7 @@ $planSelectedTextColor: #fcb664;
 $newUserSection: #d0b2fa;
 $cashbackBackgroundColor: #404247;
 $additionalLinkColor: #66c9d7;
+$selectorsBackground: #FFFFFF08;
 $linearBackground: linear-gradient(
   0deg,
   rgba(255, 255, 255, 1) 20%,
@@ -32,6 +33,8 @@ $linearBackground: linear-gradient(
 );
 $suspendButtonText: #ee505a;
 $suspendButtonBackgroundColor: #fdeeee;
+$progressBarRemain: #FFFFFF33;
+$progressBarDone: linear-gradient(to right, #00A5BC, #7DD27C);;
 
 :export {
   mainBackgroundColor: $mainBackgroundColor;
@@ -40,6 +43,7 @@ $suspendButtonBackgroundColor: #fdeeee;
   additionalTextColor: $additionalTextColor;
   buttonBorderColor: $buttonBorderColor;
   descriptionTextColor: $descriptionTextColor;
-  suspendButtonText: #ee505a;
-  suspendButtonBackgroundColor: #fdeeee;
+  suspendButtonText: $suspendButtonText;
+  suspendButtonBackgroundColor: $suspendButtonBackgroundColor;
+  priceIconColor: $priceIconColor;
 }

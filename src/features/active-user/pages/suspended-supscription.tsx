@@ -17,7 +17,7 @@ function SuspendedSubscription() {
  
 
   return (
-    <div className={PageStyles.activeSubscriptionPageWrapper}>
+    <div className={PageStyles.suspendSubscriptionPageWrapper}>
       <section
         style={sectionStyle}
         className={PageStyles.activeSubscriptionLogoSection}
@@ -32,6 +32,7 @@ function SuspendedSubscription() {
         </div>
       </section>
 
+      <section className={PageStyles.suspendSubscriptionMainContent}>
       <div className={PageStyles.activeSubscriptionBasicWrapper}>
         <div className={PageStyles.activeSubscriptionBasicInfo}>
           <h1 className={PageStyles.activeSubscriptionTitle}>Иви</h1>
@@ -80,6 +81,7 @@ function SuspendedSubscription() {
           </div>
         </dl>
       </div>
+      </section>
 
       <div className={PageStyles.activeSubscriptionBottomNavWrapper}>
 
