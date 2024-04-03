@@ -132,3 +132,28 @@ export const fetchWithRefresh = async (url: any, options: any) => {
 };
 
 
+export const apiRequest = async (endpoint: string, method: string = 'GET', body: any = null) => {
+  const accessToken = getCookie("accessToken");
+  if (!accessToken) {
+    throw new Error("AccessToken is missing");
+  }
+
+  const headers = new Headers({
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${accessToken}`
+  });
+
+  const config: RequestInit = {
+    method: method,
+    headers: headers,
+  };
+
+  if (body) {
+    config.body = JSON.stringify(body);
+  }
+
+  const response = await fetchWithRefresh(endpoint, config);
+  return await checkResponse(response);
+};
+
+

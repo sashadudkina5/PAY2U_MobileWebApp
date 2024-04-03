@@ -38,7 +38,7 @@ const userInactiveServicesSlice = createSlice({
       state.userInactiveServices.data = action.payload.data;
       state.isLoading = false;
     },
-    getInactiveServicesFailed(state, action) {
+    getInactiveServicesFailed(state, action: PayloadAction<string>) {
       state.isLoading = false;
       state.error = action.payload;
     },

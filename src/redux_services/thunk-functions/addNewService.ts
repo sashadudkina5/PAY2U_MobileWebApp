@@ -1,0 +1,49 @@
+import { checkResponse } from "../../utils/api";
+import { BASE_URL } from "../../utils/api";
+import { AppDispatch } from "../store";
+import { getCookie, fetchWithRefresh } from "../../utils/api";
+import {
+    addNewServiceRequest,
+    addNewServiceSuccess,
+    addNewServiceFailed,
+} from "../slices/addNewServiceSlice";
+
+  /**
+   * This function takes selected plan ID and phone number, dispatches a addNewService request action.
+   *
+   * @param {string} tariffId - Id of selected plan.
+   * @param {string} phoneNumber - Phone number.
+   * 
+   * @example
+   * // Dispatch the thunk with selected plan ID and phone number.
+   * dispatch(addNewService("123", "213"));
+   */
+
+export const addNewService = (tariffId: string, phoneNumber: string) => async (dispatch: AppDispatch) => {
+  try {
+    dispatch(addNewServiceRequest());
+    const accessToken = getCookie("accessToken");
+
+    if (!accessToken) {
+      console.error("AccessToken is missing");
+      dispatch(addNewServiceFailed("AccessToken is missing"));
+      return;
+    }
+
+    const response = await fetchWithRefresh(`${BASE_URL}/subscriptions`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+      body: JSON.stringify({ tariff: tariffId, phone_number: phoneNumber }),
+    });
+
+    const addNewServiceResponse = await checkResponse(response);
+  
+    dispatch(addNewServiceSuccess(addNewServiceResponse));
+
+} catch (error) {
+    const message = error instanceof Error ? error.message : 'An unknown error occurred';
+    dispatch(addNewServiceFailed(message));
+  }
+};

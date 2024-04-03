@@ -49,7 +49,7 @@ function SubscriptionSuccess() {
       <div className={PageStyles.contentWrapper}>
         <Info
           icon={<SuccessIcon />}
-          title={`Подписка «${serviceTitle}» оплачена`}
+          title={`Подписка ${serviceTitle} оплачена`}
           description={
             <span style={{ color: variables.additionalTextColor }}>
               {`Логин и пароль для входа в сервис отправили вам в СМС на номер: ${phoneNumber}`}

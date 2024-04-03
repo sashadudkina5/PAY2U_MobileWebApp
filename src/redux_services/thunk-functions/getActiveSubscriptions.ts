@@ -6,7 +6,7 @@ import {
     getActiveSubscriptionsRequest,
     getActiveSubscriptionsSuccess,
     getActiveSubscriptionsFailed,
-} from "../slices/activeSubscriptions";
+} from "../slices/activeSubscriptionsSlice";
 
 /**
  * Thunk function for fetching user's active subscriptions and dispatching it to the store.
@@ -33,7 +33,7 @@ export const getActiveSubscriptions = (isActive:boolean) => async (dispatch: App
 //const isActive = 1; // This could be dynamic based on your application's state or props
 //const queryParams = new URLSearchParams({ is_active: isActive }).toString();
 
-    const response = await fetchWithRefresh(`${BASE_URL}/subscriptions/??is_active=${isActive}`, {
+    const response = await fetchWithRefresh(`${BASE_URL}/subscriptions/?is_active=${isActive}`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${accessToken}`,
@@ -52,3 +52,15 @@ export const getActiveSubscriptions = (isActive:boolean) => async (dispatch: App
     }
   }
 };
+
+
+// export const getActiveSubscriptions = (isActive: boolean) => async (dispatch: AppDispatch) => {
+//   try {
+//     dispatch(getActiveSubscriptionsRequest());
+//     const endpoint = `${BASE_URL}/subscriptions/?is_active=${isActive}`;
+//     const activeSubscriptions = await apiRequest(endpoint);
+//     dispatch(getActiveSubscriptionsSuccess(activeSubscriptions));
+//   } catch (error) {
+//     handleThunkError(dispatch, getActiveSubscriptionsFailed, error);
+//   }
+// };

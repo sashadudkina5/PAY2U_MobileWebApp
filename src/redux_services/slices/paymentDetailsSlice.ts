@@ -45,7 +45,7 @@ const selectedPaymentSlice = createSlice({
       state.selectedPaymentItem.data = action.payload;
       state.isLoading = false;
     },
-    getSelectedPaymentFailed(state, action) {
+    getSelectedPaymentFailed(state, action: PayloadAction<string>) {
       state.isLoading = false;
       state.error = action.payload;
     },

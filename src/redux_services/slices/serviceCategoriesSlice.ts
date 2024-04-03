@@ -38,7 +38,7 @@ const serviceCategoriesSlice = createSlice({
       state.serviceCategories.data = action.payload.data;
       state.isLoading = false;
     },
-    getServiceCategoriesFailed(state, action) {
+    getServiceCategoriesFailed(state, action: PayloadAction<string>) {
       state.isLoading = false;
       state.error = action.payload;
     },

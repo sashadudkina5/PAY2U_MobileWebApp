@@ -38,7 +38,7 @@ const inactiveServiceInfoSlice = createSlice({
       state.inactiveServiceInfo = action.payload;
       state.isLoading = false;
     },
-    getInactiveServiceInfoFailed(state, action) {
+    getInactiveServiceInfoFailed(state, action: PayloadAction<string>) {
       state.isLoading = false;
       state.error = action.payload;
     },

@@ -38,7 +38,7 @@ const paymentHistorySlice = createSlice({
       state.paymentHistory.data = action.payload.data;
       state.isLoading = false;
     },
-    getPaymentHistoryFailed(state, action) {
+    getPaymentHistoryFailed(state, action: PayloadAction<string>) {
       state.isLoading = false;
       state.error = action.payload;
     },

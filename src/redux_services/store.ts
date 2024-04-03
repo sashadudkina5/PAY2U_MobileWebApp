@@ -8,7 +8,17 @@ import popularServicesReducer from './slices/popularServicesSlice'
 import categoryPostersReducer from './slices/categoryPostersSlice'
 import paymentHistoryReducer from './slices/paymentHistorySlice'
 import selectedPaymentReducer from "./slices/paymentDetailsSlice"
-import activeSubscriptionsReducer from "./slices/activeSubscriptions"
+import activeSubscriptionsReducer from "./slices/activeSubscriptionsSlice"
+import suspendedSubscriptionsReducer from "./slices/suspendedSubscriptions"
+import selectedSubscriptionInfoReducer from "./slices/subsrcriptionInfoSlice"
+import addNewServiceSliceReducer from "./slices/addNewServiceSlice"
+import suspendServiceReducer from "./slices/suspendServiceSlice"
+import reactivateServiceReducer from "./slices/reactivateServiceSlice"
+import categoryExpensesReducer from "./slices/categoryExpensesSlice";
+import cashbackReducer from "./slices/cashbackSlice";
+import futureExpensesReducer from "./slices/futureExpensesSlice";
+import authInfoReducer from "./slices/authSlice"
+
 
 export const store = configureStore({
   reducer: {
@@ -21,7 +31,16 @@ export const store = configureStore({
     categoryPosters: categoryPostersReducer,
     paymentHistory: paymentHistoryReducer,
     selectedPayment: selectedPaymentReducer,
-    activeSubscriptions: activeSubscriptionsReducer
+    activeSubscriptions: activeSubscriptionsReducer,
+    suspendedSubscriptions: suspendedSubscriptionsReducer,
+    selectedSubscriptionInfo: selectedSubscriptionInfoReducer,
+    addNewServiceSlice: addNewServiceSliceReducer,
+    suspendService: suspendServiceReducer,
+    reactivateService: reactivateServiceReducer,
+    categoryExpenses: categoryExpensesReducer,
+    cashback: cashbackReducer,
+    futureExpenses: futureExpensesReducer,
+    authInfo: authInfoReducer
   },
 });
 

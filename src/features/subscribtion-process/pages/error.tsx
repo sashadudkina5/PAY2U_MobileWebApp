@@ -18,7 +18,7 @@ function SubscriptionError() {
           description=""
         />
       </div>
-      <Link to="/subscription/success">
+      <Link to="/main/card">
         <CustomButton
           buttonName={"Попробовать еще раз"}
           backgroundColor={variables.mainButtonColor}

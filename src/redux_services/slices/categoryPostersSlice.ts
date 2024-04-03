@@ -38,7 +38,7 @@ const categoryPostersSlice = createSlice({
       state.categoryPosters.data = action.payload.data;
       state.isLoading = false;
     },
-    getCategoryPostersFailed(state, action) {
+    getCategoryPostersFailed(state, action: PayloadAction<string>) {
       state.isLoading = false;
       state.error = action.payload;
     },

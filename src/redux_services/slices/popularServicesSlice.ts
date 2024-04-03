@@ -38,7 +38,7 @@ const popularServicesSlice = createSlice({
       state.popularServices.data = action.payload.data;
       state.isLoading = false;
     },
-    getPopularServicesFailed(state, action) {
+    getPopularServicesFailed(state, action: PayloadAction<string>) {
       state.isLoading = false;
       state.error = action.payload;
     },

@@ -17,6 +17,7 @@ import CashbackPage from "./features/analytics/pages/cashback-page";
 import ExpensesPage from "./features/analytics/pages/expenses-page";
 import ForecastPage from "./features/analytics/pages/forecast-page";
 import SubscriptionError from "./features/subscribtion-process/pages/error";
+import Page404 from "./global-components/Page404/Page404";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
       <Route path="/analytics/cashback" element={<CashbackPage />} />
       <Route path="/analytics/expenses" element={<ExpensesPage />} />
       <Route path="/analytics/forecast" element={<ForecastPage />} />
+      <Route path="*" element={<Page404 />} />
       </Routes>
     </div>
   );

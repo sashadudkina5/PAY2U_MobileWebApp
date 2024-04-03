@@ -35,7 +35,7 @@ const servicePlansSlice = createSlice({
       state.servicePlans.data = action.payload.data;
       state.isLoading = false;
     },
-    getServicePlansFailed(state, action) {
+    getServicePlansFailed(state, action: PayloadAction<string>) {
       state.isLoading = false;
       state.error = action.payload;
     },

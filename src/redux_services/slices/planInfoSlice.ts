@@ -54,7 +54,7 @@ const selectedPlanInfoSlice = createSlice({
       state.selectedPlanInfo.data = action.payload;
       state.isLoading = false;
     },
-    getPlanInfoFailed(state, action) {
+    getPlanInfoFailed(state, action: PayloadAction<string>) {
       state.isLoading = false;
       state.error = action.payload;
     },
