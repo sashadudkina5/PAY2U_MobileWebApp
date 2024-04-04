@@ -48,8 +48,8 @@ export const getSelectedSubscriptionInfo = (state: RootState) =>
 export const getSuspendedSubscriptionsList = (state: RootState) =>
   state.suspendedSubscriptions.suspendedSubscriptions.data;
 
-export const getInactiveSubscriptionsList = (state: RootState) =>
-  state.inactiveServiceInfo.inactiveServiceInfo;
+// export const getInactiveSubscriptionsList = (state: RootState) =>
+//   state.inactiveServiceInfo.inactiveServiceInfo;
 
 export const getInactiveServiceDetails = (state: RootState) =>
   state.inactiveServiceInfo.inactiveServiceInfo;

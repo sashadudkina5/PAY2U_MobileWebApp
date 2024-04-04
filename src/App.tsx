@@ -28,7 +28,7 @@ function App() {
       <Route path="/subscription/warning" element={<SubscriptionWarning />} />
       <Route path="/subscription/success" element={<SubscriptionSuccess />} />
       <Route path="/subscription/error" element={<SubscriptionError />} />
-      <Route path="/main/card" element={<ServicePage />} />
+      <Route path="/main/card/:id" element={<ServicePage />} />
       <Route path="/main" element={<NewUserMainPage />} />
       <Route path="/main/details" element={<DetailsPage />} />
       <Route path="/active/main" element={<ActiveUserMainPage />} />

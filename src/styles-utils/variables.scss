@@ -4,7 +4,7 @@ $baseFont: sans-serif; // Fallback font
 $titleFont: "Navigo", $baseFont;
 $mainFont: "San Francisco Pro Display", $baseFont;
 
-//colors
+//colors used in project
 $mainBackgroundColor: #ffffff;
 $mainButtonColor: #fee600;
 $mainTextFontColor: #2b2d33;
@@ -36,6 +36,7 @@ $suspendButtonBackgroundColor: #fdeeee;
 $progressBarRemain: #FFFFFF33;
 $progressBarDone: linear-gradient(to right, #00A5BC, #7DD27C);;
 
+//for using variables in tsx files
 :export {
   mainBackgroundColor: $mainBackgroundColor;
   mainButtonColor: $mainButtonColor;

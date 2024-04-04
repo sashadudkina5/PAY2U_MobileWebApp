@@ -23,7 +23,7 @@ const theme = createTheme({
         root: {
           height: "32px",
           borderRadius: "16px",
-          backgroundColor: '#404247',
+          backgroundColor: "#404247",
           color: "#AAABAD",
           "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
             border: "none",
@@ -38,44 +38,44 @@ const theme = createTheme({
     MuiList: {
       styleOverrides: {
         root: {
-          backgroundColor: '#404247',
+          backgroundColor: "#404247",
           color: "#AAABAD",
-          maxHeight: '146px',
-          overflowY: 'scroll',
-          boxSizing: 'border-box',
-          padding: '0',
+          maxHeight: "146px",
+          overflowY: "scroll",
+          boxSizing: "border-box",
+          padding: "0",
+        },
       },
     },
-  },
 
-  MuiMenu: {
-    styleOverrides: {
-      root: {
-      marginTop: '11px',
-    },
-    paper: {
-      boxShadow: 'none',
-      borderRadius: "12px",
-      border: 'none',
-      paddingTop: "12px",
-      paddingLeft: "12px",
-      paddingBottom: "12px",
-      paddingRight: "22px",
-      backgroundColor: "#404247",
-      maxWidth: '184px',
-    }
-  },
-},
-
-MuiMenuItem: {
-  styleOverrides: {
-    root: {
-      "&.Mui-selected": {
-        backgroundColor: 'transparent',
+    MuiMenu: {
+      styleOverrides: {
+        root: {
+          marginTop: "11px",
+        },
+        paper: {
+          boxShadow: "none",
+          borderRadius: "12px",
+          border: "none",
+          paddingTop: "12px",
+          paddingLeft: "12px",
+          paddingBottom: "12px",
+          paddingRight: "22px",
+          backgroundColor: "#404247",
+          maxWidth: "184px",
+        },
       },
-  },
-},
-},
+    },
+
+    MuiMenuItem: {
+      styleOverrides: {
+        root: {
+          "&.Mui-selected": {
+            backgroundColor: "transparent",
+          },
+        },
+      },
+    },
 
     MuiAccordion: {
       styleOverrides: {
