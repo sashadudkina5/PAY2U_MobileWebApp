@@ -28,7 +28,7 @@ export const getTotalCashback = (startDate?: string, endDate?: string) => async 
       return;
     }
 
-    const totalCashback = await fetchWithRefresh(`${BASE_URL}/analytics/cashback`, {
+    const totalCashback = await fetchWithRefresh(`${BASE_URL}/analytics/cashback/`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${accessToken}`,
