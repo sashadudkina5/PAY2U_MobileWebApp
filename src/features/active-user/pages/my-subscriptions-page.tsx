@@ -7,21 +7,18 @@ function MySubscriptionsPage() {
   return (
     <div>
       <div className={PageStyles.navWrapperMySubscriptions}>
-        <Navigation color="primary" pageName={"Мои подписки"} />
+        <Navigation color="primary" pageName={"Мои подписки"} path="/active/main"/>
         <div className={PageStyles.searchWrapper}>
-          search
-          <label htmlFor="gsearch"></label>
-          <input type="search" id="gsearch" name="gsearch"></input>
         </div>
       </div>
       <div className={PageStyles.ativeSubscriptionsWrapper}>
         <h1 className={PageStyles.mySubscriptionsTitle}>Активные</h1>
-      <SubscriptionList linkNext="*"/>
+      <SubscriptionList isActive={true}/>
       </div>
 
       <div className={PageStyles.suspendedSubscriptionsWrapper}>
       <h1 className={PageStyles.mySubscriptionsTitle}>Недействующие</h1>
-      <SubscriptionList linkNext="*"/>
+      <SubscriptionList isActive={false}/>
       </div>
 
     </div>

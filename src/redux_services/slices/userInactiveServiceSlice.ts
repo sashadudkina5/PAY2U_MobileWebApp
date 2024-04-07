@@ -42,6 +42,12 @@ const inactiveServiceInfoSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
+
+    clearInactiveServiceInfo(state) {
+      state.inactiveServiceInfo = initialState.inactiveServiceInfo;
+      state.isLoading = initialState.isLoading;
+      state.error = initialState.error;
+    },
   },
 });
 
@@ -49,6 +55,7 @@ export const {
   getInactiveServiceInfoRequest,
   getInactiveServiceInfoSuccess,
   getInactiveServiceInfoFailed,
+  clearInactiveServiceInfo
 } = inactiveServiceInfoSlice.actions;
 
 export default inactiveServiceInfoSlice.reducer;

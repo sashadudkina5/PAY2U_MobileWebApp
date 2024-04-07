@@ -27,7 +27,7 @@ export interface IUserInactiveServiceInfo {
   url: string;
 }
 
-export interface IServicePlanInfo {
+export interface IPlanInfo {
   id: string;
   name?: string;
   description: string;
@@ -37,6 +37,10 @@ export interface IServicePlansResponse {
   data: IServicePlanInfo[];
   previousLink: string | null;
   nextLink: string | null;
+}
+
+export interface IServicePlanInfo extends IPlanInfo {
+  trial_period?: IPlanCondition;
 }
 
 export interface IPlanCondition {
@@ -164,6 +168,7 @@ export type TAuthState = {
   isLoading: boolean;
   loginError: null | any;
   registerError: null | any;
+  logoutError: null | any;
 };
 
 export type TAddNewSubscriptionState = {

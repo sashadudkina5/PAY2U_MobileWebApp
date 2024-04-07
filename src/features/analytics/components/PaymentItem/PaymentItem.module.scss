@@ -7,10 +7,17 @@
     box-shadow: $borderShadow;
     padding-top: 12px;
     padding-bottom: 12px;
+    border-radius: 16px;
 }
 
 .historyItemLogoWrapper {
     min-width: 40px;
+    margin-right: 8px;
+
+    img {
+        max-width: 40px;
+        max-height: 40px;
+    }
 }
 
 .historyItemServiceTitle {

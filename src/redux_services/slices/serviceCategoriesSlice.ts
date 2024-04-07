@@ -42,6 +42,9 @@ const serviceCategoriesSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
+    clearServiceCategories(state) {
+      state.serviceCategories.data = initialState.serviceCategories.data;
+    },
   },
 });
 
@@ -49,6 +52,7 @@ export const {
   getServiceCategoriesRequest,
   getServiceCategoriesSuccess,
   getServiceCategoriesFailed,
+  clearServiceCategories
 } = serviceCategoriesSlice.actions;
 
 export default serviceCategoriesSlice.reducer;

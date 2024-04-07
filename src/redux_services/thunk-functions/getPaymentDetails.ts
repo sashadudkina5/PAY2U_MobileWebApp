@@ -17,10 +17,10 @@ import {
  * 
  * @example
  * // Dispatch function to get user's payment item and update the state in Redux
- * dispatch(getPaymentHistory('123));
+ * dispatch(getPaymentDetails('123'));
  */
 
-export const getPaymentHistory = (paymentItemID: string) => async (dispatch: AppDispatch) => {
+export const getPaymentDetails = (paymentItemID: string) => async (dispatch: AppDispatch) => {
   try {
     dispatch(getSelectedPaymentRequest());
     const accessToken = getCookie("accessToken");

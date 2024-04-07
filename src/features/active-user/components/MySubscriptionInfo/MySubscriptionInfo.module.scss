@@ -20,7 +20,11 @@
     grid-row: 1;
     width: 36px;
     height: 36px;
-    background-color: red;
+
+    img {
+      max-width: 36px;
+      max-height: 36px;
+    }
   }
 
   .warningIcon {

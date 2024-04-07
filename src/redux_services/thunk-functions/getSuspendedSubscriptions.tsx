@@ -1,4 +1,3 @@
-import { checkResponse } from "../../utils/api";
 import { BASE_URL } from "../../utils/api";
 import { AppDispatch } from "../store";
 import { getCookie, fetchWithRefresh } from "../../utils/api";
@@ -13,14 +12,14 @@ import {
  * If the request is successful, the fetched user's suspended subscriptions
  * are dispatched to the store using the `getSuspendedSubscriptionsSuccess` action.
  * 
- * @param {boolean} isActive - false if we request suspended subscriptions, otherwise active.
+ * @param {number} isActive - 0 if we request suspended subscriptions, otherwise active.
  *
  * @example
  * // Dispatch function to get user's suspended subscriptions and update the state in Redux
  * dispatch(getSuspendedSubscriptions('isActive'));
  */
 
-export const getSuspendedSubscriptions = (isActive:boolean) => async (dispatch: AppDispatch) => {
+export const getSuspendedSubscriptions = (isActive:number) => async (dispatch: AppDispatch) => {
   try {
     dispatch(getSuspendedSubscriptionsRequest());
     const accessToken = getCookie("accessToken");
@@ -30,17 +29,13 @@ export const getSuspendedSubscriptions = (isActive:boolean) => async (dispatch: 
       dispatch(getSuspendedSubscriptionsFailed("AccessToken is missing"));
       return;
     }
-//const isActive = 0; // This could be dynamic based on your application's state or props
-//const queryParams = new URLSearchParams({ is_active: isActive }).toString();
 
-    const response = await fetchWithRefresh(`${BASE_URL}/subscriptions/?is_active=${isActive}`, {
+    const suspendedSubscriptions = await fetchWithRefresh(`${BASE_URL}/subscriptions/?is_active=${isActive}`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
     });
-
-    const suspendedSubscriptions = await checkResponse(response);
     dispatch(getSuspendedSubscriptionsSuccess(suspendedSubscriptions));
   } catch (err) {
     if (err instanceof Error) {

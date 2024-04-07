@@ -21,6 +21,7 @@ import {
 
 export const addNewService = (tariffId: string, phoneNumber: string) => async (dispatch: AppDispatch) => {
   try {
+    console.log(JSON.stringify({ tariff: tariffId, phone_number: phoneNumber }))
     dispatch(addNewServiceRequest());
     const accessToken = getCookie("accessToken");
 
@@ -30,20 +31,19 @@ export const addNewService = (tariffId: string, phoneNumber: string) => async (d
       return;
     }
 
-    const response = await fetchWithRefresh(`${BASE_URL}/subscriptions`, {
+    const addNewServiceResponse = await fetchWithRefresh(`${BASE_URL}/subscriptions/`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json", 
       },
       body: JSON.stringify({ tariff: tariffId, phone_number: phoneNumber }),
     });
-
-    const addNewServiceResponse = await checkResponse(response);
   
     dispatch(addNewServiceSuccess(addNewServiceResponse));
 
 } catch (error) {
     const message = error instanceof Error ? error.message : 'An unknown error occurred';
-    dispatch(addNewServiceFailed(message));
+    dispatch(addNewServiceFailed("detail"));
   }
 };

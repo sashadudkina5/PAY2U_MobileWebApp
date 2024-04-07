@@ -39,6 +39,10 @@ const servicePlansSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
+
+    getClearServicePlans(state) {
+      state.servicePlans.data = initialState.servicePlans.data;
+    },
   },
 });
 
@@ -46,6 +50,7 @@ export const {
     getServicePlansRequest,
     getServicePlansSuccess,
     getServicePlansFailed,
+    getClearServicePlans
 } = servicePlansSlice.actions;
 
 export default servicePlansSlice.reducer;

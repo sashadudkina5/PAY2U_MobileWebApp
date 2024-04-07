@@ -1,0 +1,10 @@
+.logoutButton {
+    position: fixed;
+    bottom: 34px;
+    max-width: calc(540px - 32px);
+    margin: 0 auto;
+    box-sizing: border-box;
+    width: max-content;
+    left: 50%;
+    transform: translateX(-50%);
+  }

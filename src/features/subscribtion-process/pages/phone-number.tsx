@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext, createContext } from "react";
 import PageStyles from "../styles/global-styles.module.scss";
 import { ReactComponent as PhoneNumberIcon } from "../images/phone-number-icon.svg";
 import Info from "../components/Info/Info";
@@ -9,13 +9,15 @@ import PhoneInput from "../components/PhoneInput/PhoneInput";
 import { useNavigate } from "react-router-dom";
 import { TSubmitHandler } from "../../../utils/types";
 import { phoneNumberSchema } from "../../../utils/form-validations";
+import { usePhoneNumber } from "../../../context/PhoneNumberContext";
 
 function PhoneNumberSubscription() {
   const navigate = useNavigate();
+  const { phoneNumber, setPhoneNumber } = usePhoneNumber();
+  
 
   const [error, setError] = useState("");
 
-  const [phoneNumber, setPhoneNumber] = useState<string>("000 000-00-00");
   const [isFocused, setIsFocused] = useState<boolean>(false);
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -42,7 +44,7 @@ function PhoneNumberSubscription() {
 
   return (
     <div className={PageStyles.page_wrapper}>
-      <Navigation color="primary" pageName={"Номер телефона"} />
+      <Navigation color="primary" pageName={"Номер телефона"} path="/main"/>
       <div className={PageStyles.contentWrapper}>
         <Info
           icon={<PhoneNumberIcon />}

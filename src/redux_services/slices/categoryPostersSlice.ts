@@ -7,7 +7,8 @@ import {
 } from "../../utils/types";
 
 type TCategoryPostersData = {
-  data: ICategoryPoster[];
+  dataExclusive: ICategoryPoster[];
+  dataPopular: ICategoryPoster[];
 };
 
 type TCategoryPostersState = {
@@ -18,7 +19,8 @@ type TCategoryPostersState = {
 
 export const initialState: TCategoryPostersState = {
     categoryPosters: {
-    data: [],
+    dataExclusive: [],
+    dataPopular: [],
   },
   isLoading: false,
   error: null,
@@ -31,24 +33,37 @@ const categoryPostersSlice = createSlice({
     getCategoryPostersRequest(state) {
       state.isLoading = true;
     },
-    getCategoryPostersSuccess(
+    getExclusivePostersSuccess(
       state,
       action: PayloadAction<ICategoryPostersResponse>
     ) {
-      state.categoryPosters.data = action.payload.data;
+      state.categoryPosters.dataExclusive = action.payload.data;
+      state.isLoading = false;
+    },
+    getPopularPostersSuccess(
+      state,
+      action: PayloadAction<ICategoryPostersResponse>
+    ) {
+      state.categoryPosters.dataPopular = action.payload.data;
       state.isLoading = false;
     },
     getCategoryPostersFailed(state, action: PayloadAction<string>) {
       state.isLoading = false;
       state.error = action.payload;
     },
+    clearAllPosters(state) {
+      state.categoryPosters.dataPopular = [];
+      state.categoryPosters.dataExclusive = [];
+    },  
   },
 });
 
 export const {
     getCategoryPostersRequest,
-    getCategoryPostersSuccess,
+    getExclusivePostersSuccess,
+    getPopularPostersSuccess,
     getCategoryPostersFailed,
+    clearAllPosters
 } = categoryPostersSlice.actions;
 
 export default categoryPostersSlice.reducer;

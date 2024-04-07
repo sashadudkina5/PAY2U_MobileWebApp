@@ -1,4 +1,3 @@
-import { checkResponse } from "../../utils/api";
 import { BASE_URL } from "../../utils/api";
 import { AppDispatch } from "../store";
 import { getCookie, fetchWithRefresh } from "../../utils/api";
@@ -9,7 +8,7 @@ import {
 } from "../slices/futureExpensesSlice";
 
 /**
- * Thunk function for fetching future expenses in the curerent month and dispatching it them the store.
+ * Thunk function for fetching future expenses in the current month and dispatching it them the store.
  * If the request is successful, the fetched future expenses
  * are dispatched to the store using the `getFutureExpensesSuccess` action.
  *
@@ -29,14 +28,13 @@ export const getFutureExpenses= () => async (dispatch: AppDispatch) => {
       return;
     }
 
-    const response = await fetchWithRefresh(`${BASE_URL}/analytics/future-expenses`, {
+    const futureExpenses = await fetchWithRefresh(`${BASE_URL}/analytics/future-expenses`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
     });
 
-    const futureExpenses = await checkResponse(response);
     dispatch(getFutureExpensesSuccess(futureExpenses));
   } catch (err) {
     if (err instanceof Error) {

@@ -6,11 +6,17 @@ import variables from "../../../styles-utils/variables.scss";
 import { Link } from "react-router-dom";
 import { paymentData } from "../../../utils/billing-data";
 import Modal from "../../../global-components/Modal/Modal";
+import { usePhoneNumber } from "../../../context/PhoneNumberContext";
+import { useAppSelector } from "../../../utils/hooks";
+import { currentSubscription } from "../../../redux_services/selectors";
 
 function PaymentConfirm() {
+  const { phoneNumber } = usePhoneNumber();
   const paymentItem = paymentData[0];
 
   const [snackbarOpen, setSnackbarOpen] = useState(false);
+
+  const CurrentData = useAppSelector(currentSubscription);
 
   const formattedMessage = (
     <div>
@@ -51,25 +57,25 @@ function PaymentConfirm() {
 
   return (
     <div className={PageStyles.page_wrapper}>
-      <Navigation color="primary" pageName={"Оформление"} />
+      <Navigation color="primary" pageName={"Оформление"} path="/subscription"/>
       <div className={PageStyles.contentWrapper}>
         <div className={PageStyles.serviceInfoWrapper}>
           <div className={PageStyles.logoWrapper}>
-            <img src={"иконка логотипа"} alt={"название сервиса"} />
+            <img src={CurrentData.logo.logo} alt={CurrentData.name.title} />
           </div>
-          <h1 className={PageStyles.serviceName}>{"название сервиса"}</h1>
+          <h1 className={PageStyles.serviceName}>{CurrentData.name.title}</h1>
           <span className={PageStyles.planPriceWrapper}>
-            <p className={PageStyles.priceInfo}>{"1 ₽"}</p>
-            <p className={PageStyles.pricePeriod}>за месяц</p>
+            <p className={PageStyles.priceInfo}>{`${CurrentData.trialPrice} ₽`}</p>
+            <p className={PageStyles.pricePeriod}>за {CurrentData.trialCount} {CurrentData.trialPeriod.toLocaleLowerCase()}</p>
           </span>
           <p className={PageStyles.planInfo}>
-            первый месяц за 1 ₽, дальше — 399 ₽⁠/⁠месяц
+            сначала {CurrentData.trialCount} {CurrentData.trialPeriod.toLocaleLowerCase()} за {CurrentData.trialPrice} ₽, дальше — {CurrentData.price} ₽⁠/⁠{CurrentData.period}
           </p>
         </div>
         <div>
           <div className={PageStyles.phoneNumberWrapper}>
             <p className={PageStyles.inputTitle}>Номер телефона</p>
-            <p className={PageStyles.phoneNumber}>+ 7 (900) 999-99-99</p>
+            <p className={PageStyles.phoneNumber}>{ phoneNumber }</p>
           </div>
 
           <div className={PageStyles.billingWrapper}>
@@ -85,7 +91,7 @@ function PaymentConfirm() {
       </div>
       <Link to="/subscription/warning">
         <CustomButton
-          buttonName={"К оплате 1 ₽"}
+          buttonName={`К оплате ${CurrentData.trialPrice} ₽`}
           backgroundColor={variables.mainButtonColor}
           color={variables.mainTextFontColor}
         />

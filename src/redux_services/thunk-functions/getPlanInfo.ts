@@ -20,7 +20,7 @@ import {
  * dispatch(getPlanInfo('12345', '123'));
  */
 
-export const getPlanInfo = (serviceID: string, planID: string) => async (dispatch: AppDispatch) => {
+export const getPlanInfo = (serviceID: string | undefined, planID: string | undefined) => async (dispatch: AppDispatch) => {
   try {
     dispatch(getPlanInfoRequest());
     const accessToken = getCookie("accessToken");
@@ -38,8 +38,7 @@ export const getPlanInfo = (serviceID: string, planID: string) => async (dispatc
       },
     });
 
-    const planInfo = await checkResponse(response);
-    dispatch(getPlanInfoSuccess(planInfo));
+    dispatch(getPlanInfoSuccess({ planId: planID, info: response }));
   } catch (err) {
     if (err instanceof Error) {
       console.error("An unexpected error occurred:", err.message);

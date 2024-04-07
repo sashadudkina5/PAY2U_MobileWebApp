@@ -29,14 +29,13 @@ export const getPaymentHistory = () => async (dispatch: AppDispatch) => {
       return;
     }
 
-    const response = await fetchWithRefresh(`${BASE_URL}/payment-history/`, {
+    const paymentHistory = await fetchWithRefresh(`${BASE_URL}/payment-history/`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
     });
 
-    const paymentHistory = await checkResponse(response);
     dispatch(getPaymentHistorySuccess(paymentHistory));
   } catch (err) {
     if (err instanceof Error) {

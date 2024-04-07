@@ -12,7 +12,7 @@ function DetailsPage() {
   return (
     <div className={PageStyles.detailsPagewrapper}>
       <div className={PageStyles.navWrapper}>
-        <Navigation color="#FFFFFF" pageName={"Подробности"} />
+        <Navigation color="#FFFFFF" pageName={"Подробности"} path="/main"/>
       </div>
       <section className={PageStyles.detailsPluses}>
         <h1 className={PageStyles.detailsTitle}>Подпишись на любимые сервисы с выгодой</h1>

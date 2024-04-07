@@ -7,10 +7,19 @@ import CustomButton from "../Button/Button";
 import variables from "../../styles-utils/variables.scss";
 import { Link } from "react-router-dom";
 
+
+/**
+ * Renders a 404 error page component.
+ * It includes a navigation bar without a page name, an informational component
+ * displaying an error message using a custom error icon, and a button wrapped in a link
+ * that redirects the user to the main page.
+ *
+ * @returns {JSX.Element} The 404 error page component with navigation, error information, and a return home button.
+ */
 function Page404() {
   return (
     <div className={PageStyles.page_wrapper}>
-      <Navigation color="primary" pageName={""} />
+      <Navigation color="primary" pageName={""} path="/main"/>
       <div className={PageStyles.contentWrapper}>
         <Info
           icon={<ErrorIcon />}

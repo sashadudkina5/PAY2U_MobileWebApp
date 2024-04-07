@@ -1,4 +1,3 @@
-import { checkResponse } from "../../utils/api";
 import { BASE_URL } from "../../utils/api";
 import { AppDispatch } from "../store";
 import { getCookie, fetchWithRefresh } from "../../utils/api";
@@ -32,14 +31,13 @@ export const getCashbackPeriod = (startDate: string, endDate: string) => async (
       return;
     }
 
-    const response = await fetchWithRefresh(`${BASE_URL}/analytics/cashback/?start_date=${startDate}&end_date=${endDate}`, {
+    const periodCashback = await fetchWithRefresh(`${BASE_URL}/analytics/cashback/?start_date=${startDate}&end_date=${endDate}`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
     });
 
-    const periodCashback = await checkResponse(response);
     dispatch(getPeriodCashbackSuccess(periodCashback));
   } catch (err) {
     if (err instanceof Error) {

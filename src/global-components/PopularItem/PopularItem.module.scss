@@ -1,32 +1,42 @@
 @import "../../styles-utils/variables.scss";
 
 .popularItemWrapper {
-    width: 108px;
-    height: 108px;
+  width: 108px;
+  height: 108px;
 }
 
 .popularImageWrapper {
-    position: relative;
-    width: 108px;
-    height: 108px;
-    background-color: red;
-    border-radius: 12px;
+  position: relative;
+  box-shadow: $borderShadow;
+  width: 108px;
+  height: 108px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
 }
 
 .popularCashbackWrapper {
-    position: absolute;
-    top: 4px;
-    right: 4px;
-    padding: 4px 8px 4px 8px;
-    border-radius: 30px;
-    background-color: $mainTextFontColor;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  padding: 4px 8px 4px 8px;
+  border-radius: 30px;
+  background-color: $mainTextFontColor;
 }
 
 .popularCashbackValue {
-font-size: 13px;
-font-weight: 500;
-line-height: 18px;
-text-align: center;
-color: $mainBackgroundColor;
-margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: center;
+  color: $mainBackgroundColor;
+  margin: 0;
 }

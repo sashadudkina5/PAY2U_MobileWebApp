@@ -1,4 +1,3 @@
-import { checkResponse } from "../../utils/api";
 import { BASE_URL } from "../../utils/api";
 import { AppDispatch } from "../store";
 import { getCookie, fetchWithRefresh } from "../../utils/api";
@@ -20,7 +19,7 @@ import {
  * dispatch(getInactiveServiceInfo('12345'));
  */
 
-export const getInactiveServiceInfo = (inactiveServiceID: string) => async (dispatch: AppDispatch) => {
+export const getInactiveServiceInfo = (inactiveServiceID: string | undefined) => async (dispatch: AppDispatch) => {
   try {
     dispatch(getInactiveServiceInfoRequest());
     const accessToken = getCookie("accessToken");
@@ -38,8 +37,8 @@ export const getInactiveServiceInfo = (inactiveServiceID: string) => async (disp
       },
     });
 
-    const inactiveServiceInfo = await checkResponse(response);
-    dispatch(getInactiveServiceInfoSuccess(inactiveServiceInfo));
+
+    dispatch(getInactiveServiceInfoSuccess(response));
   } catch (err) {
     if (err instanceof Error) {
       console.error("An unexpected error occurred:", err.message);

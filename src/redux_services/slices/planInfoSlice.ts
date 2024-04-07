@@ -3,39 +3,16 @@ import { PayloadAction } from "@reduxjs/toolkit";
 
 import { IPlanInfo } from "../../utils/types";
 
-type TPlanInfoData = {
-    data: IPlanInfo;
-  };
+type PlansState = Record<string, IPlanInfo>;
 
-type ISelectedPlanInfoState = {
-  selectedPlanInfo: TPlanInfoData;
-  isLoading: boolean;
-  error: null | any;
-};
+  interface IPlanInfoState {
+    plans: PlansState;
+    isLoading: boolean;
+    error: string | null;
+  }
 
-export const initialState: ISelectedPlanInfoState = {
-  selectedPlanInfo: {
-    data: {
-        id: "",
-        name: "",
-        description: "",
-        condition: {
-            count: 0,
-            period:  "",
-            price: 0,
-        },
-        special_condition: {
-            count: 0,
-            period:  "",
-            price: 0,
-        },
-        trial_period: {
-            count: 0,
-            period:  "",
-            price: 0,
-        }
-    }
-  },
+const initialState: IPlanInfoState = {
+  plans: {},
   isLoading: false,
   error: null,
 };
@@ -47,17 +24,19 @@ const selectedPlanInfoSlice = createSlice({
     getPlanInfoRequest(state) {
       state.isLoading = true;
     },
-    getPlanInfoSuccess(
-      state,
-      action: PayloadAction<IPlanInfo>
-    ) {
-      state.selectedPlanInfo.data = action.payload;
+    getPlanInfoSuccess(state, action: PayloadAction<{ planId: string | undefined; info: IPlanInfo }>) {
+      const { planId, info } = action.payload;
+      state.plans[planId!] = info;
       state.isLoading = false;
     },
     getPlanInfoFailed(state, action: PayloadAction<string>) {
       state.isLoading = false;
       state.error = action.payload;
     },
+
+    clearAllPlanInfo(state) {
+      state.plans = {};
+    },    
   },
 });
 
@@ -65,6 +44,7 @@ export const {
     getPlanInfoRequest,
     getPlanInfoSuccess,
     getPlanInfoFailed,
+    clearAllPlanInfo
 } = selectedPlanInfoSlice.actions;
 
 export default selectedPlanInfoSlice.reducer;

@@ -1,22 +1,34 @@
 import React from "react";
 import SubscriptionListItemStyles from "./SubscriptionListItem.module.scss";
 
-function SubscriptionListItem() {
+interface ISubscriptionListItemProps {
+    logo: string,
+    serviceTitle: string,
+    trialEnd?: string,
+    period: string,
+    tariffTitle?: string,
+    price: number,
+    paymentDate: string,
+    isActive: boolean
+}
+
+function SubscriptionListItem({logo, serviceTitle, trialEnd, period, tariffTitle, price, paymentDate, isActive}: ISubscriptionListItemProps) {
   return (
     <div className={SubscriptionListItemStyles.subscriptionItemWrapper}>
         <div className={SubscriptionListItemStyles.subscriptionItemLogoWrapper}>
-            logo
+            <img src={logo} alt={serviceTitle}/>
         </div>
         <div className={SubscriptionListItemStyles.subscriptionInfoWrapper}>
-            <h2 className={SubscriptionListItemStyles.serviceTitle}>Яндекс Плюс</h2>
-            <p className={SubscriptionListItemStyles.serviceInfo}>12 месяцев подписки</p>
+            <h2 className={SubscriptionListItemStyles.serviceTitle}>{serviceTitle}</h2>
+            <p className={SubscriptionListItemStyles.serviceInfo}>{tariffTitle}</p>
         </div>
         <div className={SubscriptionListItemStyles.subscriptionTrialWrapper}>
-            <p className={SubscriptionListItemStyles.serviceTrial}>Срок действия истек: 14.05.2023</p>
+            {isActive ?         <p className={SubscriptionListItemStyles.serviceTrial}>Списание: {paymentDate}</p> : 
+                    <p className={SubscriptionListItemStyles.serviceTrial}>Срок действия истек: {paymentDate}</p>}
         </div>
         <div className={SubscriptionListItemStyles.subscriptionPriceWrapper}>
-            <p className={SubscriptionListItemStyles.subscriptionPrice}>459 ₽</p>
-            <p className={SubscriptionListItemStyles.subscriptionPeriod}>за год</p>
+            <p className={SubscriptionListItemStyles.subscriptionPrice}>{price} ₽</p>
+            <p className={SubscriptionListItemStyles.subscriptionPeriod}>за {period.toLowerCase()}</p>
         </div>
     </div>
   );

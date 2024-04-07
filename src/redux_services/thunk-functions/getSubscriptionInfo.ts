@@ -19,7 +19,7 @@ import {
  * dispatch(getSubscriptionInfo('12345'));
  */
 
-export const getSubscriptionInfo = (subscriptionID: string) => async (dispatch: AppDispatch) => {
+export const getSubscriptionInfo = (subscriptionID: string | undefined) => async (dispatch: AppDispatch) => {
   try {
     dispatch(getSubscriptionInfoRequest());
     const accessToken = getCookie("accessToken");
@@ -30,14 +30,13 @@ export const getSubscriptionInfo = (subscriptionID: string) => async (dispatch: 
       return;
     }
 
-    const response = await fetchWithRefresh(`${BASE_URL}/subscriptions/${subscriptionID}`, {
+    const subscriptionInfo = await fetchWithRefresh(`${BASE_URL}/subscriptions/${subscriptionID}`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
     });
 
-    const subscriptionInfo = await checkResponse(response);
     dispatch(getSubscriptionInfoSuccess(subscriptionInfo));
   } catch (err) {
     if (err instanceof Error) {

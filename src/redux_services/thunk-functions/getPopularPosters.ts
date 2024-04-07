@@ -4,7 +4,7 @@ import { AppDispatch } from "../store";
 import { getCookie, fetchWithRefresh } from "../../utils/api";
 import {
     getCategoryPostersRequest,
-    getCategoryPostersSuccess,
+    getPopularPostersSuccess,
     getCategoryPostersFailed,
 } from "../slices/categoryPostersSlice";
 
@@ -21,7 +21,7 @@ import {
  * dispatch(getCategoryPosters('12345', '123'));
  */
 
-export const getCategoryPosters = (serviceID: string, categoryID: string) => async (dispatch: AppDispatch) => {
+export const getPopularPosters = (serviceID: string | undefined, categoryID: string | undefined) => async (dispatch: AppDispatch) => {
   try {
     dispatch(getCategoryPostersRequest());
     const accessToken = getCookie("accessToken");
@@ -32,21 +32,18 @@ export const getCategoryPosters = (serviceID: string, categoryID: string) => asy
       return;
     }
 
-    const response = await fetchWithRefresh(`${BASE_URL}/services/${serviceID}/image-categories/${categoryID}/images`, {
+    const posters = await fetchWithRefresh(`${BASE_URL}/services/${serviceID}/image-categories/${categoryID}/images`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
     });
 
-    const posters = await checkResponse(response);
-    dispatch(getCategoryPostersSuccess(posters));
+    dispatch(getPopularPostersSuccess(posters));
   } catch (err) {
     if (err instanceof Error) {
-      console.error("An unexpected error occurred:", err.message);
       dispatch(getCategoryPostersFailed(err.message));
     } else {
-      console.error("An unexpected error occurred:", err);
       dispatch(getCategoryPostersFailed("An unknown error occurred"));
     }
   }

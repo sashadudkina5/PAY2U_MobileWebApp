@@ -16,11 +16,19 @@
   padding-top: 20px;
 }
 
+.page_wrapperCard{
+  padding-bottom: 34px;
+}
+
 .logoWrapper {
   width: 40px;
   height: 40px;
-  background-color: red;
   border-radius: 50%;
+
+  img {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 .serviceTitle {
@@ -186,7 +194,6 @@
 
 .catalogWrapper {
   @include paddingsSides;
-  padding: 24px 16px 34px 16px;
 }
 
 .detailsPagewrapper {
@@ -243,4 +250,45 @@ margin: 0;
 
 .catalogItem {
   text-decoration: none;
+}
+
+.historyButton {
+  padding: 16px 16px 16px 68px;
+  border-radius: 16px;
+  box-shadow: $borderShadow;
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-top: 24px;
+  text-align: left;
+  background-image: url('../images/historyIcon.svg');
+  background-position: left 16px top 16px;
+  background-repeat: no-repeat;
+}
+
+.historyButtonTitle {
+margin: 0;
+font-size: 15px;
+font-weight: 600;
+line-height: 22px;
+margin-bottom: 4px;
+}
+
+.historyButtonDescription {
+
+font-size: 13px;
+font-weight: 400;
+line-height: 18px;
+margin: 0;
+color: $additionalTextColor;
+}
+
+.forwardButtonError {
+  color: $suspendButtonText;
+  width: max-content;
+  background-color: $mainBackgroundColor;
+  box-shadow: $borderShadow;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  padding: 16px;
+  border-radius: 16px;
 }

@@ -6,6 +6,12 @@ interface IPopularItemProps {
   logo: string;
 }
 
+/**
+ * Renders a component for a popular item, displaying its logo and the cashback percentage offered.
+ * @param {number} props.cashback - The cashback percentage to display.
+ * @param {string} props.logo - The source URL for the item's logo image.
+ * @returns {JSX.Element} A styled component displaying a service's logo and its cashback offer.
+ */
 function PopularItem({cashback, logo}: IPopularItemProps) {
 
   return (

@@ -28,19 +28,27 @@ import {
     try {
       dispatch(getLoginRequest());
   
-      const response = await fetch(`${BASE_URL}/login`, {
+      const response = await fetch(`${BASE_URL}/login/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(loginData),
       });
+
+      if (!response.ok) {
+        const errorResponse = await response.json();
   
-      const loginResponse = await checkResponse(response);
-  
-      dispatch(getLoginSuccess());
-      setCookie("accessToken", loginResponse.access);
-      setCookie("refreshToken", loginResponse.refresh);
+        if (errorResponse.detail) {
+          dispatch(getLoginFailed(errorResponse.detail));
+        }
+      } else {
+        const loginResponse = await checkResponse(response);
+    
+        dispatch(getLoginSuccess());
+        setCookie("accessToken", loginResponse.access);
+        setCookie("refreshToken", loginResponse.refresh);
+      }
     } catch (error) {
         const message = error instanceof Error ? error.message : 'An unknown error occurred';
         dispatch(getLoginFailed(message));

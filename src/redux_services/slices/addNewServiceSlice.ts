@@ -30,6 +30,11 @@ const addNewServiceSlice = createSlice({
       state.addedSuccess = false;
       state.error = action.payload;
     },
+    clearNewServiceError(state) {
+      state.isLoading = false;
+      state.addedSuccess = false;
+      state.error = initialState.error;
+    },
   },
 });
 
@@ -37,6 +42,7 @@ export const {
     addNewServiceRequest,
     addNewServiceSuccess,
     addNewServiceFailed,
+    clearNewServiceError
 } = addNewServiceSlice.actions;
 
 export default addNewServiceSlice.reducer;

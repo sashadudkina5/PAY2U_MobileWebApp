@@ -1,4 +1,3 @@
-import { checkResponse } from "../../utils/api";
 import { BASE_URL } from "../../utils/api";
 import { AppDispatch } from "../store";
 import { getCookie, fetchWithRefresh } from "../../utils/api";
@@ -29,21 +28,18 @@ export const getUserInactiveServices = () => async (dispatch: AppDispatch) => {
       return;
     }
 
-    const response = await fetchWithRefresh(`${BASE_URL}/services/`, {
+    const notActivatedServices = await fetchWithRefresh(`${BASE_URL}/services/`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
     });
 
-    const notActivatedServices = await checkResponse(response);
     dispatch(getInactiveServicesSuccess(notActivatedServices));
   } catch (err) {
     if (err instanceof Error) {
-      console.error("An unexpected error occurred:", err.message);
       dispatch(getInactiveServicesFailed(err.message));
     } else {
-      console.error("An unexpected error occurred:", err);
       dispatch(getInactiveServicesFailed("An unknown error occurred"));
     }
   }

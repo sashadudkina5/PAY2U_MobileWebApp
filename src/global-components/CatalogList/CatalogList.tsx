@@ -1,75 +1,36 @@
-import React from "react";
-
+import React, {useEffect} from "react";
 import CatalogListStyles from "./CatalogList.module.scss";
-
 import { Link } from "react-router-dom";
-
 import CatalogItem from "../CatalogItem/CatalogItem";
+import { getUserInactiveServices } from "../../redux_services/thunk-functions/getUserInactiveServices";
+import { getCatalogList } from "../../redux_services/selectors";
+import { useAppSelector, useAppDispatch } from "../../utils/hooks";
+import { AppDispatch } from "../../redux_services/store";
 
-interface ICatalogListProps {
-    linkNext: string;
-}
-
-function CatalogList({linkNext}: ICatalogListProps) {
+/**
+ * Displays a list of catalog items as links.
+ * Each item in the list is a `CatalogItem` component, wrapped in a `Link` from `react-router-dom` to navigate
+ * to a specified route (`linkNext`) upon click.
+ *
+ * The component takes a prop, `linkNext`, which specifies the navigation route for each catalog item.
+ *
+ * @param {string} props.linkNext - The route to navigate to when a catalog item is clicked.
+ * @returns {JSX.Element} A list of linked catalog items for navigation within the application.
+ */
+function CatalogList() {
+  const catalogList = useAppSelector(getCatalogList);
   return (
-
-
-        <ul className={CatalogListStyles.catalogList}>
-          <Link
-            to={linkNext}
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
-            <li className={CatalogListStyles.catalogItem}>
-              {" "}
-              <CatalogItem />{" "}
-            </li>
-          </Link>
-          <Link
-            to={linkNext}
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
-            <li className={CatalogListStyles.catalogItem}>
-              {" "}
-              <CatalogItem />{" "}
-            </li>
-          </Link>
-          <Link
-            to={linkNext}
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
-            <li className={CatalogListStyles.catalogItem}>
-              {" "}
-              <CatalogItem />{" "}
-            </li>
-          </Link>
-          <Link
-            to={linkNext}
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
-            <li className={CatalogListStyles.catalogItem}>
-              {" "}
-              <CatalogItem />{" "}
-            </li>
-          </Link>
-          <Link
-            to={linkNext}
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
-            <li className={CatalogListStyles.catalogItem}>
-              {" "}
-              <CatalogItem />{" "}
-            </li>
-          </Link>
-          <Link
-            to={linkNext}
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
-            <li className={CatalogListStyles.catalogItem}>
-              {" "}
-              <CatalogItem />{" "}
-            </li>
-          </Link>
-        </ul>
+    <ul className={CatalogListStyles.catalogList}>
+      {catalogList.map((service) => {
+        return(
+          <Link to={`/main/card/${service.id}`} style={{ textDecoration: "none", color: "inherit" }} key={service.id}>
+          <li className={CatalogListStyles.catalogItem} key={service.id}>
+            <CatalogItem title={service.name} cashback={service.cashback} logo={service.logo}/>
+          </li>
+        </Link>
+        )
+      })}
+    </ul>
   );
 }
 

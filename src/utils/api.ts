@@ -1,4 +1,4 @@
-export const BASE_URL = "https://base/api";
+export const BASE_URL = "https://pay2you.sytes.net/api/v1";
 
 /**
  * Gets a specific cookie by name from the document's cookies.

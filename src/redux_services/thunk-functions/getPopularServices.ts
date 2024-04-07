@@ -1,4 +1,3 @@
-import { checkResponse } from "../../utils/api";
 import { BASE_URL } from "../../utils/api";
 import { AppDispatch } from "../store";
 import { getCookie, fetchWithRefresh } from "../../utils/api";
@@ -35,9 +34,8 @@ export const getPopularServices = () => async (dispatch: AppDispatch) => {
         Authorization: `Bearer ${accessToken}`,
       },
     });
-
-    const popularServices = await checkResponse(response);
-    dispatch(getPopularServicesSuccess(popularServices));
+    
+    dispatch(getPopularServicesSuccess(response));
   } catch (err) {
     if (err instanceof Error) {
       console.error("An unexpected error occurred:", err.message);

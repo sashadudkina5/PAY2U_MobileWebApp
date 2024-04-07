@@ -8,6 +8,7 @@ export const initialState: TAuthState = {
   isLoading: false,
   loginError: null,
   registerError: null,
+  logoutError: null,
 };
 
 const authSlice = createSlice({
@@ -25,11 +26,13 @@ const authSlice = createSlice({
     getLoginSuccess(state) {
       state.loggedIn = true;
       state.isLoading = false;
+      state.loginError = null;
     },
 
     getRegisterSuccess(state) {
       state.loggedIn = true;
       state.isLoading = false;
+      state.registerError = null;
     },
 
     getLoginFailed(state, action: PayloadAction<string>) {
@@ -43,10 +46,24 @@ const authSlice = createSlice({
       state.loggedIn = false;
       state.registerError = action.payload;
     },
+
+    getLogoutSuccess(state) {
+      state.loggedIn = false;
+      state.isLoading = false;
+    },
+
+    getLogoutFailed(state, action: PayloadAction<string>) {
+      state.isLoading = false;
+      state.loggedIn = true;
+      state.logoutError = action.payload;
+    },
+    getLogoutRequest(state) {
+      state.isLoading = true;
+    },
   },
 });
 
-export const { getLoginRequest, getLoginSuccess, getLoginFailed, getRegisterRequest, getRegisterSuccess, getRegisterFailed } =
+export const { getLoginRequest, getLoginSuccess, getLoginFailed, getRegisterRequest, getRegisterSuccess, getRegisterFailed, getLogoutSuccess, getLogoutFailed, getLogoutRequest } =
   authSlice.actions;
 
 export default authSlice.reducer;

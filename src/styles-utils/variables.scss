@@ -25,16 +25,17 @@ $planSelectedTextColor: #fcb664;
 $newUserSection: #d0b2fa;
 $cashbackBackgroundColor: #404247;
 $additionalLinkColor: #66c9d7;
-$selectorsBackground: #FFFFFF08;
+$selectorsBackground: #ffffff08;
 $linearBackground: linear-gradient(
   0deg,
-  rgba(255, 255, 255, 1) 20%,
-  rgba(43, 45, 51, 1) 20%
+  rgba(255, 255, 255, 1) 10%,
+  rgba(43, 45, 51, 1) 10%
 );
 $suspendButtonText: #ee505a;
 $suspendButtonBackgroundColor: #fdeeee;
-$progressBarRemain: #FFFFFF33;
-$progressBarDone: linear-gradient(to right, #00A5BC, #7DD27C);;
+$progressBarRemain:#FFFFFF33;
+;
+$progressBarDone: linear-gradient(to right, #00a5bc, #7dd27c);
 
 //for using variables in tsx files
 :export {
@@ -47,4 +48,6 @@ $progressBarDone: linear-gradient(to right, #00A5BC, #7DD27C);;
   suspendButtonText: $suspendButtonText;
   suspendButtonBackgroundColor: $suspendButtonBackgroundColor;
   priceIconColor: $priceIconColor;
+  planSelectedBackground: $planSelectedBackground;
+  planSelectedTextColor: $planSelectedTextColor;
 }

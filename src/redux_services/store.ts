@@ -17,7 +17,8 @@ import reactivateServiceReducer from "./slices/reactivateServiceSlice"
 import categoryExpensesReducer from "./slices/categoryExpensesSlice";
 import cashbackReducer from "./slices/cashbackSlice";
 import futureExpensesReducer from "./slices/futureExpensesSlice";
-import authInfoReducer from "./slices/authSlice"
+import authInfoReducer from "./slices/authSlice";
+import sunscriptionSliceReducer from "./slices/subscriptionProcessSlice"
 
 
 export const store = configureStore({
@@ -40,7 +41,8 @@ export const store = configureStore({
     categoryExpenses: categoryExpensesReducer,
     cashback: cashbackReducer,
     futureExpenses: futureExpensesReducer,
-    authInfo: authInfoReducer
+    authInfo: authInfoReducer,
+    sunscriptionSlice: sunscriptionSliceReducer
   },
 });
 

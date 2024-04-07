@@ -1,45 +1,79 @@
-import React from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import React, { useEffect, useMemo } from "react";
 import PaymentsHistoryListStyles from "./PaymentsHistoryList.module.scss";
-import PaymentItem from "../PaymentItem/PaymentItem"
+import PaymentItem from "../PaymentItem/PaymentItem";
+import { getPaymentHistory } from "../../../../redux_services/thunk-functions/getPaymentHistory";
+import { getAllPayments } from "../../../../redux_services/selectors";
+import { AppDispatch } from "../../../../redux_services/store";
+import { useAppDispatch, useAppSelector } from "../../../../utils/hooks";
+import { IPaymentItem } from "../../../../utils/types";
+import { format, getMonth } from "date-fns";
+import { ru } from "date-fns/locale";
+import { months } from "../../../../utils/monthsStrings";
 
 interface iPaymentsHistoryListProps {
   title: string;
+  expenses: boolean;
+  cashback: boolean
 }
 
-const PaymentsHistoryList = ({ title }: iPaymentsHistoryListProps) => {
+type PaymentsByMonth = {
+  [month: string]: IPaymentItem[];
+};
 
-  // const payments = [
-  //   { service: 'Spotify', plan: 'Индивидуальная подписка', amount: 250, date: '2024-02-27', cashback: true },
-  //   // ... other payments
-  // ];
+const PaymentsHistoryList = ({ title, expenses, cashback }: iPaymentsHistoryListProps) => {
+  const dispatch: AppDispatch = useAppDispatch();
 
-  // // Group payments by month
-  // const paymentsByMonth = payments.reduce((acc, payment) => {
-  //   const month = new Date(payment.date).toLocaleString('default', { month: 'long' });
-  //   if (!acc[month]) {
-  //     acc[month] = [];
-  //   }
-  //   acc[month].push(payment);
-  //   return acc;
-  // }, {});
+  useEffect(() => {
+    dispatch(getPaymentHistory());
+  }, [dispatch]);
+
+  const payments = useAppSelector(getAllPayments);
+
+  const sortedPayments = useMemo(() => {
+    return payments
+      .slice()
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  }, [payments]);
+
+  const paymentsByMonth = useMemo(() => {
+    return sortedPayments.reduce<PaymentsByMonth>((acc, payment) => {
+      const monthIndex = getMonth(new Date(payment.date));
+      const year = format(new Date(payment.date), "yyyy", { locale: ru });
+      const month = months[monthIndex];
+      const monthYear = `${month} ${year}`;
+
+      if (!acc[monthYear]) {
+        acc[monthYear] = [];
+      }
+      acc[monthYear].push(payment);
+      return acc;
+    }, {});
+  }, [sortedPayments, months]);
 
   return (
     <div className={PaymentsHistoryListStyles.historyListWrapper}>
-    {/* //   <h1 className={PaymentsHistoryListStyles.historyListTitle}>{title}</h1>
-    //   <input type="search" />
-    //   {Object.entries(paymentsByMonth).map(([month, payments]) => (
-    //     <div key={month}>
-    //       <h2 className={PaymentsHistoryListStyles.historyListMonth}>{month.toUpperCase()}</h2>
-    //       <ul className={PaymentsHistoryListStyles.historyList}>
-    //         {payments.map((payment, index) => (
-    //           <li key={index}>
-    //             <PaymentItem cashback={payment.cashback} />
-    //           </li>
-    //         ))}
-    //       </ul>
-    //     </div>
-    //   ))} */}
+      <h1 className={PaymentsHistoryListStyles.historyListTitle}>{title}</h1>
+      {Object.keys(paymentsByMonth).map((month) => (
+        <div key={month}>
+          <h2 className={PaymentsHistoryListStyles.historyListMonth}>
+            {month.toUpperCase()}
+          </h2>
+          <ul className={PaymentsHistoryListStyles.historyList}>
+            {paymentsByMonth[month].map((payment) => (
+              <li key={payment.id}>
+                <PaymentItem
+                  cashback={cashback ? true : false}
+                  logo={payment.logo}
+                  serviceTitle={payment.service_name}
+                  tariffTitle={payment.tariff_name}
+                  paymentDate={payment.date}
+                  cashbackSum={cashback ? payment.cashback : payment.price}
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </div>
   );
 };

@@ -15,6 +15,11 @@
 .subscriptionItemLogoWrapper {
   grid-column: 1 / 2;
   grid-row: 1;
+
+  img {
+    max-width: 40px;
+    max-height: 40px;
+  }
 }
 
 .subscriptionInfoWrapper {

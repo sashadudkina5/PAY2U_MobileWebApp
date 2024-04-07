@@ -33,14 +33,13 @@ export const getCategoryExpenses = (startDate: string, endDate: string) => async
       return;
     }
 
-    const response = await fetchWithRefresh(`${BASE_URL}/analytics/expenses-by-category/?start_date=${startDate}&end_date=${endDate}`, {
+    const expenses = await fetchWithRefresh(`${BASE_URL}/analytics/expenses-by-category/?start_date=${startDate}&end_date=${endDate}`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
     });
 
-    const expenses = await checkResponse(response);
     dispatch(getCategoryExpensesSuccess(expenses));
   } catch (err) {
     if (err instanceof Error) {

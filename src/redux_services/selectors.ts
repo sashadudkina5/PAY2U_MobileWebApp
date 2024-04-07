@@ -6,29 +6,35 @@ export const getActiceSubscriptionsList = (state: RootState) =>
 
 export const getAuthStatus = (state: RootState) => state.authInfo.loggedIn;
 
+export const getRegisterError = (state: RootState) => state.authInfo.registerError;
+
+export const getLoginError = (state: RootState) => state.authInfo.loginError;
+
+export const getCategories = (state: RootState) =>
+  state.serviceCategories.serviceCategories.data;
+
 export const getCashbackTotal = (state: RootState) =>
   state.cashback.cashbackTotal;
 
-export const getCashbackPeriod = (state: RootState) =>
+export const getCashbackMonthly = (state: RootState) =>
   state.cashback.cashbackPeriod;
 
-export const getCategoryExpenses = (state: RootState) =>
+export const getCategoryExpensesSum = (state: RootState) =>
   state.categoryExpenses.categoryExpenses;
 
-export const getTotalExpenses = (state: RootState) =>
+export const getAllExpenses = (state: RootState) =>
   state.categoryExpenses.totalExpenses;
 
-export const getFutureExpenses = (state: RootState) =>
+export const getFutureExpensesSum = (state: RootState) =>
   state.futureExpenses.futureExpenses;
 
 export const getSelectedPaymentData = (state: RootState) =>
   state.selectedPayment.selectedPaymentItem;
 
-export const getPaymentHistory = (state: RootState) =>
-  state.paymentHistory.paymentHistory;
+export const getAllPayments = (state: RootState) =>
+  state.paymentHistory.paymentHistory.data;
 
-export const getSelectedPlanInfo = (state: RootState) =>
-  state.selectedPlanInfo.selectedPlanInfo;
+  export const getSelectedPlanInfo = (state:RootState, planId: string) => state.selectedPlanInfo.plans[planId];
 
 export const getPopularServicesList = (state: RootState) =>
   state.popularServices.popularServices.data;
@@ -48,8 +54,21 @@ export const getSelectedSubscriptionInfo = (state: RootState) =>
 export const getSuspendedSubscriptionsList = (state: RootState) =>
   state.suspendedSubscriptions.suspendedSubscriptions.data;
 
-// export const getInactiveSubscriptionsList = (state: RootState) =>
-//   state.inactiveServiceInfo.inactiveServiceInfo;
-
 export const getInactiveServiceDetails = (state: RootState) =>
   state.inactiveServiceInfo.inactiveServiceInfo;
+
+  export const getCatalogList = (state: RootState) =>
+  state.inactiveServices.userInactiveServices.data
+
+
+  export const getPopularImages = (state: RootState) =>
+  state.categoryPosters.categoryPosters.dataPopular
+
+  export const getExclusiveImages = (state: RootState) =>
+  state.categoryPosters.categoryPosters.dataExclusive
+
+  export const currentSubscription = (state: RootState) =>
+  state.sunscriptionSlice
+
+  export const addNewServiceError = (state: RootState) =>
+  state.addNewServiceSlice.addedSuccess

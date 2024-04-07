@@ -28,6 +28,7 @@ function SuspendedSubscription() {
             pageName={""}
             backgroundColor="#FFFFFF"
             borderRadius="60px"
+            path="/active/main/subscriptions"
           />
         </div>
       </section>

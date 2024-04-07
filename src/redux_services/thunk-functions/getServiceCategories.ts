@@ -20,7 +20,7 @@ import {
  * dispatch(getServiceCategories('12345'));
  */
 
-export const getServiceCategories = (serviceID: string) => async (dispatch: AppDispatch) => {
+export const getServiceCategories = (serviceID: string | undefined) => async (dispatch: AppDispatch) => {
   try {
     dispatch(getServiceCategoriesRequest());
     const accessToken = getCookie("accessToken");
@@ -31,14 +31,13 @@ export const getServiceCategories = (serviceID: string) => async (dispatch: AppD
       return;
     }
 
-    const response = await fetchWithRefresh(`${BASE_URL}/services/${serviceID}/image-categories/`, {
+    const serviceCategories = await fetchWithRefresh(`${BASE_URL}/services/${serviceID}/image-categories/`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
     });
 
-    const serviceCategories = await checkResponse(response);
     dispatch(getServiceCategoriesSuccess(serviceCategories));
   } catch (err) {
     if (err instanceof Error) {

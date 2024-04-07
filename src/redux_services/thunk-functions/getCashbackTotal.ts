@@ -1,4 +1,3 @@
-import { checkResponse } from "../../utils/api";
 import { BASE_URL } from "../../utils/api";
 import { AppDispatch } from "../store";
 import { getCookie, fetchWithRefresh } from "../../utils/api";
@@ -18,7 +17,7 @@ import {
  * dispatch(getTotalCashback());
  */
 
-export const getTotalCashback = (startDate: string, endDate: string) => async (dispatch: AppDispatch) => {
+export const getTotalCashback = (startDate?: string, endDate?: string) => async (dispatch: AppDispatch) => {
   try {
     dispatch(getTotalCashbackRequest());
     const accessToken = getCookie("accessToken");
@@ -29,14 +28,13 @@ export const getTotalCashback = (startDate: string, endDate: string) => async (d
       return;
     }
 
-    const response = await fetchWithRefresh(`${BASE_URL}/analytics/cashback`, {
+    const totalCashback = await fetchWithRefresh(`${BASE_URL}/analytics/cashback`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
     });
 
-    const totalCashback = await checkResponse(response);
     dispatch(getTotalCashbackSuccess(totalCashback));
   } catch (err) {
     if (err instanceof Error) {

@@ -3,8 +3,7 @@ import {
   } from "../slices/authSlice";
   import { BASE_URL } from "../../utils/api";
   import { AppDispatch } from "../store";
-  import { checkResponse } from "../../utils/api";
-  
+
   interface IRegisterData {
     password: string;
     email: string;
@@ -32,13 +31,25 @@ import {
         body: JSON.stringify(registerData),
       });
   
-      const registerResponse = await checkResponse(response);
+      if (!response.ok) {
+        const errorResponse = await response.json();
+        let errorMessages = [];
   
-      dispatch(getRegisterSuccess());
-
-    } catch (error) {
-        const message = error instanceof Error ? error.message : 'An unknown error occurred';
-        dispatch(getRegisterFailed(message));
+        if (errorResponse.password) {
+          errorMessages.push(...errorResponse.password);
+        }
+  
+        if (errorResponse.email) {
+          errorMessages.push(...errorResponse.email);
+        }
+  
+        dispatch(getRegisterFailed(errorMessages.join(' ')));
+      } else {
+        dispatch(getRegisterSuccess());
       }
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'An unknown network error occurred';
+      dispatch(getRegisterFailed(errorMessage));
+    }
   };
   
