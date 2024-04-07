@@ -42,6 +42,12 @@ or you can register with your credentials
 ## Key Points for Media Queries
 - The application is designed exclusively for mobile screens with responsive design considering 375px to 540px breakpoints.
 
+## Archive file without node modules
+[project-archive.zip](https://github.com/sashadudkina5/PAY2U_MobileWebApp/files/14899156/project-archive.zip)
+
+## Archive file with screenshots of the app
+[Screenshots.zip](https://github.com/sashadudkina5/PAY2U_MobileWebApp/files/14899177/Screenshots.zip)
+
 ## Build and Run Instructions
 
 ### Running Locally
