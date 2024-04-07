@@ -17,7 +17,6 @@ import { deleteCookie } from "../../utils/api";
       deleteCookie("accessToken");
       deleteCookie("refreshToken");
       dispatch(getLogoutSuccess());
-      console.log("logged out")
     } catch (error) {
         const message = error instanceof Error ? error.message : 'An unknown error occurred';
         dispatch(getLogoutFailed(message));

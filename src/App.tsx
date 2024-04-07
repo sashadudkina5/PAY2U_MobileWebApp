@@ -61,9 +61,12 @@ function App() {
       dispatch(getTotalExpenses(firstDayLastYear, lastDayThisYear));
     }
   }, [dispatch, isAuthenticated]);
+
+  console.log(isAuthenticated)
+  console.log(accessToken)
   
   useEffect(() => {
-    if (!isSubscriptionsLoading && !isExpensesLoading && !isLoginLoading) {
+    if (!isSubscriptionsLoading && !isExpensesLoading && !isLoginLoading && isAuthenticated) {
       const path = location.pathname;
       const onMainPage = path === '/main';
       const onActiveMainPage = path === '/active/main';
@@ -84,7 +87,8 @@ function App() {
     totalExpenses,
     isSubscriptionsLoading,
     isExpensesLoading,
-    isLoginLoading
+    isLoginLoading,
+    isAuthenticated
   ]);
 
 

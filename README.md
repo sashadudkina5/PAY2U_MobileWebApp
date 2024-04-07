@@ -1,4 +1,5 @@
 # PAY2U Mobile Web Application
+MVP of mobile web application to manage sunscriptions
 
 ## Team Information
 Our team consisted of professionals working together to bring PAY2U to life:
@@ -11,7 +12,18 @@ Our team consisted of professionals working together to bring PAY2U to life:
 - 1 Product Manager
 
 ## Live Demo
-Check out the live demo [here](http://example.com).
+Check out the live demo [here](https://sashadudkina5.github.io/PAY2U_MobileWebApp/#/active/main).
+
+Access data:
+test3@gmail.com
+capital12345
+to see the active user flow
+
+pay2you@yandex.ru
+runproject
+to see a new user flow
+
+or you can register with your credentials
 
 ## Technology Stack
 - ReactJS
