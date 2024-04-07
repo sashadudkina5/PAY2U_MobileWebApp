@@ -62,8 +62,6 @@ function App() {
     }
   }, [dispatch, isAuthenticated]);
 
-  console.log(isAuthenticated)
-  console.log(accessToken)
   
   useEffect(() => {
     if (!isSubscriptionsLoading && !isExpensesLoading && !isLoginLoading && isAuthenticated) {
