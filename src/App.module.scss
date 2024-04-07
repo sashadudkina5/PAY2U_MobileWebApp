@@ -6,5 +6,6 @@
   background-color: $mainBackgroundColor;
   margin: 0 auto;
   color: $mainTextFontColor;
-  min-height: 100vh;
+  height: calc(100vh - env(safe-area-inset-bottom));
+  box-sizing: border-box;
 }

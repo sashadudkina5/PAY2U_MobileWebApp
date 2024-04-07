@@ -42,7 +42,6 @@ function App() {
     }
   }, [dispatch, accessToken]);
 
-
   const isAuthenticated = useAppSelector(state => state.authInfo.loggedIn);
 
   useEffect(() => {
