@@ -36,11 +36,6 @@ function NewUserMainPage() {
     return displayHistoty;
   }
 
-  useEffect(() => {
-    if (activeSubscriptions.length) {
-      navigate("/active/main", { replace: true });
-    }
-  }, [dispatch, activeSubscriptions, totalExpenses, navigate]);
 
   return (
     <div className={PageStyles.mainPage_wrapper}>

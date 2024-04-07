@@ -1,6 +1,6 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useLayoutEffect} from 'react';
 import AppStyles from "./App.module.scss";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import PhoneNumberSubscription from './features/subscribtion-process/pages/phone-number';
 import PaymentConfirm from "./features/subscribtion-process/pages/payment-confirm";
 import SubscriptionWarning from "./features/subscribtion-process/pages/warning";
@@ -29,9 +29,11 @@ import { firstDayLastYear, lastDayThisYear } from './utils/dates';
 import { getActiveSubscriptions } from './redux_services/thunk-functions/getActiveSubscriptions';
 import { getLoginSuccess } from './redux_services/slices/authSlice';
 import { getCookie } from './utils/api';
+import { getActiceSubscriptionsList, getAllExpenses } from './redux_services/selectors';
 
 
 function App() {
+  const navigate = useNavigate();
   const dispatch: AppDispatch = useAppDispatch();
   const accessToken = getCookie("accessToken");
 
@@ -43,6 +45,8 @@ function App() {
   }, [dispatch, accessToken]);
 
   const isAuthenticated = useAppSelector(state => state.authInfo.loggedIn);
+  const activeSubscriptions = useAppSelector(getActiceSubscriptionsList);
+  const totalExpenses = useAppSelector(getAllExpenses);
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -52,6 +56,18 @@ function App() {
       dispatch(getTotalExpenses(firstDayLastYear, lastDayThisYear));
     }
   }, [dispatch, isAuthenticated]);
+
+  useLayoutEffect(() => {
+    if (isAuthenticated) {
+      if (activeSubscriptions.length > 0) {
+        navigate("/active/main");
+      } else if (totalExpenses > 0) {
+        navigate("/main");
+      } else {
+        navigate("/main");
+      }
+    }
+  }, [isAuthenticated, activeSubscriptions, totalExpenses, navigate]);
 
 
   return (

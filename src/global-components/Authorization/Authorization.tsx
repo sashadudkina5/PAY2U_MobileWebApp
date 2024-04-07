@@ -56,17 +56,6 @@ function Authorization() {
       dispatch(getTotalExpenses(firstDayLastYear, lastDayThisYear));
     }
   }, [authStatus, dispatch]);
-
-  
-  useEffect(() => {
-    if (authStatus && typeof totalExpenses === 'number') {
-      if (totalExpenses > 0) {
-        navigate("/active/main", { replace: true });
-      } else {
-        navigate("/main", { replace: true });
-      }
-    }
-  }, [authStatus, totalExpenses, navigate]);
   
 
   const userData = {
@@ -124,12 +113,6 @@ function Authorization() {
 
     return errorMessage;
   }
-
-  useEffect(() => {
-    if (authStatus) {
-      navigate("/main", { replace: true });
-    }
-  }, [authStatus]);
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

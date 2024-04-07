@@ -44,13 +44,6 @@ function ActiveUserMainPage() {
     getActiceSubscriptionsList
   );
 
-  useEffect(() => {
-    if (!activeSubscriptions.length && totalExpenses===0) {
-      navigate("/main", { replace: true });
-    }
-  }, [dispatch, activeSubscriptions, totalExpenses, navigate]);
-
-
   return (
     <div>
       <section className={PageStyles.cashbackActiveServiceWrapper}>
