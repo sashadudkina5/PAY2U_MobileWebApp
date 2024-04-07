@@ -46,6 +46,22 @@ function ActiveUserMainPage() {
     getActiceSubscriptionsList
   );
 
+
+  const isAuthenticated = useAppSelector(state => state.authInfo.loggedIn);
+
+  useEffect(() => {
+    
+    if (isAuthenticated) {
+      if (totalExpenses > 0) {
+        navigate("/main");
+      } 
+    } else {
+      navigate("/auth");
+    }
+}, [
+  navigate,
+  dispatch
+]);
   
   return (
     <div>

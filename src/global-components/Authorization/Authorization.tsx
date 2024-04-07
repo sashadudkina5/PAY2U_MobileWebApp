@@ -14,6 +14,7 @@ import {
   getRegisterError,
   getLoginError,
   getAuthStatus,
+  getActiceSubscriptionsList,
 } from "../../redux_services/selectors";
 import { useAppSelector, useAppDispatch } from "../../utils/hooks";
 import { useNavigate } from "react-router-dom";
@@ -48,14 +49,28 @@ function Authorization() {
   const [passwordShown, setPasswordShown] = useState(false);
   const [error, setError] = useState("");
 
-  const authStatus: boolean = useAppSelector(getAuthStatus);
+  const isAuthenticated = useAppSelector(state => state.authInfo.loggedIn);
+  const activeSubscriptions = useAppSelector(getActiceSubscriptionsList);
   const totalExpenses = useAppSelector(getAllExpenses);
 
+
   useEffect(() => {
-    if (authStatus) {
-      dispatch(getTotalExpenses(firstDayLastYear, lastDayThisYear));
+    if (isAuthenticated) {
+      if (activeSubscriptions.length > 0) {
+        navigate("/active/main");
+      } else if (totalExpenses > 0) {
+        navigate("/main");
+      } 
     }
-  }, [authStatus, dispatch]);
+}, [
+  navigate,
+  isAuthenticated,
+  dispatch,
+  totalExpenses,
+  activeSubscriptions.length
+]);
+
+console.log(isAuthenticated) //true
   
 
   const userData = {
@@ -123,6 +138,7 @@ function Authorization() {
         emailSchema.parse(email);
         setError("");
         dispatch(loginThunk(userData));
+        navigate("/main");
       } catch (validationError) {
         setError("Введите корректный Email");
       }

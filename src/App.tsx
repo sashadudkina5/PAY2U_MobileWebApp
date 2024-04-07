@@ -47,11 +47,6 @@ function App() {
   }, [dispatch, accessToken]);
 
   const isAuthenticated = useAppSelector(state => state.authInfo.loggedIn);
-  const activeSubscriptions = useAppSelector(getActiceSubscriptionsList);
-  const totalExpenses = useAppSelector(getAllExpenses);
-  const isSubscriptionsLoading = useAppSelector(state => state.activeSubscriptions.isLoading);
-  const isExpensesLoading = useAppSelector(state => state.categoryExpenses.isLoading);
-  const isLoginLoading = useAppSelector(state => state.authInfo.isLoading);
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -62,32 +57,7 @@ function App() {
     }
   }, [dispatch, isAuthenticated]);
 
-  
-  useEffect(() => {
-    if (!isSubscriptionsLoading && !isExpensesLoading && !isLoginLoading && isAuthenticated) {
-      const path = location.pathname;
-      const onMainPage = path === '/main';
-      const onActiveMainPage = path === '/active/main';
-      const onAuthPage = path === '/auth';
-
-      if (onMainPage || onActiveMainPage || onAuthPage) {
-        if (activeSubscriptions.length > 0 && !onActiveMainPage) {
-          navigate("/active/main");
-        } else if (totalExpenses > 0 && !onMainPage) {
-          navigate("/main");
-        } 
-      }
-    }
-  }, [
-    navigate,
-    location.pathname,
-    activeSubscriptions.length,
-    totalExpenses,
-    isSubscriptionsLoading,
-    isExpensesLoading,
-    isLoginLoading,
-    isAuthenticated
-  ]);
+  console.log(isAuthenticated)
 
 
 
