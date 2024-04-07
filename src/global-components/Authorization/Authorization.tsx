@@ -69,8 +69,6 @@ function Authorization() {
   totalExpenses,
   activeSubscriptions.length
 ]);
-
-console.log(isAuthenticated) //true
   
 
   const userData = {
