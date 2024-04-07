@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/PAY2U_MobileWebApp/static/css/main.39f5f40c.css",
-    "main.js": "/PAY2U_MobileWebApp/static/js/main.a264d7d9.js",
+    "main.js": "/PAY2U_MobileWebApp/static/js/main.3edd6b2c.js",
     "static/js/453.68693753.chunk.js": "/PAY2U_MobileWebApp/static/js/453.68693753.chunk.js",
     "static/media/Logo_Plus.svg": "/PAY2U_MobileWebApp/static/media/Logo_Plus.ce559c181bb5ed182697b8b9821434c1.svg",
     "static/media/SFProDisplay-Semibold.woff": "/PAY2U_MobileWebApp/static/media/SFProDisplay-Semibold.340c3a1a6dddb0b99476.woff",
@@ -41,11 +41,11 @@
     "static/media/small-toggle.svg": "/PAY2U_MobileWebApp/static/media/small-toggle.3bcd4ae440850ba6945d9a69b06522d2.svg",
     "static/media/Logo_wink.svg": "/PAY2U_MobileWebApp/static/media/Logo_wink.aa0bed9e2c1439392d846e8523ac36fa.svg",
     "main.39f5f40c.css.map": "/PAY2U_MobileWebApp/static/css/main.39f5f40c.css.map",
-    "main.a264d7d9.js.map": "/PAY2U_MobileWebApp/static/js/main.a264d7d9.js.map",
+    "main.3edd6b2c.js.map": "/PAY2U_MobileWebApp/static/js/main.3edd6b2c.js.map",
     "453.68693753.chunk.js.map": "/PAY2U_MobileWebApp/static/js/453.68693753.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.39f5f40c.css",
-    "static/js/main.a264d7d9.js"
+    "static/js/main.3edd6b2c.js"
   ]
 }

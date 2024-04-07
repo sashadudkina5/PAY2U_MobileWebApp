@@ -149,6 +149,7 @@ function ActiveUserMainPage() {
                         trialEnd={formatDate(
                           subscription.trial_period_end_date
                         )}
+                        tariffName={subscription.service_name}
                       />
                     </li>
                   );
