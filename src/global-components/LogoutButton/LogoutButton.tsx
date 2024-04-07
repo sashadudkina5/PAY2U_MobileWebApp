@@ -5,6 +5,9 @@ import variables from "../../styles-utils/variables.scss";
 import { logoutThunk } from "../../redux_services/thunk-functions/onLogOut";
 import { useAppDispatch } from "../../utils/hooks";
 import { useNavigate } from "react-router-dom"; 
+import { clearActiveSubscriptions } from "../../redux_services/slices/activeSubscriptionsSlice";
+import { AppDispatch } from "../../redux_services/store";
+import { clearTotalExpenses } from "../../redux_services/slices/categoryExpensesSlice";
 
 
 /**
@@ -14,11 +17,13 @@ import { useNavigate } from "react-router-dom";
  * @returns {JSX.Element} A styled button that, when clicked, triggers the logout process.
  */
 function LogoutButton() {
-  const dispatch = useAppDispatch();
+  const dispatch: AppDispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const handleLogout = () => {
     dispatch(logoutThunk());
+    dispatch(clearActiveSubscriptions())
+    dispatch(clearTotalExpenses())
     navigate('/auth');
   };
 

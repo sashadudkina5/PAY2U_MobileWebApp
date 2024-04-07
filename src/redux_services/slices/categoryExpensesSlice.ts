@@ -52,6 +52,10 @@ const categoryExpensesSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
+
+    clearTotalExpenses(state) {
+      state.totalExpenses = initialState.totalExpenses;
+    },
   },
 });
 
@@ -59,6 +63,7 @@ export const {
   getCategoryExpensesRequest,
   getCategoryExpensesSuccess,
   getCategoryExpensesFailed,
+  clearTotalExpenses,
 
   getTotlaExpensesRequest,
   getTotalExpensesSuccess,

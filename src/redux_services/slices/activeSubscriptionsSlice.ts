@@ -42,6 +42,9 @@ const activeSubscriptionsSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
+    clearActiveSubscriptions(state) {
+      state.activeSubscriptions.data = initialState.activeSubscriptions.data;
+    },
   },
 });
 
@@ -49,6 +52,7 @@ export const {
     getActiveSubscriptionsRequest,
     getActiveSubscriptionsSuccess,
     getActiveSubscriptionsFailed,
+    clearActiveSubscriptions
 } = activeSubscriptionsSlice.actions;
 
 export default activeSubscriptionsSlice.reducer;

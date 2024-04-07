@@ -1,4 +1,4 @@
-import React, {useEffect, useLayoutEffect} from 'react';
+import React, {useEffect, useLayoutEffect, useState} from 'react';
 import AppStyles from "./App.module.scss";
 import { HashRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import PhoneNumberSubscription from './features/subscribtion-process/pages/phone-number';
@@ -47,6 +47,11 @@ function App() {
   const isAuthenticated = useAppSelector(state => state.authInfo.loggedIn);
   const activeSubscriptions = useAppSelector(getActiceSubscriptionsList);
   const totalExpenses = useAppSelector(getAllExpenses);
+  const isSubscriptionsLoading = useAppSelector(state => state.activeSubscriptions.isLoading);
+  const isExpensesLoading = useAppSelector(state => state.categoryExpenses.isLoading);
+  const isLoginLoading = useAppSelector(state => state.authInfo.isLoading);
+
+  const [initialLoadingComplete, setInitialLoadingComplete] = useState(false);
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -58,16 +63,27 @@ function App() {
   }, [dispatch, isAuthenticated]);
 
   useLayoutEffect(() => {
-    if (isAuthenticated) {
+    if (isAuthenticated && !isSubscriptionsLoading && !isExpensesLoading && !isLoginLoading) {
+      setInitialLoadingComplete(true);
       if (activeSubscriptions.length > 0) {
-        navigate("/active/main");
-      } else if (totalExpenses > 0) {
-        navigate("/main");
-      } else {
-        navigate("/main");
+          navigate("/active/main");
+        } else if (totalExpenses > 0) {
+          navigate("/main");
+        } else {
+          navigate("/main");
+        }
       }
     }
-  }, [isAuthenticated, activeSubscriptions, totalExpenses, navigate]);
+  , [
+    isAuthenticated,
+    activeSubscriptions,
+    totalExpenses,
+    isSubscriptionsLoading,
+    isExpensesLoading,
+    isLoginLoading,
+    navigate,
+  ]);
+
 
 
   return (
