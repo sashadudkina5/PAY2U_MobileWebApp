@@ -57,8 +57,6 @@ function App() {
     }
   }, [dispatch, isAuthenticated]);
 
-  console.log(isAuthenticated)
-
 
 
   return (
