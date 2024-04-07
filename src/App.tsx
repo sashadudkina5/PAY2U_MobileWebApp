@@ -1,4 +1,5 @@
 import React, {useEffect, useLayoutEffect, useState} from 'react';
+import { useLocation } from 'react-router-dom';
 import AppStyles from "./App.module.scss";
 import { HashRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import PhoneNumberSubscription from './features/subscribtion-process/pages/phone-number';
@@ -33,6 +34,7 @@ import { getActiceSubscriptionsList, getAllExpenses } from './redux_services/sel
 
 
 function App() {
+  const location = useLocation();
   const navigate = useNavigate();
   const dispatch: AppDispatch = useAppDispatch();
   const accessToken = getCookie("accessToken");
@@ -51,8 +53,6 @@ function App() {
   const isExpensesLoading = useAppSelector(state => state.categoryExpenses.isLoading);
   const isLoginLoading = useAppSelector(state => state.authInfo.isLoading);
 
-  const [initialLoadingComplete, setInitialLoadingComplete] = useState(false);
-
   useEffect(() => {
     if (isAuthenticated) {
       dispatch(getPopularServices());
@@ -61,27 +61,30 @@ function App() {
       dispatch(getTotalExpenses(firstDayLastYear, lastDayThisYear));
     }
   }, [dispatch, isAuthenticated]);
+  
+  useEffect(() => {
+    if (!isSubscriptionsLoading && !isExpensesLoading && !isLoginLoading) {
+      const path = location.pathname;
+      const onMainPage = path === '/main';
+      const onActiveMainPage = path === '/active/main';
+      const onAuthPage = path === '/auth';
 
-  useLayoutEffect(() => {
-    if (isAuthenticated && !isSubscriptionsLoading && !isExpensesLoading && !isLoginLoading) {
-      setInitialLoadingComplete(true);
-      if (activeSubscriptions.length > 0) {
+      if (onMainPage || onActiveMainPage || onAuthPage) {
+        if (activeSubscriptions.length > 0 && !onActiveMainPage) {
           navigate("/active/main");
-        } else if (totalExpenses > 0) {
+        } else if (totalExpenses > 0 && !onMainPage) {
           navigate("/main");
-        } else {
-          navigate("/main");
-        }
+        } 
       }
     }
-  , [
-    isAuthenticated,
-    activeSubscriptions,
+  }, [
+    navigate,
+    location.pathname,
+    activeSubscriptions.length,
     totalExpenses,
     isSubscriptionsLoading,
     isExpensesLoading,
-    isLoginLoading,
-    navigate,
+    isLoginLoading
   ]);
 
 

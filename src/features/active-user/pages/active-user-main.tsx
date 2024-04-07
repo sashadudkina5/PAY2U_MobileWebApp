@@ -24,6 +24,7 @@ import {getCurrentMonth} from "../../../utils/monthsStrings";
 import {firstDayFormatted, lastDayFormatted} from "../../../utils/dates";
 import { formatDate } from "../../../utils/dates";
 import { useNavigate } from "react-router-dom";
+import { getPopularServices } from "../../../redux_services/thunk-functions/getPopularServices";
 
 
 function ActiveUserMainPage() {
@@ -35,6 +36,7 @@ function ActiveUserMainPage() {
     dispatch(getCashbackPeriod(firstDayFormatted, lastDayFormatted));
     dispatch(getTotalExpenses(firstDayFormatted, lastDayFormatted));
     dispatch(getActiveSubscriptions(1));
+    dispatch(getPopularServices());
   }, [dispatch]);
 
   const totalCashback = useAppSelector(getCashbackTotal);
@@ -44,6 +46,7 @@ function ActiveUserMainPage() {
     getActiceSubscriptionsList
   );
 
+  
   return (
     <div>
       <section className={PageStyles.cashbackActiveServiceWrapper}>
