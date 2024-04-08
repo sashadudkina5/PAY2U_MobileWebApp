@@ -20,12 +20,11 @@ import {
 import { getTotalExpenses } from "../../../redux_services/thunk-functions/getTotalExpenses";
 import { getActiveSubscriptions } from "../../../redux_services/thunk-functions/getActiveSubscriptions";
 import { IActiveSubscriptionItem } from "../../../utils/types";
-import {getCurrentMonth} from "../../../utils/monthsStrings";
-import {firstDayFormatted, lastDayFormatted} from "../../../utils/dates";
+import { getCurrentMonth } from "../../../utils/monthsStrings";
+import { firstDayFormatted, lastDayFormatted } from "../../../utils/dates";
 import { formatDate } from "../../../utils/dates";
 import { useNavigate } from "react-router-dom";
 import { getPopularServices } from "../../../redux_services/thunk-functions/getPopularServices";
-
 
 function ActiveUserMainPage() {
   const navigate = useNavigate();
@@ -46,23 +45,18 @@ function ActiveUserMainPage() {
     getActiceSubscriptionsList
   );
 
-
-  const isAuthenticated = useAppSelector(state => state.authInfo.loggedIn);
+  const isAuthenticated = useAppSelector((state) => state.authInfo.loggedIn);
 
   useEffect(() => {
-    
     if (isAuthenticated) {
       if (totalExpenses > 0) {
         navigate("/main");
-      } 
+      }
     } else {
       navigate("/auth");
     }
-}, [
-  navigate,
-  dispatch
-]);
-  
+  }, [navigate, dispatch]);
+
   return (
     <div>
       <section className={PageStyles.cashbackActiveServiceWrapper}>
@@ -101,22 +95,36 @@ function ActiveUserMainPage() {
             </div>
           </Link>
 
-          <div className={PageStyles.gridItem + " " + PageStyles.monthCashback}>
-            <p className={PageStyles.cashBackText}>Кешбэк в этом месяце</p>
-            {monthlyCashback ? (
-              <p className={PageStyles.cashbackAmount}>+ {monthlyCashback} ₽</p>
-            ) : (
-              <p className={PageStyles.cashbackAmount}>0 ₽</p>
-            )}
-          </div>
-          <div className={PageStyles.gridItem + " " + PageStyles.monthExpenses}>
-            <p className={PageStyles.cashBackText}>Расходы в этом месяце</p>
-            {totalExpenses ? (
-              <p className={PageStyles.cashbackAmount}>- {totalExpenses} ₽</p>
-            ) : (
-              <p className={PageStyles.cashbackAmount}>{totalExpenses} ₽</p>
-            )}
-          </div>
+          <Link
+            to="/analytics/cashback"
+            style={{ textDecoration: "none", color: "inherit" }}
+            className={PageStyles.gridItem + " " + PageStyles.monthCashback}
+          >
+            <div>
+              <p className={PageStyles.cashBackText}>Кешбэк в этом месяце</p>
+              {monthlyCashback ? (
+                <p className={PageStyles.cashbackAmount}>
+                  + {monthlyCashback} ₽
+                </p>
+              ) : (
+                <p className={PageStyles.cashbackAmount}>0 ₽</p>
+              )}
+            </div>
+          </Link>
+          <Link
+            to="/analytics/expenses"
+            style={{ textDecoration: "none", color: "inherit" }}
+            className={PageStyles.gridItem + " " + PageStyles.monthExpenses}
+          >
+            <div>
+              <p className={PageStyles.cashBackText}>Расходы в этом месяце</p>
+              {totalExpenses ? (
+                <p className={PageStyles.cashbackAmount}>- {totalExpenses} ₽</p>
+              ) : (
+                <p className={PageStyles.cashbackAmount}>{totalExpenses} ₽</p>
+              )}
+            </div>
+          </Link>
         </div>
 
         <div className={PageStyles.myServicesWrapper}>
