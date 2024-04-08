@@ -70,6 +70,8 @@ function NewUserMainPage() {
                   buttonName={"Узнать подробнее"}
                   backgroundColor={variables.mainButtonColor}
                   color={variables.mainTextFontColor}
+                  paddingTop={"9px"}
+                  paddingBottom={"9px"}
                 />
               </Link>
             </div>

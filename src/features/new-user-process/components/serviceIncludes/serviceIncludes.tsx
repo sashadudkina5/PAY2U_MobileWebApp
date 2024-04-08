@@ -1,6 +1,9 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import ServiceIncludesStyles from "./serviceIncludes.module.scss";
-import {getPopularImages, getExclusiveImages} from "../../../../redux_services/selectors";
+import {
+  getPopularImages,
+  getExclusiveImages,
+} from "../../../../redux_services/selectors";
 import { useAppSelector } from "../../../../utils/hooks";
 
 interface ServiceIncludesProps {
@@ -8,30 +11,28 @@ interface ServiceIncludesProps {
 }
 
 function ServiceIncludes({ includesDescription }: ServiceIncludesProps) {
+  const popular = useAppSelector(getPopularImages);
+  const exclusive = useAppSelector(getExclusiveImages);
 
-const popular = useAppSelector(getPopularImages)
-const exclusive = useAppSelector(getExclusiveImages)
+  const [formattedDescription, setFormattedDescription] = useState("");
 
-const [formattedDescription, setFormattedDescription] = useState('');
+  useEffect(() => {
+    if (includesDescription) {
+      const formatted = formatDescription(includesDescription);
+      setFormattedDescription(formatted);
+    }
+  }, [includesDescription]);
 
-useEffect(() => {
-  if (includesDescription) {
-    const formatted = formatDescription(includesDescription);
-    setFormattedDescription(formatted);
-  }
-}, [includesDescription]);
-
-
-function formatDescription(text: string) {
+  function formatDescription(text: string) {
     const paragraphs = text.split(/\. +/);
-  
-    return paragraphs.join('.<br><br>');
+
+    return paragraphs.join(".<br><br>");
   }
 
-  const [isExpanded, setIsExpanded] = useState(false); // State to track expansion
+  const [isExpanded, setIsExpanded] = useState(false);
 
   function toggleDescription() {
-    setIsExpanded(!isExpanded); // Update the state to expand/collapse description
+    setIsExpanded(!isExpanded);
   }
 
   return (
@@ -40,27 +41,36 @@ function formatDescription(text: string) {
       <div>
         <h3 className={ServiceIncludesStyles.typeIncludesTitle}>Эксклюзивы</h3>
         <ul className={ServiceIncludesStyles.includesList}>
-
-          {exclusive ? exclusive.map((poster) => {
-            return(
-              <li className={ServiceIncludesStyles.includesItem} key={poster.id}>
-                <img alt={poster.image} src={poster.image}/>
-              </li>
-            )    
-          }) : null}
+          {exclusive
+            ? exclusive.map((poster) => {
+                return (
+                  <li
+                    className={ServiceIncludesStyles.includesItem}
+                    key={poster.id}
+                  >
+                    <img alt={poster.image} src={poster.image} />
+                  </li>
+                );
+              })
+            : null}
         </ul>
       </div>
 
       <div>
         <h3 className={ServiceIncludesStyles.typeIncludesTitle}>Популярное</h3>
         <ul className={ServiceIncludesStyles.includesList}>
-        {popular ? popular.map((poster) => {
-            return(
-              <li className={ServiceIncludesStyles.includesItem} key={poster.id}>
-                <img alt={poster.image} src={poster.image}/>
-              </li>
-            )    
-          }) : null}
+          {popular
+            ? popular.map((poster) => {
+                return (
+                  <li
+                    className={ServiceIncludesStyles.includesItem}
+                    key={poster.id}
+                  >
+                    <img alt={poster.image} src={poster.image} />
+                  </li>
+                );
+              })
+            : null}
         </ul>
       </div>
 
@@ -68,11 +78,17 @@ function formatDescription(text: string) {
         <h3 className={ServiceIncludesStyles.typeIncludesTitle}>Описание</h3>
 
         <div
-          className={`${ServiceIncludesStyles.serviceInfo} ${isExpanded ? ServiceIncludesStyles.expanded : ''}`}
+          className={`${ServiceIncludesStyles.serviceInfo} ${
+            isExpanded ? ServiceIncludesStyles.expanded : ""
+          }`}
           dangerouslySetInnerHTML={{ __html: formattedDescription }}
         />
-        <button type="button" className={ServiceIncludesStyles.showMoreButton} onClick={toggleDescription}>
-          {isExpanded ? null : 'Развернуть полное описание'}
+        <button
+          type="button"
+          className={ServiceIncludesStyles.showMoreButton}
+          onClick={toggleDescription}
+        >
+          {isExpanded ? null : "Развернуть полное описание"}
         </button>
       </div>
     </section>

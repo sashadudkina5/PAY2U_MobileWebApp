@@ -109,12 +109,9 @@ function ServicePage() {
           <img alt={`Логотип ${serviceInfo.name}`} src={serviceInfo.logo} />
         </div>
         <div className={PageStyles.namePriceInfoWrapper}>
-          <p>
             <h1 className={PageStyles.serviceTitle}>{serviceInfo.full_name}</h1>
             <p
-  className={PageStyles.serviceBrief}
-/> {serviceInfo.short_description}
-          </p>
+  className={PageStyles.serviceBrief}> {serviceInfo.short_description} </p>
           <ul className={PageStyles.pricesWrapper}>
             <li className={`${PageStyles.pricesItem} ${PageStyles.cashback}`}>
               <span className={PageStyles.cashbackText}>

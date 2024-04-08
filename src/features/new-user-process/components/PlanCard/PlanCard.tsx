@@ -78,17 +78,30 @@ function PlanCard({
 
   const [snackbarOpen, setSnackbarOpen] = useState(false);
 
+  const [formattedDescription, setFormattedDescription] = useState("");
+
+  useEffect(() => {
+    if (planInfo?.description) {
+      const formatted = formatDescription(planInfo?.description);
+      setFormattedDescription(formatted);
+    }
+  }, [planInfo?.description]);
+
+  function formatDescription(text: string) {
+    const paragraphs = text.split(/\. +/);
+
+    return paragraphs.join(".<br><br>");
+  }
+
   const formattedMessage = (
     <div className={PlanCardStyles.modalWrapper}>
       <h5 className={PlanCardStyles.modalTitle}>Что входит в подписку?</h5>
       <p className={PlanCardStyles.planTitle}>{planTitle}</p>
-      <ul className={PlanCardStyles.includesList}>
-        <li>
-          <p>
-            {planInfo?.description}
-          </p>
-        </li>
-      </ul>
+      <div className={PlanCardStyles.includesList}>
+        <div className={PlanCardStyles.modalContent}
+          dangerouslySetInnerHTML={{ __html: formattedDescription }}
+        />
+      </div>
       <CustomButton
         buttonName={"Понятно"}
         backgroundColor={variables.mainBackgroundColor}

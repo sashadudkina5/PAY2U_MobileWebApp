@@ -18,15 +18,12 @@ function Pagination({ pages }: PaginationProps) {
   const paginationRef = React.useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Restore scroll position from sessionStorage after page load
     const savedScrollPosition = sessionStorage.getItem(
       "paginationScrollPosition"
     );
     if (savedScrollPosition && paginationRef.current) {
       paginationRef.current.scrollLeft = Number(savedScrollPosition);
     }
-
-    // Save scroll position to sessionStorage before page unload
     const saveScrollPosition = () => {
       if (paginationRef.current) {
         sessionStorage.setItem(
@@ -36,17 +33,14 @@ function Pagination({ pages }: PaginationProps) {
       }
     };
 
-    // Add the event listener when the component mounts
     window.addEventListener("beforeunload", saveScrollPosition);
 
-    // Clean up the event listener when the component unmounts
     return () => {
       window.removeEventListener("beforeunload", saveScrollPosition);
     };
-  }, []); // The empty array ensures this effect only runs on mount and unmount
+  }, []); 
 
   const handleItemClick = (path: string) => {
-    // Save current scroll position before navigating
     if (paginationRef.current) {
       sessionStorage.setItem(
         "paginationScrollPosition",

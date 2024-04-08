@@ -8,8 +8,7 @@ import { AppDispatch } from "../../../redux_services/store";
 import { useAppDispatch, useAppSelector } from "../../../utils/hooks";
 import { getCashbackPeriod } from "../../../redux_services/thunk-functions/getCashbackPeriod";
 import {
-  getCashbackMonthly,
-  getAllExpenses,
+  getCashbackMonthly
 } from "../../../redux_services/selectors";
 import { getCashbackTotal } from "../../../redux_services/selectors";
 import { getTotalCashback } from "../../../redux_services/thunk-functions/getCashbackTotal";

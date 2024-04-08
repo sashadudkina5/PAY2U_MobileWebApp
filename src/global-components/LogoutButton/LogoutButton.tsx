@@ -34,6 +34,8 @@ function LogoutButton() {
         backgroundColor={variables.mainTextFontColor}
         color={variables.mainBackgroundColor}
         onClick={handleLogout}
+        paddingTop={"9px"}
+        paddingBottom={"9px"}
       />
     </div>
   );
