@@ -148,17 +148,22 @@ function ActiveUserMainPage() {
                 (subscription: any | IActiveSubscriptionItem) => {
                   return (
                     <li key={subscription.id}>
-                      <MySubscriptionInfo
-                        logo={subscription.logo}
-                        price={subscription.price}
-                        period={subscription.period.toLowerCase()}
-                        title={subscription.tariff_name}
-                        paymentDate={formatDate(subscription.payment_date)}
-                        trialEnd={formatDate(
-                          subscription.trial_period_end_date
-                        )}
-                        tariffName={subscription.service_name}
-                      />
+                      <Link
+                        to={`/active/main/subscriptions/activated/${subscription.id}`}
+                        style={{ textDecoration: "none", color: "inherit" }}
+                      >
+                        <MySubscriptionInfo
+                          logo={subscription.logo}
+                          price={subscription.price}
+                          period={subscription.period.toLowerCase()}
+                          title={subscription.tariff_name}
+                          paymentDate={formatDate(subscription.payment_date)}
+                          trialEnd={formatDate(
+                            subscription.trial_period_end_date
+                          )}
+                          tariffName={subscription.service_name}
+                        />
+                      </Link>
                     </li>
                   );
                 }

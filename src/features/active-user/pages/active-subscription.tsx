@@ -136,7 +136,7 @@ function ActiveSubscription() {
             pageName={""}
             backgroundColor="#FFFFFF"
             borderRadius="60px"
-            path="/active/main/subscriptions"
+            path="/main/"
           />
         </div>
       </section>

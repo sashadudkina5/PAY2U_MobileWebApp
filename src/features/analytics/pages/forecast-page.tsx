@@ -22,11 +22,9 @@ const ForecastPage = () => {
 
   const futureExpensesSum = useAppSelector(getFutureExpensesSum)
 
-
   dispatch(getTotalExpenses(firstDayFormatted, lastDayFormatted));
   const totalExpenses = useAppSelector(getAllExpenses);
-
-
+  console.log(futureExpensesSum)
 
   return (
     <div className={PageStyles.analyticsPageWrapper}>
@@ -39,7 +37,7 @@ const ForecastPage = () => {
           <p className={PageStyles.forecastSum}>- {futureExpensesSum} ₽</p>
           <p className={PageStyles.forecastSumPeriod}>ещё спишется в марте</p>
         </div>
-        <ProgressBar completed={totalExpenses} total={futureExpensesSum} />
+        <ProgressBar completed={totalExpenses} total={futureExpensesSum + totalExpenses} />
 
         <div className={PageStyles.forecastInfo}>
             <div className={PageStyles.forecastExpendses}>

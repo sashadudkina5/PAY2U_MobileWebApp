@@ -38,7 +38,7 @@ function Navigation({ color, pageName, backgroundColor, borderRadius, path }: Na
   };
 
   const handleBackButtonClick = () => {
-    navigate(path); 
+    navigate(-1); 
   };
 
 

@@ -34,8 +34,6 @@ import { getActiceSubscriptionsList, getAllExpenses } from './redux_services/sel
 
 
 function App() {
-  const location = useLocation();
-  const navigate = useNavigate();
   const dispatch: AppDispatch = useAppDispatch();
   const accessToken = getCookie("accessToken");
 
