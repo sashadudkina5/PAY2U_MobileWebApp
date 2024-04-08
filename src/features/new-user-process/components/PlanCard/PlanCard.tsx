@@ -93,12 +93,14 @@ function PlanCard({
     return paragraphs.join(".<br><br>");
   }
 
+  console.log(planInfo?.description)
+
   const formattedMessage = (
     <div className={PlanCardStyles.modalWrapper}>
       <h5 className={PlanCardStyles.modalTitle}>Что входит в подписку?</h5>
       <p className={PlanCardStyles.planTitle}>{planTitle}</p>
       <div className={PlanCardStyles.includesList}>
-        <div className={PlanCardStyles.modalContent}
+        <div className={PlanCardStyles.modalContentTextTariff}
           dangerouslySetInnerHTML={{ __html: formattedDescription }}
         />
       </div>

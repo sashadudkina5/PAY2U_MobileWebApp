@@ -10,6 +10,14 @@ const theme = createTheme({
       },
     },
 
+    MuiSnackbarContent: {
+      styleOverrides: {
+        message: {
+          width: "100%",
+        },
+      },
+    },
+
     MuiSvgIcon: {
       styleOverrides: {
         root: {
