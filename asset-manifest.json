@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/PAY2U_MobileWebApp/static/css/main.de369554.css",
-    "main.js": "/PAY2U_MobileWebApp/static/js/main.864ddd59.js",
+    "main.js": "/PAY2U_MobileWebApp/static/js/main.b3bf07d5.js",
     "static/css/242.d77b05c2.chunk.css": "/PAY2U_MobileWebApp/static/css/242.d77b05c2.chunk.css",
     "static/js/242.d396e71e.chunk.js": "/PAY2U_MobileWebApp/static/js/242.d396e71e.chunk.js",
     "static/css/899.8e0cdd21.chunk.css": "/PAY2U_MobileWebApp/static/css/899.8e0cdd21.chunk.css",
@@ -48,7 +48,7 @@
     "static/media/small-toggle.svg": "/PAY2U_MobileWebApp/static/media/small-toggle.3bcd4ae440850ba6945d9a69b06522d2.svg",
     "static/media/Logo_wink.svg": "/PAY2U_MobileWebApp/static/media/Logo_wink.aa0bed9e2c1439392d846e8523ac36fa.svg",
     "main.de369554.css.map": "/PAY2U_MobileWebApp/static/css/main.de369554.css.map",
-    "main.864ddd59.js.map": "/PAY2U_MobileWebApp/static/js/main.864ddd59.js.map",
+    "main.b3bf07d5.js.map": "/PAY2U_MobileWebApp/static/js/main.b3bf07d5.js.map",
     "242.d77b05c2.chunk.css.map": "/PAY2U_MobileWebApp/static/css/242.d77b05c2.chunk.css.map",
     "242.d396e71e.chunk.js.map": "/PAY2U_MobileWebApp/static/js/242.d396e71e.chunk.js.map",
     "899.8e0cdd21.chunk.css.map": "/PAY2U_MobileWebApp/static/css/899.8e0cdd21.chunk.css.map",
@@ -60,6 +60,6 @@
   },
   "entrypoints": [
     "static/css/main.de369554.css",
-    "static/js/main.864ddd59.js"
+    "static/js/main.b3bf07d5.js"
   ]
 }
