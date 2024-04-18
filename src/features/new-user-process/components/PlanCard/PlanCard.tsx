@@ -11,6 +11,7 @@ import { useAppDispatch, useAppSelector } from "../../../../utils/hooks";
 import { AppDispatch } from "../../../../redux_services/store";
 import { IPlanCondition} from "../../../../utils/types";
 import { getSubscription } from "../../../../redux_services/slices/subscriptionProcessSlice"; 
+import Loading from "../../../../global-components/Loading/Loading";
 
 interface IPlanCardProps {
   planTitle?: string;
@@ -114,7 +115,7 @@ function PlanCard({
   );
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   return (

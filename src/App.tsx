@@ -1,15 +1,11 @@
-import React, {useEffect} from 'react';
-import { useLocation } from 'react-router-dom';
+import React, {useEffect, Suspense, lazy} from 'react';
 import AppStyles from "./App.module.scss";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import PhoneNumberSubscription from './features/subscribtion-process/pages/phone-number';
 import PaymentConfirm from "./features/subscribtion-process/pages/payment-confirm";
 import SubscriptionWarning from "./features/subscribtion-process/pages/warning";
 import SubscriptionSuccess from "./features/subscribtion-process/pages/success";
-import ServicePage from "./features/new-user-process/pages/service-card";
 import DetailsPage from "./features/new-user-process/pages/details";
-import MySubscriptionsPage from "./features/active-user/pages/my-subscriptions-page";
-import ActiveSubscription from "./features/active-user/pages/active-subscription";
 import SuspendedSubscription from "./features/active-user/pages/suspended-supscription";
 import Authorization from "./global-components/Authorization/Authorization";
 import CashbackPage from "./features/analytics/pages/cashback-page";
@@ -28,7 +24,7 @@ import { firstDayLastYear, lastDayThisYear } from './utils/dates';
 import { getActiveSubscriptions } from './redux_services/thunk-functions/getActiveSubscriptions';
 import { getLoginSuccess } from './redux_services/slices/authSlice';
 import { getCookie } from './utils/api';
-import MainPage from './global-components/MainPage/MainPage';
+import Loading from './global-components/Loading/Loading';
 
 
 function App() {
@@ -53,12 +49,17 @@ function App() {
     }
   }, [isAuthenticated]);
 
-  console.log(accessToken)
+
+  const ServicePage = lazy(() => import('./features/new-user-process/pages/service-card'));
+  const MainPage = lazy(() => import('./global-components/MainPage/MainPage'));
+  const MySubscriptionsPage = lazy(() => import('./features/active-user/pages/my-subscriptions-page'));
+  const ActiveSubscription = lazy(() => import('./features/active-user/pages/active-subscription'));
 
 
 
   return (
     <div className={AppStyles.page_wrapper}>
+      <Suspense fallback={<Loading />}>
         <Routes>
           <Route path="/auth" element={<Authorization />} />
           <Route path="/subscription" element={<ProtectedRoute element={<PhoneNumberSubscription />} />} />
@@ -78,6 +79,7 @@ function App() {
           <Route path="*" element={<Page404 />} />
           <Route path="/" element={<Page404 />} />
         </Routes>
+        </Suspense>
     </div>
   );
 }

@@ -92,7 +92,7 @@ function SubscriptionSuccess() {
             borderColor={variables.buttonBorderColor}
           />
         </Link>
-        <Link to="/active/main">
+        <Link to="/main">
           <CustomButton
             buttonName={"В главное меню"}
             backgroundColor={variables.mainButtonColor}

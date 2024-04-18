@@ -7,7 +7,7 @@ function MySubscriptionsPage() {
   return (
     <div>
       <div className={PageStyles.navWrapperMySubscriptions}>
-        <Navigation color="primary" pageName={"Мои подписки"} path="/active/main"/>
+        <Navigation color="primary" pageName={"Мои подписки"} path="/main"/>
         <div className={PageStyles.searchWrapper}>
         </div>
       </div>

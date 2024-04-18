@@ -25,6 +25,10 @@ export const getCategoryExpensesSum = (state: RootState) =>
 export const getAllExpenses = (state: RootState) =>
   state.categoryExpenses.totalExpenses;
 
+
+export const getAllExpensesLoading = (state: RootState) =>
+state.categoryExpenses.isLoading;
+
 export const getFutureExpensesSum = (state: RootState) =>
   state.futureExpenses.futureExpenses;
 
