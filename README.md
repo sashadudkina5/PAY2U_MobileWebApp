@@ -1,8 +1,9 @@
 # PAY2U Mobile Web Application
-MVP of mobile web application to manage sunscriptions
+PAY2U Mobile Web Application is a prototype developed to manage subscription services. 
+It was created for PAY2U during a hackathon hosted by Yandex.
 
 ## Team Information
-Our team consisted of professionals working together to bring PAY2U to life:
+Our team consisted of professionals working together to bring the app to life:
 - 1 Frontend Developer
 - 2 Backend Developers
 - 3 Designers
@@ -19,11 +20,7 @@ test3@gmail.com
 capital12345
 to see the active user flow
 
-pay2you@yandex.ru
-runproject
-to see a new user flow
-
-or you can register with your credentials
+or you can register with your own credentials to test new user flow
 
 ## Technology Stack
 - ReactJS
@@ -41,9 +38,6 @@ or you can register with your credentials
 
 ## Key Points for Media Queries
 - The application is designed exclusively for mobile screens with responsive design considering 375px to 540px breakpoints.
-
-## Archive file without node modules
-[project-archive.zip](https://github.com/sashadudkina5/PAY2U_MobileWebApp/files/14899156/project-archive.zip)
 
 ## Archive file with screenshots of the app
 [Screenshots.zip](https://github.com/sashadudkina5/PAY2U_MobileWebApp/files/14899177/Screenshots.zip)
