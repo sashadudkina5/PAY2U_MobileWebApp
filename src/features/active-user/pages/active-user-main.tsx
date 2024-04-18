@@ -8,27 +8,16 @@ import MySubscriptionInfo from "../components/MySubscriptionInfo/MySubscriptionI
 import CatalogList from "../../../global-components/CatalogList/CatalogList";
 import LogoutButton from "../../../global-components/LogoutButton/LogoutButton";
 import { getCashbackTotal } from "../../../redux_services/selectors";
-import { getTotalCashback } from "../../../redux_services/thunk-functions/getCashbackTotal";
-import { useAppDispatch, useAppSelector } from "../../../utils/hooks";
-import { AppDispatch } from "../../../redux_services/store";
-import { getCashbackPeriod } from "../../../redux_services/thunk-functions/getCashbackPeriod";
+import { useAppSelector } from "../../../utils/hooks";
 import {
   getCashbackMonthly,
   getAllExpenses,
   getActiceSubscriptionsList,
 } from "../../../redux_services/selectors";
-import { getTotalExpenses } from "../../../redux_services/thunk-functions/getTotalExpenses";
-import { getActiveSubscriptions } from "../../../redux_services/thunk-functions/getActiveSubscriptions";
 import { IActiveSubscriptionItem } from "../../../utils/types";
 import { getCurrentMonth } from "../../../utils/monthsStrings";
-import { firstDayFormatted, lastDayFormatted } from "../../../utils/dates";
 import { formatDate } from "../../../utils/dates";
-import { useNavigate } from "react-router-dom";
-import { getPopularServices } from "../../../redux_services/thunk-functions/getPopularServices";
-
 function ActiveUserMainPage() {
-  const navigate = useNavigate();
-  const dispatch: AppDispatch = useAppDispatch();
 
   const totalCashback = useAppSelector(getCashbackTotal);
   const monthlyCashback = useAppSelector(getCashbackMonthly);

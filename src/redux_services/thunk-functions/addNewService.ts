@@ -1,4 +1,3 @@
-import { checkResponse } from "../../utils/api";
 import { BASE_URL } from "../../utils/api";
 import { AppDispatch } from "../store";
 import { getCookie, fetchWithRefresh } from "../../utils/api";
@@ -7,6 +6,7 @@ import {
     addNewServiceSuccess,
     addNewServiceFailed,
 } from "../slices/addNewServiceSlice";
+import { getActiveSubscriptions } from "./getActiveSubscriptions";
 
   /**
    * This function takes selected plan ID and phone number, dispatches a addNewService request action.
@@ -41,6 +41,7 @@ export const addNewService = (tariffId: string, phoneNumber: string) => async (d
     });
   
     dispatch(addNewServiceSuccess(addNewServiceResponse));
+    dispatch(getActiveSubscriptions(1));
 
 } catch (error) {
     const message = error instanceof Error ? error.message : 'An unknown error occurred';

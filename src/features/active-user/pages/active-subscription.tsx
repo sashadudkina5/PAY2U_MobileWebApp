@@ -23,7 +23,6 @@ function ActiveSubscription() {
   const { id } = useParams();
 
   const selectedSubscription = useAppSelector(getSelectedSubscriptionInfo);
-  console.log(selectedSubscription);
 
   useEffect(() => {
     dispatch(getSubscriptionInfo(id));
