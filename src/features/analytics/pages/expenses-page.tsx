@@ -25,7 +25,7 @@ const ExpensesPage = () => {
   return (
     <div className={PageStyles.analyticsPageWrapper}>
       <div className={PageStyles.analyticsNavWrapper}>
-        <Navigation color="#FFFFFF" pageName={"Аналитика"} path="/active/main"/>
+        <Navigation color="#FFFFFF" pageName={"Аналитика"} path="/main"/>
       </div>
       <Pagination pages={analyticsPages} />
       <div className={PageStyles.expensesBrief}>

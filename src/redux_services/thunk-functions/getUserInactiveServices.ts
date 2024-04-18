@@ -36,11 +36,18 @@ export const getUserInactiveServices = () => async (dispatch: AppDispatch) => {
     });
 
     dispatch(getInactiveServicesSuccess(notActivatedServices));
-  } catch (err) {
-    if (err instanceof Error) {
-      dispatch(getInactiveServicesFailed(err.message));
-    } else {
-      dispatch(getInactiveServicesFailed("An unknown error occurred"));
+
+    if (!notActivatedServices.ok) {
+      const errorResponse = await notActivatedServices.json();
+      let errorMessages = "";
+
+      if (errorResponse.code) {
+        errorMessages.concat(errorResponse.code);
+      }
+      dispatch(getInactiveServicesFailed(errorMessages));
     }
+  } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : 'An unknown network error occurred';
+    dispatch(getInactiveServicesFailed(errorMessage));
   }
 };

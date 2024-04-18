@@ -30,14 +30,6 @@ function ActiveUserMainPage() {
   const navigate = useNavigate();
   const dispatch: AppDispatch = useAppDispatch();
 
-  useEffect(() => {
-    dispatch(getTotalCashback());
-    dispatch(getCashbackPeriod(firstDayFormatted, lastDayFormatted));
-    dispatch(getTotalExpenses(firstDayFormatted, lastDayFormatted));
-    dispatch(getActiveSubscriptions(1));
-    dispatch(getPopularServices());
-  }, [dispatch]);
-
   const totalCashback = useAppSelector(getCashbackTotal);
   const monthlyCashback = useAppSelector(getCashbackMonthly);
   const totalExpenses = useAppSelector(getAllExpenses);
@@ -45,17 +37,6 @@ function ActiveUserMainPage() {
     getActiceSubscriptionsList
   );
 
-  const isAuthenticated = useAppSelector((state) => state.authInfo.loggedIn);
-
-  useEffect(() => {
-    if (isAuthenticated) {
-      if (totalExpenses > 0) {
-        navigate("/main");
-      }
-    } else {
-      navigate("/auth");
-    }
-  }, [navigate, dispatch]);
 
   return (
     <div>

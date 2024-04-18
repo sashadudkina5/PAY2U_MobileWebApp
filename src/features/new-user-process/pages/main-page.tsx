@@ -38,19 +38,6 @@ function NewUserMainPage() {
 
   const isAuthenticated = useAppSelector(state => state.authInfo.loggedIn);
 
-  useEffect(() => {
-    
-    if (isAuthenticated) {
-      if (activeSubscriptions.length > 0) {
-        navigate("/active/main");
-      } 
-    } else {
-      navigate("/auth");
-    }
-}, [
-  navigate,
-  dispatch
-]);
 
 
   return (

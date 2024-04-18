@@ -11,6 +11,7 @@ import { AppDispatch } from "../../../redux_services/store";
 import { useAppDispatch, useAppSelector } from "../../../utils/hooks";
 import { getTotalExpenses } from "../../../redux_services/thunk-functions/getTotalExpenses";
 import { firstDayFormatted, lastDayFormatted } from "../../../utils/dates";
+import { getCurrentMonthForecast } from "../../../utils/monthsStrings";
 
 const ForecastPage = () => {
 
@@ -24,18 +25,17 @@ const ForecastPage = () => {
 
   dispatch(getTotalExpenses(firstDayFormatted, lastDayFormatted));
   const totalExpenses = useAppSelector(getAllExpenses);
-  console.log(futureExpensesSum)
 
   return (
     <div className={PageStyles.analyticsPageWrapper}>
       <div className={PageStyles.analyticsNavWrapper}>
-        <Navigation color="#FFFFFF" pageName={"Аналитика"} path="/active/main"/>
+        <Navigation color="#FFFFFF" pageName={"Аналитика"} path="/main"/>
       </div>
       <Pagination pages={analyticsPages} />
       <div className={PageStyles.forecastBrief}>
         <div className={PageStyles.forecastWrapper}>
           <p className={PageStyles.forecastSum}>- {futureExpensesSum} ₽</p>
-          <p className={PageStyles.forecastSumPeriod}>ещё спишется в марте</p>
+          <p className={PageStyles.forecastSumPeriod}>ещё спишется в {getCurrentMonthForecast()}</p>
         </div>
         <ProgressBar completed={totalExpenses} total={futureExpensesSum + totalExpenses} />
 

@@ -50,3 +50,22 @@ export const getCurrentMonth = () => {
     "Ноябрь",
     "Декабрь",
   ];
+
+  export const getCurrentMonthForecast = () => {
+    const months = [
+      "январе",
+      "феврале",
+      "марте",
+      "апреле",
+      "мае",
+      "июне",
+      "июле",
+      "августе",
+      "сентябре",
+      "октябре",
+      "ноябре",
+      "декабре",
+    ];
+    const currentDate = new Date();
+    return months[currentDate.getMonth()];
+  };

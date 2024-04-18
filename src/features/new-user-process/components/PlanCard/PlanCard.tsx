@@ -93,7 +93,6 @@ function PlanCard({
     return paragraphs.join(".<br><br>");
   }
 
-  console.log(planInfo?.description)
 
   const formattedMessage = (
     <div className={PlanCardStyles.modalWrapper}>

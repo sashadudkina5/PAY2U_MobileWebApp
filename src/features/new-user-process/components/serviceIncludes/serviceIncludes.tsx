@@ -28,7 +28,6 @@ function ServiceIncludes({ includesDescription }: ServiceIncludesProps) {
 
     return paragraphs.join(".<br><br>");
   }
-  console.log(includesDescription)
 
   const [isExpanded, setIsExpanded] = useState(false);
 

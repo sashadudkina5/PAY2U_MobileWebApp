@@ -34,15 +34,20 @@ export const getPopularServices = () => async (dispatch: AppDispatch) => {
         Authorization: `Bearer ${accessToken}`,
       },
     });
-    
+
     dispatch(getPopularServicesSuccess(response));
-  } catch (err) {
-    if (err instanceof Error) {
-      console.error("An unexpected error occurred:", err.message);
-      dispatch(getPopularServicesFailed(err.message));
-    } else {
-      console.error("An unexpected error occurred:", err);
-      dispatch(getPopularServicesFailed("An unknown error occurred"));
+    
+    if (!response.ok) {
+      const errorResponse = await response.json();
+      let errorMessages = "";
+
+      if (errorResponse.code) {
+        errorMessages.concat(errorResponse.code);
+      }
+      dispatch(getPopularServicesFailed(errorMessages));
     }
+  } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : 'An unknown network error occurred';
+    dispatch(getPopularServicesFailed(errorMessage));
   }
 };

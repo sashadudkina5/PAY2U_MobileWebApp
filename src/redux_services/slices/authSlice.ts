@@ -30,7 +30,6 @@ const authSlice = createSlice({
     },
 
     getRegisterSuccess(state) {
-      state.loggedIn = true;
       state.isLoading = false;
       state.registerError = null;
     },

@@ -50,26 +50,16 @@ function Authorization() {
   const [error, setError] = useState("");
 
   const isAuthenticated = useAppSelector(state => state.authInfo.loggedIn);
-  const activeSubscriptions = useAppSelector(getActiceSubscriptionsList);
-  const totalExpenses = useAppSelector(getAllExpenses);
 
 
   useEffect(() => {
     if (isAuthenticated) {
-      if (activeSubscriptions.length > 0) {
-        navigate("/active/main");
-      } else if (totalExpenses > 0) {
         navigate("/main");
-      } 
     }
 }, [
   navigate,
-  isAuthenticated,
-  dispatch,
-  totalExpenses,
-  activeSubscriptions.length
+  isAuthenticated
 ]);
-  
 
   const userData = {
     email: email,
@@ -149,9 +139,8 @@ function Authorization() {
       setError("");
       try {
         emailSchema.parse(email);
-        setError("");
+        setError("Теперь введите те же данные и нажмите Вход");
         dispatch(registerThunk(userData));
-        dispatch(loginThunk(userData));
       } catch (validationError) {
         setError("Введите корректный Email");
       }
