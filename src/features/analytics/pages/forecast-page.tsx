@@ -1,11 +1,10 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import PageStyles from "../styles/analytics-pages.module.scss";
 import Navigation from "../../../global-components/Navigation/Navigation";
 import Pagination from "../components/Pagination/Pagination";
 import { analyticsPages } from "../../../utils/analyticsPages";
 import PaymentsHistoryList from "../components/PaymentsHistoryList/PaymentsHistoryList";
 import ProgressBar from "../components/ProgressBar/ProgressBar";
-import { getFutureExpenses } from "../../../redux_services/thunk-functions/getFutureExpenses";
 import { getAllExpenses, getFutureExpensesSum } from "../../../redux_services/selectors";
 import { AppDispatch } from "../../../redux_services/store";
 import { useAppDispatch, useAppSelector } from "../../../utils/hooks";
@@ -17,13 +16,12 @@ const ForecastPage = () => {
 
   const dispatch: AppDispatch = useAppDispatch();
 
-  useEffect(() => {
-    dispatch(getFutureExpenses());
-  }, [dispatch]);
-
   const futureExpensesSum = useAppSelector(getFutureExpensesSum)
 
-  dispatch(getTotalExpenses(firstDayFormatted, lastDayFormatted));
+  useEffect(() => {
+    dispatch(getTotalExpenses(firstDayFormatted, lastDayFormatted));
+  }, [dispatch]);
+
   const totalExpenses = useAppSelector(getAllExpenses);
 
   return (
