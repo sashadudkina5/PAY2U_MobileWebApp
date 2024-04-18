@@ -3,6 +3,7 @@ import {
   } from "../slices/authSlice";
   import { BASE_URL } from "../../utils/api";
   import { AppDispatch } from "../store";
+import { loginThunk } from "./onLogin";
 
   interface IRegisterData {
     password: string;
@@ -46,6 +47,7 @@ import {
         dispatch(getRegisterFailed(errorMessages.join(' ')));
       } else {
         dispatch(getRegisterSuccess());
+        dispatch(loginThunk(registerData));
       }
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'An unknown network error occurred';

@@ -133,7 +133,6 @@ function Authorization() {
       setError("");
       try {
         emailSchema.parse(email);
-        setError("Теперь введите те же данные и нажмите Вход");
         dispatch(registerThunk(userData));
       } catch (validationError) {
         setError("Введите корректный Email");
