@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import Navigation from "../../../global-components/Navigation/Navigation";
+import React from "react";
 import PageStyles from "../styles/active-user-styles.module.scss";
 import { Link } from "react-router-dom";
 import infoIcon from "../images/infoIcon.svg";
@@ -16,7 +15,7 @@ import {
 } from "../../../redux_services/selectors";
 import { IActiveSubscriptionItem } from "../../../utils/types";
 import { getCurrentMonth } from "../../../utils/monthsStrings";
-import { formatDate } from "../../../utils/dates";
+import { formatDate } from "../../../utils/formats";
 function ActiveUserMainPage() {
 
   const totalCashback = useAppSelector(getCashbackTotal);

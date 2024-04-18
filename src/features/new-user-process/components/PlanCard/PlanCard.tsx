@@ -12,6 +12,7 @@ import { AppDispatch } from "../../../../redux_services/store";
 import { IPlanCondition} from "../../../../utils/types";
 import { getSubscription } from "../../../../redux_services/slices/subscriptionProcessSlice"; 
 import Loading from "../../../../global-components/Loading/Loading";
+import { formatDescription } from "../../../../utils/formats";
 
 interface IPlanCardProps {
   planTitle?: string;
@@ -87,12 +88,6 @@ function PlanCard({
       setFormattedDescription(formatted);
     }
   }, [planInfo?.description]);
-
-  function formatDescription(text: string) {
-    const paragraphs = text.split(/\. +/);
-
-    return paragraphs.join(".<br><br>");
-  }
 
 
   const formattedMessage = (

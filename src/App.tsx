@@ -20,7 +20,7 @@ import { getUserInactiveServices } from "./redux_services/thunk-functions/getUse
 import ProtectedRoute from './global-components/ProtectedRoute/ProtectedRpute';
 import { useAppSelector } from './utils/hooks';
 import { getTotalExpenses } from './redux_services/thunk-functions/getTotalExpenses';
-import { firstDayLastYear, lastDayThisYear } from './utils/dates';
+import { firstDayLastYear, lastDayThisYear } from './utils/formats';
 import { getActiveSubscriptions } from './redux_services/thunk-functions/getActiveSubscriptions';
 import { getLoginSuccess } from './redux_services/slices/authSlice';
 import { getCookie } from './utils/api';
@@ -47,7 +47,7 @@ function App() {
       dispatch(getActiveSubscriptions(1));
       dispatch(getTotalExpenses(firstDayLastYear, lastDayThisYear));
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, dispatch]);
 
 
   const ServicePage = lazy(() => import('./features/new-user-process/pages/service-card'));

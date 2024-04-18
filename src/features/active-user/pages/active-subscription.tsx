@@ -4,7 +4,7 @@ import PageStyles from "../styles/active-user-styles.module.scss";
 import CustomButton from "../../../global-components/Button/Button";
 import variables from "../../../styles-utils/variables.scss";
 import Modal from "../../../global-components/Modal/Modal";
-import { paymentData } from "../../../utils/billing-data";
+import { paymentData } from "../../../utils/billingData";
 import { useAppDispatch, useAppSelector } from "../../../utils/hooks";
 import { AppDispatch } from "../../../redux_services/store";
 import {
@@ -14,7 +14,7 @@ import {
 import { useParams } from "react-router-dom";
 import { getSubscriptionInfo } from "../../../redux_services/thunk-functions/getSubscriptionInfo";
 import { getSelectedSubscriptionInfo } from "../../../redux_services/selectors";
-import { calculateDaysUntil, formatDate } from "../../../utils/dates";
+import { calculateDaysUntil, formatDate } from "../../../utils/formats";
 import { getInactiveServiceInfo } from "../../../redux_services/thunk-functions/getInactiveServiceInfo";
 
 function ActiveSubscription() {

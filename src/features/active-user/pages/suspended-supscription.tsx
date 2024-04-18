@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import sampleBackground from "../images/sampleBackground.png";
 import CustomButton from "../../../global-components/Button/Button";
 import variables from "../../../styles-utils/variables.scss";
-import { paymentData } from "../../../utils/billing-data";
+import { paymentData } from "../../../utils/billingData";
 
 function SuspendedSubscription() {
   const paymentItem = paymentData[0];

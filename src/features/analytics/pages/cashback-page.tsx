@@ -14,7 +14,7 @@ import { getCashbackTotal } from "../../../redux_services/selectors";
 import { getTotalCashback } from "../../../redux_services/thunk-functions/getCashbackTotal";
 import { getTotalExpenses } from "../../../redux_services/thunk-functions/getTotalExpenses";
 import {getCurrentMonth, getCurrentMonthCashback} from "../../../utils/monthsStrings";
-import {firstDayFormatted, lastDayFormatted} from "../../../utils/dates"
+import {firstDayFormatted, lastDayFormatted} from "../../../utils/formats"
 
 
 

@@ -1,7 +1,7 @@
 import React from "react";
 import PaymentItemStyles from "./PaymentItem.module.scss";
 import variables from "../../../../styles-utils/variables.scss"
-import { formatDate } from "../../../../utils/dates";
+import { formatDate } from "../../../../utils/formats";
 
 interface iPaymentItemProps {
   cashback: boolean,

@@ -10,7 +10,7 @@ import {
 } from "../../../../redux_services/selectors";
 import { getActiveSubscriptions } from "../../../../redux_services/thunk-functions/getActiveSubscriptions";
 import { IActiveSubscriptionItem, ISuspendedSubscriptionItem } from "../../../../utils/types";
-import { formatDate } from "../../../../utils/dates";
+import { formatDate } from "../../../../utils/formats";
 import { getSuspendedSubscriptions } from "../../../../redux_services/thunk-functions/getSuspendedSubscriptions";
 
 interface ISubscriptionListProps {

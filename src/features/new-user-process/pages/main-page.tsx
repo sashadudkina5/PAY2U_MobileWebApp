@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
-import Navigation from "../../../global-components/Navigation/Navigation";
+import React from "react";
 import PageStyles from "../styles/new-user-styles.module.scss";
 import CustomButton from "../../../global-components/Button/Button";
 import variables from "../../../styles-utils/variables.scss";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PlusLogo from "../images/bannerAnimation/Logo_Plus.svg";
 import OkkoLogo from "../images/bannerAnimation/Logo_okko.svg";
 import SpotifyLogo from "../images/bannerAnimation/Logo_spotify.svg";
@@ -14,17 +13,14 @@ import LitResLogo from "../images/bannerAnimation/Литрес.svg";
 import CatalogList from "../../../global-components/CatalogList/CatalogList";
 import PopularServicesList from "../../../global-components/PopularServicesList/PopularServicesList";
 import LogoutButton from "../../../global-components/LogoutButton/LogoutButton";
-import { useAppSelector, useAppDispatch } from "../../../utils/hooks";
+import { useAppSelector } from "../../../utils/hooks";
 import {
   getAllExpenses,
   getActiceSubscriptionsList,
 } from "../../../redux_services/selectors";
-import { AppDispatch } from "../../../redux_services/store";
 
 function NewUserMainPage() {
   const totalExpenses = useAppSelector(getAllExpenses);
-  const navigate = useNavigate();
-  const dispatch: AppDispatch = useAppDispatch();
 
   const activeSubscriptions = useAppSelector(getActiceSubscriptionsList);
 
@@ -35,8 +31,6 @@ function NewUserMainPage() {
     }
     return displayHistoty;
   }
-
-  const isAuthenticated = useAppSelector(state => state.authInfo.loggedIn);
 
 
 

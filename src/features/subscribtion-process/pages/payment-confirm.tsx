@@ -4,7 +4,7 @@ import Navigation from "../../../global-components/Navigation/Navigation";
 import CustomButton from "../../../global-components/Button/Button";
 import variables from "../../../styles-utils/variables.scss";
 import { Link } from "react-router-dom";
-import { paymentData } from "../../../utils/billing-data";
+import { paymentData } from "../../../utils/billingData";
 import Modal from "../../../global-components/Modal/Modal";
 import { usePhoneNumber } from "../../../context/PhoneNumberContext";
 import { useAppSelector } from "../../../utils/hooks";

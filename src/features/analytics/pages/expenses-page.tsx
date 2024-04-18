@@ -9,7 +9,7 @@ import PeriodSelect from "../components/PeriodSelect/PeriodSelect";
 import { AppDispatch } from "../../../redux_services/store";
 import { useAppDispatch, useAppSelector } from "../../../utils/hooks";
 import { getTotalExpenses } from "../../../redux_services/thunk-functions/getTotalExpenses";
-import { firstDayLastYear, lastDayThisYear } from "../../../utils/dates";
+import { firstDayLastYear, lastDayThisYear } from "../../../utils/formats";
 import { getCategoryExpenses } from "../../../redux_services/thunk-functions/getCategoryExpenses";
 import {
   getAllExpenses,

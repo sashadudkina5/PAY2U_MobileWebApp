@@ -5,23 +5,17 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import IconButton from "@mui/material/IconButton";
 import CustomButton from "../Button/Button";
 import variables from "../../styles-utils/variables.scss";
-import { emailSchema } from "../../utils/form-validations";
+import { emailSchema } from "../../utils/formValidations";
 import { AppDispatch } from "../../redux_services/store";
 import Logo from "../../global-images/Logo.png";
 import { registerThunk } from "../../redux_services/thunk-functions/onRegister";
 import { loginThunk } from "../../redux_services/thunk-functions/onLogin";
 import {
   getRegisterError,
-  getLoginError,
-  getAuthStatus,
-  getActiceSubscriptionsList,
+  getLoginError
 } from "../../redux_services/selectors";
 import { useAppSelector, useAppDispatch } from "../../utils/hooks";
 import { useNavigate } from "react-router-dom";
-import { getCookie } from "../../utils/api";
-import { getAllExpenses } from "../../redux_services/selectors";
-import { getTotalExpenses } from "../../redux_services/thunk-functions/getTotalExpenses";
-import { firstDayLastYear, lastDayThisYear } from "../../utils/dates";
 
 
 

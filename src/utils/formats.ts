@@ -52,3 +52,9 @@ export function calculateDaysUntil(targetDate: string) {
   
   return differenceDays;
 }
+
+export function formatDescription(text: string) {
+  const paragraphs = text.split(/\. +/);
+
+  return paragraphs.join(".<br><br>");
+}

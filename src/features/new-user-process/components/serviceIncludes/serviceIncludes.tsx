@@ -5,6 +5,7 @@ import {
   getExclusiveImages,
 } from "../../../../redux_services/selectors";
 import { useAppSelector } from "../../../../utils/hooks";
+import { formatDescription } from "../../../../utils/formats";
 
 interface ServiceIncludesProps {
   includesDescription: string;
@@ -22,12 +23,6 @@ function ServiceIncludes({ includesDescription }: ServiceIncludesProps) {
       setFormattedDescription(formatted);
     }
   }, [includesDescription]);
-
-  function formatDescription(text: string) {
-    const paragraphs = text.split(/\. +/);
-
-    return paragraphs.join(".<br><br>");
-  }
 
   const [isExpanded, setIsExpanded] = useState(false);
 

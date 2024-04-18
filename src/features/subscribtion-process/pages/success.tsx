@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import PageStyles from "../styles/global-styles.module.scss";
 import { ReactComponent as SuccessIcon } from "../images/success.svg";
 import Info from "../components/Info/Info";
-import Navigation from "../../../global-components/Navigation/Navigation";
 import CustomButton from "../../../global-components/Button/Button";
 import variables from "../../../styles-utils/variables.scss";
 import { Link } from "react-router-dom";
@@ -16,7 +15,6 @@ import {
 } from "../../../redux_services/selectors";
 import { getInactiveServiceInfo } from "../../../redux_services/thunk-functions/getInactiveServiceInfo";
 import { AppDispatch } from "../../../redux_services/store";
-import { clearNewServiceError } from "../../../redux_services/slices/addNewServiceSlice";
 
 function SubscriptionSuccess() {
   const CurrentData = useAppSelector(currentSubscription);

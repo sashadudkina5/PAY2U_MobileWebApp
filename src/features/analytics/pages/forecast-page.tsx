@@ -10,7 +10,7 @@ import { getAllExpenses, getFutureExpensesSum } from "../../../redux_services/se
 import { AppDispatch } from "../../../redux_services/store";
 import { useAppDispatch, useAppSelector } from "../../../utils/hooks";
 import { getTotalExpenses } from "../../../redux_services/thunk-functions/getTotalExpenses";
-import { firstDayFormatted, lastDayFormatted } from "../../../utils/dates";
+import { firstDayFormatted, lastDayFormatted } from "../../../utils/formats";
 import { getCurrentMonthForecast } from "../../../utils/monthsStrings";
 
 const ForecastPage = () => {

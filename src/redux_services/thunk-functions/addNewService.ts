@@ -45,6 +45,6 @@ export const addNewService = (tariffId: string, phoneNumber: string) => async (d
 
 } catch (error) {
     const message = error instanceof Error ? error.message : 'An unknown error occurred';
-    dispatch(addNewServiceFailed("detail"));
+    dispatch(addNewServiceFailed(message));
   }
 };

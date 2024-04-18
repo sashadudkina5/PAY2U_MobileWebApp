@@ -8,7 +8,7 @@ import variables from "../../../styles-utils/variables.scss";
 import PhoneInput from "../components/PhoneInput/PhoneInput";
 import { useNavigate } from "react-router-dom";
 import { TSubmitHandler } from "../../../utils/types";
-import { phoneNumberSchema } from "../../../utils/form-validations";
+import { phoneNumberSchema } from "../../../utils/formValidations";
 import { usePhoneNumber } from "../../../context/PhoneNumberContext";
 
 function PhoneNumberSubscription() {

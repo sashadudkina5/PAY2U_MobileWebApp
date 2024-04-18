@@ -74,7 +74,7 @@ function ServicePage() {
       dispatch(clearAllPlanInfo());
       dispatch(getClearServicePlans());
     };
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   useEffect(() => {
     if (categories.length > 0) {
