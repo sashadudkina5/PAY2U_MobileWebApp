@@ -1,5 +1,4 @@
 import { RootState } from "./store";
-import { createSelector } from "reselect";
 
 export const getActiceSubscriptionsList = (state: RootState) =>
   state.activeSubscriptions.activeSubscriptions.data;

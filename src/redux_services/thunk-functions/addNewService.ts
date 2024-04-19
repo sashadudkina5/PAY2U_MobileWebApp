@@ -21,7 +21,6 @@ import { getActiveSubscriptions } from "./getActiveSubscriptions";
 
 export const addNewService = (tariffId: string, phoneNumber: string) => async (dispatch: AppDispatch) => {
   try {
-    console.log(JSON.stringify({ tariff: tariffId, phone_number: phoneNumber }))
     dispatch(addNewServiceRequest());
     const accessToken = getCookie("accessToken");
 

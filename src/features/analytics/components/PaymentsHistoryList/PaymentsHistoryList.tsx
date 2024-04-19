@@ -48,7 +48,7 @@ const PaymentsHistoryList = ({ title, expenses, cashback }: iPaymentsHistoryList
       acc[monthYear].push(payment);
       return acc;
     }, {});
-  }, [sortedPayments, months]);
+  }, [sortedPayments]);
 
   return (
     <div className={PaymentsHistoryListStyles.historyListWrapper}>

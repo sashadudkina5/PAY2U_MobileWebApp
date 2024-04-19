@@ -1,11 +1,9 @@
-import React, {useEffect} from "react";
+import React from "react";
 import CatalogListStyles from "./CatalogList.module.scss";
 import { Link } from "react-router-dom";
 import CatalogItem from "../CatalogItem/CatalogItem";
-import { getUserInactiveServices } from "../../redux_services/thunk-functions/getUserInactiveServices";
 import { getCatalogList } from "../../redux_services/selectors";
-import { useAppSelector, useAppDispatch } from "../../utils/hooks";
-import { AppDispatch } from "../../redux_services/store";
+import { useAppSelector } from "../../utils/hooks";
 
 /**
  * Displays a list of catalog items as links.

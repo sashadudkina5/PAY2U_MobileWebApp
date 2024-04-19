@@ -1,4 +1,3 @@
-import { checkResponse } from "../../utils/api";
 import { BASE_URL } from "../../utils/api";
 import { AppDispatch } from "../store";
 import { getCookie, fetchWithRefresh } from "../../utils/api";

@@ -25,6 +25,8 @@ import { getActiveSubscriptions } from './redux_services/thunk-functions/getActi
 import { getLoginSuccess } from './redux_services/slices/authSlice';
 import { getCookie } from './utils/api';
 import Loading from './global-components/Loading/Loading';
+import { getTotalCashback } from './redux_services/thunk-functions/getCashbackTotal';
+import { getFutureExpenses } from './redux_services/thunk-functions/getFutureExpenses';
 
 
 function App() {
@@ -46,6 +48,8 @@ function App() {
       dispatch(getUserInactiveServices());
       dispatch(getActiveSubscriptions(1));
       dispatch(getTotalExpenses(firstDayLastYear, lastDayThisYear));
+      dispatch(getTotalCashback());
+      dispatch(getFutureExpenses());
     }
   }, [isAuthenticated, dispatch]);
 

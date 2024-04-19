@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import PageStyles from "../styles/global-styles.module.scss";
 import { ReactComponent as ToggleIcon } from "../images/toggle.svg";
 import smallToggle from "../images/small-toggle.svg";
@@ -6,13 +6,12 @@ import Info from "../components/Info/Info";
 import Navigation from "../../../global-components/Navigation/Navigation";
 import CustomButton from "../../../global-components/Button/Button";
 import variables from "../../../styles-utils/variables.scss";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "../../../utils/hooks";
 import { currentSubscription } from "../../../redux_services/selectors";
 import { AppDispatch } from "../../../redux_services/store";
 import { addNewService } from "../../../redux_services/thunk-functions/addNewService";
 import { usePhoneNumber } from "../../../context/PhoneNumberContext";
-import { addNewServiceError } from "../../../redux_services/selectors";
 import { clearNewServiceError } from "../../../redux_services/slices/addNewServiceSlice";
 
 function SubscriptionWarning() {
@@ -25,7 +24,6 @@ function SubscriptionWarning() {
   };
   const navigate = useNavigate();
 
-  const paymentSuccess = useAppSelector(addNewServiceError);
 
   const handleButtonClick = () => {
    dispatch(addNewService(CurrentData.tariffID, formatPhoneNumber(phoneNumber)));

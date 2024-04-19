@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Navigation from "../../../global-components/Navigation/Navigation";
 import PageStyles from "../styles/active-user-styles.module.scss";
 import { Link } from "react-router-dom";

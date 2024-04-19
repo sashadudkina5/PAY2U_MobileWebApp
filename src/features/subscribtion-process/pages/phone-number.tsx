@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext } from "react";
+import React, { useState } from "react";
 import PageStyles from "../styles/global-styles.module.scss";
 import { ReactComponent as PhoneNumberIcon } from "../images/phone-number-icon.svg";
 import Info from "../components/Info/Info";
