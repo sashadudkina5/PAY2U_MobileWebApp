@@ -12,16 +12,6 @@ Our team consisted of professionals working together to bring the app to life:
 - 1 Project Manager
 - 1 Product Manager
 
-## Live Demo
-Check out the live demo [here](https://sashadudkina5.github.io/PAY2U_MobileWebApp/#/active/main).
-
-Access data:
-test3@gmail.com
-capital12345
-to see the active user flow
-
-or you can register with your own credentials to test new user flow
-
 ## Technology Stack
 - ReactJS
 - React Router
